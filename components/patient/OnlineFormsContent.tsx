@@ -50,7 +50,7 @@ export default function OnlineFormsContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO + DOWNLOAD CARD */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
             <motion.div
@@ -197,7 +197,7 @@ export default function OnlineFormsContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
           >
             {steps.map((s, i) => (
               <motion.div
@@ -231,7 +231,7 @@ export default function OnlineFormsContent() {
       </section>
 
       {/* SECTION 4 — WHITE: CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

@@ -45,7 +45,7 @@ export default function AppointmentRequestContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO + FORM */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
             <motion.div
@@ -153,7 +153,7 @@ export default function AppointmentRequestContent() {
                       className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
                     />
                   </div>
-                  <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
                     <div className="grid gap-1.5">
                       <label
                         htmlFor="a-email"

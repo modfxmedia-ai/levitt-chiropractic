@@ -223,7 +223,7 @@ export default function HomeContent() {
       />
 
       {/* SECTION 3 — STATS STRIP */}
-      <section className="relative overflow-hidden bg-dark py-16 text-white">
+      <section className="relative overflow-hidden bg-dark py-10 text-white sm:py-16">
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-r from-dark via-navy/40 to-dark"
@@ -232,7 +232,7 @@ export default function HomeContent() {
           aria-hidden
           className="pointer-events-none absolute -top-20 left-1/2 h-72 w-[80%] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
         />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 sm:grid-cols-4">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 sm:gap-8 sm:px-6 sm:grid-cols-4">
           {[
             { value: 35, suffix: "+", label: "Years of Experience" },
             { value: 1999, prefix: "", suffix: "", label: "Serving Since" },
@@ -247,7 +247,7 @@ export default function HomeContent() {
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
               className="text-center"
             >
-              <p className="font-heading text-4xl font-bold text-primary sm:text-5xl">
+              <p className="font-heading text-3xl font-bold text-primary sm:text-4xl md:text-5xl">
                 <StatCounter
                   to={s.value}
                   prefix={s.prefix}
@@ -266,7 +266,7 @@ export default function HomeContent() {
       {/* SECTION 4 — WELCOME / ABOUT */}
       <section
         ref={welcomeRef}
-        className="relative overflow-hidden bg-white py-24 sm:py-32"
+        className="relative overflow-hidden bg-white py-14 sm:py-24 md:py-32"
       >
         <div
           aria-hidden
@@ -420,7 +420,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 5 — VALUE PROPS / WHY CHOOSE US */}
-      <section className="relative overflow-hidden bg-slate-50 py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-slate-50 py-14 sm:py-24 md:py-32">
         <div
           aria-hidden
           className="pointer-events-none absolute left-0 top-0 h-full w-full opacity-[0.04]"
@@ -441,7 +441,7 @@ export default function HomeContent() {
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {valueProps.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -482,7 +482,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 6 — PROCESS / TIMELINE */}
-      <section className="relative overflow-hidden bg-dark py-24 text-white sm:py-32">
+      <section className="relative overflow-hidden bg-dark py-14 text-white sm:py-24 md:py-32">
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]"
@@ -552,7 +552,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 7 — QUICK LINKS / SERVICES */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-14 sm:py-24 md:py-32">
         <div
           aria-hidden
           className="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
@@ -586,7 +586,7 @@ export default function HomeContent() {
             </Link>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="mt-8 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {quickLinks.map((q, i) => (
               <QuickLinkCard
                 key={q.href}
@@ -603,7 +603,7 @@ export default function HomeContent() {
       {/* SECTION 8 — 3D SPINE SIMULATOR */}
       <section
         ref={spineRef}
-        className="relative overflow-hidden bg-navy py-24 text-white sm:py-32"
+        className="relative overflow-hidden bg-navy py-14 text-white sm:py-24 md:py-32"
       >
         <div
           aria-hidden
@@ -684,7 +684,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 9 — TESTIMONIALS MARQUEE */}
-      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-white py-14 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
@@ -739,7 +739,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 10 — LOCATION & HOURS */}
-      <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-20">
+      <section className="relative overflow-hidden bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -854,7 +854,7 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 11 — FINAL CTA */}
-      <section className="relative overflow-hidden bg-dark py-24 text-white sm:py-28">
+      <section className="relative overflow-hidden bg-dark py-14 text-white sm:py-24 md:py-28">
         <motion.div
           aria-hidden
           animate={{

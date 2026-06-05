@@ -80,7 +80,7 @@ export function Footer() {
         className="mt-auto border-t border-white/5 bg-dark text-white/75"
       >
         <div className="mx-auto max-w-7xl px-6 py-12 lg:py-14">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Brand */}
             <div className="lg:col-span-5">
               <Link

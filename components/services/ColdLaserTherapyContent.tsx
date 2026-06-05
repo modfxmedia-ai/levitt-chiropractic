@@ -52,8 +52,7 @@ export default function ColdLaserTherapyContent() {
     <>
       {/* SECTION 1 — NARROW DARK NAVY HERO (45vh) */}
       <section
-        className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white"
-        style={{ minHeight: "45vh" }}
+        className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
       >
         <div
           aria-hidden
@@ -75,7 +74,7 @@ export default function ColdLaserTherapyContent() {
           className="pointer-events-none absolute -left-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-[#1E3A5F]/60 blur-[140px]"
         />
 
-        <div className="relative mx-auto w-full max-w-7xl px-6 pt-28 pb-12 sm:pt-32">
+        <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 pb-10 sm:px-6 sm:pt-28 sm:pb-12 lg:pt-32">
           <motion.nav
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +95,7 @@ export default function ColdLaserTherapyContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.6rem]"
+            className="mt-4 font-heading text-3xl font-black leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl sm:leading-[1.05] md:text-5xl lg:text-[3.6rem]"
           >
             Cold Laser Therapy
           </motion.h1>
@@ -123,7 +122,7 @@ export default function ColdLaserTherapyContent() {
       </section>
 
       {/* SECTION 2 — WHITE: SPLIT — visual badge + intro paragraph */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <motion.div
@@ -252,7 +251,7 @@ export default function ColdLaserTherapyContent() {
                 transition: { delayChildren: 0.1, staggerChildren: 0.04 },
               },
             }}
-            className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+            className="mt-8 sm:mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
           >
             {conditions.map((c) => (
               <motion.div
@@ -297,7 +296,7 @@ export default function ColdLaserTherapyContent() {
       </section>
 
       {/* SECTION 4 — WHITE: HOW IT WORKS + ADVANTAGE CARDS */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             <motion.div

@@ -215,7 +215,7 @@ export default function PrivacyPolicyContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -256,7 +256,7 @@ export default function PrivacyPolicyContent() {
       </section>
 
       {/* SECTION 3 — WHITE: NUMBERED SECTIONS */}
-      <section className="relative bg-slate-50 py-20 sm:py-24">
+      <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="space-y-10">
             {sections.map((s, i) => (

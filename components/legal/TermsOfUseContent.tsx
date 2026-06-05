@@ -177,7 +177,7 @@ export default function TermsOfUseContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -205,7 +205,7 @@ export default function TermsOfUseContent() {
       </section>
 
       {/* SECTION 3 — SLATE: NUMBERED CARDS */}
-      <section className="relative bg-slate-50 py-20 sm:py-24">
+      <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="space-y-8">
             {sections.map((s, i) => (

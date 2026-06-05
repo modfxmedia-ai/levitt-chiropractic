@@ -120,7 +120,7 @@ export default function DegenerativeDiscDiseaseContent() {
       />
 
       {/* SECTION 2 — WHITE: WHAT IS IT */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <motion.div
@@ -230,7 +230,7 @@ export default function DegenerativeDiscDiseaseContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
           >
             {symptoms.map((s, i) => (
               <motion.div
@@ -269,7 +269,7 @@ export default function DegenerativeDiscDiseaseContent() {
       </section>
 
       {/* SECTION 4 — WHITE: CAUSES + TREATMENT SPLIT */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-12">
             <motion.div

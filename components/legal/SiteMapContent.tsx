@@ -40,7 +40,7 @@ export default function SiteMapContent() {
       />
 
       {/* Intro */}
-      <section className="relative bg-white py-16 sm:py-20">
+      <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -135,7 +135,7 @@ export default function SiteMapContent() {
       </section>
 
       {/* Areas We Serve — complete programmatic directory */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -160,7 +160,7 @@ export default function SiteMapContent() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {servedCities.map((c) => (
               <details
                 key={c.slug}
@@ -217,7 +217,7 @@ export default function SiteMapContent() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
             eyebrow="Can't find what you're looking for?"

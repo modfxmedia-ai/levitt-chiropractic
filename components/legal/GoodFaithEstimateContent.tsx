@@ -74,7 +74,7 @@ export default function GoodFaithEstimateContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -144,7 +144,7 @@ export default function GoodFaithEstimateContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.1 } },
             }}
-            className="mt-14 grid gap-5 sm:grid-cols-2"
+            className="mt-8 sm:mt-14 grid gap-5 sm:grid-cols-2"
           >
             {rights.map((r, i) => (
               <motion.article
@@ -177,7 +177,7 @@ export default function GoodFaithEstimateContent() {
       </section>
 
       {/* SECTION 4 — WHITE: CONTACT / RESOURCE CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}

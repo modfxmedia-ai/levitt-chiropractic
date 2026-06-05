@@ -97,7 +97,7 @@ export default function InjuriesContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -171,7 +171,7 @@ export default function InjuriesContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8"
           >
             {services.map((s, i) => (
               <motion.div
@@ -238,7 +238,7 @@ export default function InjuriesContent() {
       </section>
 
       {/* SECTION 4 — WHITE: CONTACT PROMPT + CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

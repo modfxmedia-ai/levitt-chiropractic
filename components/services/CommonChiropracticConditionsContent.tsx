@@ -269,7 +269,7 @@ export default function CommonChiropracticConditionsContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -349,7 +349,7 @@ export default function CommonChiropracticConditionsContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.06 } },
             }}
-            className="mt-12 grid gap-3"
+            className="mt-8 sm:mt-12 grid gap-3"
           >
             {conditions.map((c) => (
               <ConditionAccordion key={c.id} c={c} />
@@ -359,7 +359,7 @@ export default function CommonChiropracticConditionsContent() {
       </section>
 
       {/* SECTION 4 — WHITE: MAINTENANCE CARE + CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

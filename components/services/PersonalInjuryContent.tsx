@@ -148,7 +148,7 @@ export default function PersonalInjuryContent() {
       />
 
       {/* SECTION 2 — WHITE: DEFINITION */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -215,7 +215,7 @@ export default function PersonalInjuryContent() {
                 transition: { delayChildren: 0.1, staggerChildren: 0.07 },
               },
             }}
-            className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+            className="mt-8 sm:mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
           >
             {accidents.map((a) => (
               <motion.article
@@ -251,7 +251,7 @@ export default function PersonalInjuryContent() {
       </section>
 
       {/* SECTION 4 — WHITE: HOW WE HELP */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <motion.div

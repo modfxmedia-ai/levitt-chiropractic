@@ -19,8 +19,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
 
   return (
     <section
-      className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white"
-      style={{ minHeight: "45vh" }}
+      className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
     >
       <div
         aria-hidden
@@ -42,13 +41,13 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
         className="pointer-events-none absolute -left-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-[#1E3A5F]/60 blur-[140px]"
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 pt-28 pb-12 sm:pt-32">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 pb-10 sm:px-6 sm:pt-28 sm:pb-12 lg:pt-32">
         <motion.nav
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           aria-label="Breadcrumb"
-          className="text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-400"
+          className="flex flex-wrap gap-y-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-orange-400 sm:text-[11px] sm:tracking-[0.24em]"
         >
           {crumbs.map((c, i) => {
             const isLast = i === crumbs.length - 1;
@@ -78,7 +77,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.6rem]"
+          className="mt-4 font-heading text-3xl font-black leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl sm:leading-[1.05] md:text-5xl lg:text-[3.6rem]"
         >
           {title}
         </motion.h1>
@@ -97,7 +96,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.32 }}
-            className="mt-5 max-w-2xl text-base text-white/70 sm:text-lg"
+            className="mt-4 max-w-2xl text-sm text-white/70 sm:mt-5 sm:text-base lg:text-lg"
           >
             {subtitle}
           </motion.p>

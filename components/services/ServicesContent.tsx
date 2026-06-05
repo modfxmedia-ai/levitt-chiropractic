@@ -291,7 +291,7 @@ export default function ServicesContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO + STATS */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <motion.div
@@ -337,16 +337,16 @@ export default function ServicesContent() {
               viewport={{ once: true, amount: 0.25 }}
               className="lg:col-span-5"
             >
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {stats.map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-shadow hover:shadow-md"
+                    className="rounded-2xl border border-slate-200 bg-white p-3 text-center shadow-sm transition-shadow hover:shadow-md sm:p-5"
                   >
-                    <p className="font-heading text-3xl font-black text-[#F97316] sm:text-4xl">
+                    <p className="font-heading text-2xl font-black text-[#F97316] sm:text-3xl md:text-4xl">
                       {s.value}
                     </p>
-                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0F172A]/60 sm:text-[11px]">
+                    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#0F172A]/60 sm:text-[10px] sm:tracking-[0.18em] md:text-[11px]">
                       {s.label}
                     </p>
                   </div>
@@ -478,7 +478,7 @@ export default function ServicesContent() {
       </section>
 
       {/* SECTION 4 — WHITE: CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

@@ -25,7 +25,7 @@ export function CtaCard({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       whileHover={reduce ? undefined : { y: -4 }}
-      className="sticky top-28 overflow-hidden rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F] p-8 shadow-2xl ring-1 ring-white/10"
+      className="overflow-hidden rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F] p-6 shadow-2xl ring-1 ring-white/10 sm:p-8 lg:sticky lg:top-28"
     >
       <span
         aria-hidden
@@ -46,7 +46,7 @@ export function CtaCard({
           </p>
           <a
             href={siteConfig.phoneHref}
-            className="mt-1 block font-heading text-2xl font-black text-orange-400 transition-colors hover:text-orange-300"
+            className="mt-1 block font-heading text-xl font-black text-orange-400 transition-colors hover:text-orange-300 sm:text-2xl"
           >
             {siteConfig.phone}
           </a>

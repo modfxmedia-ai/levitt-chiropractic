@@ -44,7 +44,7 @@ export default function MeetTheDoctorContent() {
       />
 
       {/* SECTION 2 — WHITE: BIO SPLIT */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
             {/* Portrait card */}
@@ -165,7 +165,7 @@ export default function MeetTheDoctorContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 sm:grid-cols-3 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 sm:grid-cols-3 lg:gap-8"
           >
             {stats.map((s) => (
               <motion.div
@@ -195,7 +195,7 @@ export default function MeetTheDoctorContent() {
       </section>
 
       {/* SECTION 4 — WHITE: PERSONAL + CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

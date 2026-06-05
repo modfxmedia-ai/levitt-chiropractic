@@ -173,7 +173,7 @@ export function HeroSection({
       )}
 
       {/* Main grid */}
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 py-20 sm:py-28 lg:grid-cols-12 lg:gap-12 lg:py-32">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-5 py-16 sm:px-6 sm:py-24 lg:grid-cols-12 lg:gap-12 lg:py-32">
         {/* LEFT — Content */}
         <motion.div
           style={
@@ -205,7 +205,7 @@ export function HeroSection({
               </motion.div>
             )}
 
-            <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-heading text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl sm:leading-[1.05] md:text-5xl lg:text-6xl xl:text-7xl">
               {words.map((word, i) => (
                 <motion.span
                   key={`${word}-${i}`}
@@ -223,13 +223,13 @@ export function HeroSection({
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }}
-              className="mt-8 h-1 w-24 origin-left rounded-full bg-gradient-to-r from-primary to-orange-400"
+              className="mt-6 h-1 w-20 origin-left rounded-full bg-gradient-to-r from-primary to-orange-400 sm:mt-8 sm:w-24"
             />
 
             {subtitle && (
               <motion.p
                 variants={reduce ? undefined : fadeUp}
-                className="mt-8 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl"
+                className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:mt-8 sm:text-lg lg:text-xl"
               >
                 {subtitle}
               </motion.p>
@@ -238,7 +238,7 @@ export function HeroSection({
             {(ctaText || secondaryCtaText) && (
               <motion.div
                 variants={reduce ? undefined : fadeUp}
-                className="mt-10 flex flex-wrap items-center gap-4"
+                className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
               >
                 {ctaText && (
                   <Button href={ctaHref} size="lg" variant="primary">
@@ -256,7 +256,7 @@ export function HeroSection({
             {/* Stats / trust indicators */}
             <motion.div
               variants={reduce ? undefined : fadeUp}
-              className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-6 border-t border-white/10 pt-8"
+              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-6 sm:mt-12 sm:gap-x-10 sm:gap-y-6 sm:pt-8"
             >
               <div>
                 <p className="font-heading text-2xl font-bold text-white sm:text-3xl">

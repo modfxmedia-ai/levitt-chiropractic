@@ -69,7 +69,7 @@ function MobileEntry({
           aria-label={`Toggle ${entry.label} submenu`}
           aria-expanded={expanded}
           onClick={() => setExpanded((e) => !e)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/80 hover:text-primary"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/80 hover:text-primary"
         >
           <svg
             className={`h-4 w-4 transition-transform ${

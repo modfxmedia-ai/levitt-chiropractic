@@ -370,7 +370,7 @@ export default function HipaaPolicyContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO BANNER */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -432,7 +432,7 @@ export default function HipaaPolicyContent() {
       </section>
 
       {/* SECTION 3 — SLATE: SECTION A — Use & Disclosure */}
-      <section className="relative bg-slate-50 py-20 sm:py-24">
+      <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
             variants={fadeUp}
@@ -526,7 +526,7 @@ export default function HipaaPolicyContent() {
       </section>
 
       {/* SECTION 5 — WHITE: SECTION C — Rights */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
             variants={fadeUp}
@@ -594,7 +594,7 @@ export default function HipaaPolicyContent() {
       </section>
 
       {/* SECTION 6 — SLATE: SECTIONS D + E */}
-      <section className="relative bg-slate-50 py-20 sm:py-24">
+      <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl space-y-10 px-6">
           <motion.div
             variants={fadeUp}

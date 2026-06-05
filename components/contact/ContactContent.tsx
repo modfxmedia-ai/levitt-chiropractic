@@ -36,7 +36,7 @@ export default function ContactContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO + CONTACT FORM */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
             <motion.div
@@ -189,7 +189,7 @@ export default function ContactContent() {
                       className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
                     />
                   </div>
-                  <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
                     <div className="grid gap-1.5">
                       <label
                         htmlFor="c-email"
@@ -326,7 +326,7 @@ export default function ContactContent() {
                 height="420"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="block h-[420px] w-full border-0"
+                className="block h-[280px] w-full border-0 sm:h-[360px] lg:h-[420px]"
               />
             </a>
           </motion.div>
@@ -334,7 +334,7 @@ export default function ContactContent() {
       </section>
 
       {/* SECTION 4 — WHITE: APPT CTA */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
             <motion.div

@@ -100,7 +100,7 @@ export default function TherapeuticExerciseContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -174,7 +174,7 @@ export default function TherapeuticExerciseContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.08 } },
             }}
-            className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-8 sm:mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
             {objectives.map((o, i) => (
               <motion.li
@@ -202,7 +202,7 @@ export default function TherapeuticExerciseContent() {
       </section>
 
       {/* SECTION 4 — WHITE: 3 CATEGORIES */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -231,7 +231,7 @@ export default function TherapeuticExerciseContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8"
           >
             {categories.map((c) => (
               <motion.div

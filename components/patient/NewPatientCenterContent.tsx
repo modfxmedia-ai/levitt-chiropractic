@@ -103,7 +103,7 @@ export default function NewPatientCenterContent() {
       />
 
       {/* SECTION 2 — WHITE: INTRO */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
             variants={fadeUp}
@@ -170,7 +170,7 @@ export default function NewPatientCenterContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-14 grid gap-6 md:grid-cols-2 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 md:grid-cols-2 lg:gap-8"
           >
             {cards.map((c) => (
               <motion.div
@@ -220,7 +220,7 @@ export default function NewPatientCenterContent() {
       </section>
 
       {/* SECTION 4 — WHITE: 3-STEP CHECKLIST */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -249,7 +249,7 @@ export default function NewPatientCenterContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.1 } },
             }}
-            className="mt-12 grid gap-6 md:grid-cols-3 lg:gap-8"
+            className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-3 lg:gap-8"
           >
             {steps.map((s) => (
               <motion.div

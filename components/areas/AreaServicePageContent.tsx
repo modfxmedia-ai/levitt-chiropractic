@@ -57,7 +57,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
       />
 
       {/* Intro */}
-      <section className="relative bg-white py-16 sm:py-20">
+      <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
             variants={fadeUp}
@@ -124,7 +124,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
             />
           </motion.div>
 
-          <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {service.benefits.map((b, idx) => (
               <motion.div
                 key={b}
@@ -148,7 +148,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
       </section>
 
       {/* FAQs */}
-      <section className="relative bg-white py-20 sm:py-24">
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
             variants={fadeUp}
@@ -192,7 +192,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
       </section>
 
       {/* Related services */}
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -247,7 +247,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
             eyebrow={`Serving ${city.name}, MN`}

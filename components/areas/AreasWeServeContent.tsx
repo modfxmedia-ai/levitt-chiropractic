@@ -89,7 +89,7 @@ export default function AreasWeServeContent() {
       </section>
 
       {/* Intro */}
-      <section className="relative bg-white py-16 sm:py-20">
+      <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
             variants={fadeUp}
@@ -125,10 +125,10 @@ export default function AreasWeServeContent() {
       </section>
 
       {/* Filter / search */}
-      <section className="sticky top-16 z-30 border-y border-slate-200 bg-white/85 py-4 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap items-center gap-2">
+      <section className="sticky top-20 z-30 border-y border-slate-200 bg-white/85 py-3 backdrop-blur-md sm:py-4">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
               <RegionPill
                 label="All"
                 active={region === "All"}
@@ -143,7 +143,7 @@ export default function AreasWeServeContent() {
                 />
               ))}
             </div>
-            <label className="relative block w-full max-w-sm">
+            <label className="relative block w-full lg:max-w-sm">
               <span className="sr-only">Search cities</span>
               <input
                 type="search"
@@ -158,7 +158,7 @@ export default function AreasWeServeContent() {
       </section>
 
       {/* Cities grid */}
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <AnimatePresence mode="popLayout">
             {visible.length === 0 ? (
@@ -262,7 +262,7 @@ export default function AreasWeServeContent() {
             />
           </motion.div>
 
-          <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pseoServices.map((s, idx) => (
               <motion.div
                 key={s.slug}
@@ -289,7 +289,7 @@ export default function AreasWeServeContent() {
       </section>
 
       {/* Complete directory — every city × every service */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -314,7 +314,7 @@ export default function AreasWeServeContent() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {servedCities.map((c) => (
               <details
                 key={c.slug}
@@ -371,7 +371,7 @@ export default function AreasWeServeContent() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
             eyebrow="Twin Cities Metro · Minnesota"

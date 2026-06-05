@@ -43,7 +43,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
       />
 
       {/* Intro */}
-      <section className="relative bg-white py-16 sm:py-20">
+      <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
             variants={fadeUp}
@@ -112,7 +112,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
             />
           </motion.div>
 
-          <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pseoServices.map((s, idx) => (
               <motion.div
                 key={s.slug}
@@ -153,7 +153,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
 
       {/* Nearby cities */}
       {sameRegionCities.length > 0 && (
-        <section className="bg-slate-50 py-16 sm:py-20">
+        <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
             <motion.div
               variants={fadeUp}
@@ -206,7 +206,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
       )}
 
       {/* CTA */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
             eyebrow={`Serving ${city.name}, MN`}

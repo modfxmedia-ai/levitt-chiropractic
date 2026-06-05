@@ -29,7 +29,7 @@ export function LocationStrip() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-3"
+        className="mx-auto grid max-w-7xl gap-5 px-5 sm:gap-6 sm:px-6 md:grid-cols-3 md:gap-8"
       >
         {/* Address */}
         <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
