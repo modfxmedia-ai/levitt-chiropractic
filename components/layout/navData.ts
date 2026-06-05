@@ -1,0 +1,105 @@
+import type { ReactNode } from "react";
+
+export type NavLeaf = { label: string; href: string };
+
+export type NavGroup = {
+  label: string;
+  href?: string;
+  items: NavLeaf[];
+};
+
+export type NavEntry = {
+  label: string;
+  href: string;
+  /** Either flat list of links, or grouped columns for a mega-menu */
+  groups?: (NavGroup | NavLeaf)[];
+};
+
+export const primaryNav: NavEntry[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "About Us",
+    href: "/about",
+    groups: [
+      { label: "Meet the Doctor", href: "/meet-the-doctor" },
+      { label: "Unique Care", href: "/unique-care" },
+      { label: "Testimonials", href: "/testimonials/page" },
+    ],
+  },
+  {
+    label: "Services",
+    href: "/services",
+    groups: [
+      {
+        label: "Adjustments & Manipulation",
+        href: "/adjustments-and-manipulation",
+      },
+      {
+        label: "Injuries",
+        href: "/injuries",
+        items: [
+          { label: "Auto Injury", href: "/auto-injury" },
+          { label: "Personal Injury", href: "/personal-injury" },
+          { label: "Sports Injury", href: "/sports-injury" },
+        ],
+      },
+      {
+        label: "Cryotherapy",
+        href: "/cryotherapy",
+        items: [
+          {
+            label: "Ice Pack Cryotherapy",
+            href: "/ice-pack-cryotherapy",
+          },
+        ],
+      },
+      { label: "Cold Laser Therapy", href: "/cold-laser-therapy" },
+      { label: "Custom Foot Orthotics", href: "/custom-foot-orthotics" },
+      {
+        label: "Common Chiropractic Conditions",
+        href: "/common-chiropractic-conditions",
+      },
+      { label: "Back Pain Treatments", href: "/back-pain-treatments" },
+      {
+        label: "Degenerative Disc Disease",
+        href: "/degenerative-disc-disease",
+      },
+      { label: "Therapeutic Exercise", href: "/therapeutic-exercise" },
+      { label: "Functional Medicine", href: "/functional-medicine" },
+      { label: "Alternative Medicine", href: "/alternative-medicine" },
+    ],
+  },
+  {
+    label: "New Patient Center",
+    href: "/new-patient-center",
+    groups: [
+      { label: "Online Forms", href: "/new-patient-center/online-forms" },
+      { label: "What to Expect", href: "/new-patient-center/what-to-expect" },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    groups: [
+      { label: "About Chiropractic", href: "/resources/about-chiropractic" },
+      { label: "3D Spine Simulator", href: "/resources/3d-spine-simulator" },
+      { label: "Health Resources", href: "/resources/health-resources" },
+      { label: "Links", href: "/resources/links" },
+      { label: "Q & A", href: "/resources/qa" },
+      { label: "Wellness Tips", href: "/resources/wellness-tips" },
+    ],
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    groups: [
+      { label: "Appointment Request", href: "/contact/appointment-request" },
+    ],
+  },
+];
+
+export function isGroup(item: NavGroup | NavLeaf): item is NavGroup {
+  return (item as NavGroup).items !== undefined;
+}
+
+export type _Unused = ReactNode;

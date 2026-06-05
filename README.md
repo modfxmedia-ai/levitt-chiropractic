@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Levitt Chiropractic Center — Website
 
-## Getting Started
+Modern Next.js 16 (App Router) site for **Levitt Chiropractic Center, P.A.** in Saint Louis Park, MN. Replaces the legacy site while preserving every URL slug for SEO continuity.
 
-First, run the development server:
+## Tech stack
+
+- **Next.js 16** (App Router, RSC)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4** (CSS-first config in `app/globals.css`)
+- **Framer Motion** for page/scroll animations
+- **next-sitemap** (config provided) + native Next.js metadata API
+
+> The original brief asked for Next.js 14, but the workspace was initialized with Next.js 16 / React 19 / Tailwind v4. The setup uses those versions; APIs and conventions follow current Next.js docs.
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # local dev
+npm run build    # production build
+npm start        # serve production build
+npm run lint     # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project layout
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  layout.tsx          Root layout with Navbar + Footer + JSON-LD
+  page.tsx            Home
+  about-us/...        About Us section
+  services/...        All service pages (preserves legacy slugs)
+  new-patient-center/...
+  resources/...
+  contact/...
+  sitemap.xml/route.ts   Dynamic XML sitemap from siteConfig
+  robots.txt/route.ts    robots.txt route handler
+  not-found.tsx
+components/
+  layout/             Navbar, Footer, MobileMenu
+  ui/                 Button, AnimatedSection, HeroSection,
+                      ServiceCard, TestimonialCard, ScrollTicker
+lib/
+  siteConfig.ts       Single source of truth for nav, contact, hours
+  metadata.ts         buildMetadata() helper for per-page SEO
+public/               Static assets (logo, images)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## SEO
 
-## Learn More
+- Every route exports `metadata` via `buildMetadata()` for canonical URL, OG, Twitter, and robots tags.
+- The dynamic sitemap (`/sitemap.xml`) is generated from `lib/siteConfig.ts` so adding a route automatically registers it.
+- `robots.txt` is served at `/robots.txt` and points to the sitemap.
+- A `Chiropractor` JSON-LD block is injected from the root layout.
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update `lib/siteConfig.ts` to change phone, address, hours, or navigation — every page and the sitemap pick it up automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set `SITE_URL` for production builds when using `next-sitemap`.

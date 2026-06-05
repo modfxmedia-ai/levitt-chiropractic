@@ -1,0 +1,914 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+import { HeroSection } from "@/components/ui/HomeHero";
+import { ScrollTicker } from "@/components/ui/ScrollTicker";
+import { QuickLinkCard } from "@/components/ui/QuickLinkCard";
+import { Button } from "@/components/ui/Button";
+import { StatCounter } from "@/components/ui/StatCounter";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { localBusinessJsonLd } from "@/lib/jsonLd";
+import { siteConfig } from "@/lib/siteConfig";
+
+const HERO_IMAGE =
+  "https://cdcssl.ibsrv.net/ibimg/smb/1023x432_80/webmgr/1x/c/r/harrisburg/637d1145bd08f_banner.jpg.webp?81efc09d086b13d4119395ef48346b0f";
+const WELCOME_IMAGE =
+  "https://cdcssl.ibsrv.net/ibimg/smb/1023x1029_80/webmgr/1x/c/r/harrisburg/637d13447cae4_blade.jpg.webp?e10402495529abf06e88dfd526f9296e";
+const SPINE_IMAGE =
+  "https://cdcssl.ibsrv.net/ibimg/smb/1023x1023_80/webmgr/1x/c/r/harrisburg/638785567e288_3dspine.jpg.webp?a9059e2eb31cbe18994a89fa0f09c77d";
+
+const quickLinks = [
+  {
+    title: "Pain Relief",
+    href: "/services/common-chiropractic-conditions",
+    image:
+      "https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Auto Injury",
+    href: "/services/injuries/auto-injury",
+    image:
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Sports Injury",
+    href: "/services/injuries/sports-injury",
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Therapeutic Exercise",
+    href: "/services/therapeutic-exercise",
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "3D Spine Simulator",
+    href: "/resources/3d-spine-simulator",
+    image:
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Contact Us",
+    href: "/contact",
+    image:
+      "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1200&q=80",
+  },
+];
+
+const techniques = [
+  "Applied Kinesiology",
+  "Koren-specific technique",
+  "Zone therapy",
+  "Talsky tonal therapy",
+  "Torque release technique",
+  "Polarity and muscle testing",
+];
+
+const valueProps = [
+  {
+    title: "Holistic Approach",
+    description:
+      "We address the underlying cause — combining chemical, nutritional, and structural care.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "35+ Years Experience",
+    description:
+      "Decades of training as a chiropractor and naturopathic doctor — for cases simple to complex.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Personalized Plans",
+    description:
+      "No generic protocols — every patient receives a treatment plan built around their needs.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M4 4h16v16H4z" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8 10h8M8 14h5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Nervous System Focus",
+    description:
+      "Specialized techniques to identify and resolve dysfunction in the nervous system.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M12 2v20M5 6c2 0 3 2 7 2s5-2 7-2M5 12c2 0 3 2 7 2s5-2 7-2M5 18c2 0 3 2 7 2s5-2 7-2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Consult",
+    body:
+      "We listen first. Dr. Levitt evaluates your history, posture, and nervous system to map the real cause.",
+  },
+  {
+    n: "02",
+    title: "Customize",
+    body:
+      "Your plan blends chiropractic, nutrition, and structural care — calibrated to your body and lifestyle.",
+  },
+  {
+    n: "03",
+    title: "Care",
+    body:
+      "Gentle adjustments and modern modalities — cold laser, cryotherapy, therapeutic exercise.",
+  },
+  {
+    n: "04",
+    title: "Thrive",
+    body:
+      "Ongoing wellness so you stay moving, feeling, and performing at your best for years to come.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Dr. Levitt and his team got me back on my feet after a car accident. Truly the best care I've experienced.",
+    author: "Jennifer M.",
+    location: "Minneapolis, MN",
+  },
+  {
+    quote:
+      "Patient, thorough, and genuinely caring. I leave every visit feeling better than I came in.",
+    author: "David R.",
+    location: "Saint Louis Park, MN",
+  },
+  {
+    quote:
+      "The combination of adjustments, cold laser, and functional medicine made a real difference for my chronic back pain.",
+    author: "Sara K.",
+    location: "Edina, MN",
+  },
+  {
+    quote:
+      "Dr. Levitt actually listens. He found things other doctors missed and built a plan that worked for me.",
+    author: "Michael P.",
+    location: "Hopkins, MN",
+  },
+];
+
+const hours = [
+  { day: "Monday", time: "8:30–11:30am · 2:30–5:30pm" },
+  { day: "Tuesday", time: "8:30am – 11:30am" },
+  { day: "Wednesday", time: "10:00am – 12:00pm" },
+  { day: "Thursday", time: "8:30–11:30am · 2:30–5:30pm" },
+  { day: "Friday", time: "8:30am – 11:30am" },
+  { day: "Saturday", time: "By Appointment" },
+  { day: "Sunday", time: "Closed" },
+];
+
+export default function HomeContent() {
+  const welcomeRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: welcomeProgress } = useScroll({
+    target: welcomeRef,
+    offset: ["start end", "end start"],
+  });
+  const welcomeImageY = useTransform(welcomeProgress, [0, 1], ["10%", "-10%"]);
+  const welcomeImageRotate = useTransform(welcomeProgress, [0, 1], [-3, 3]);
+
+  const spineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: spineProgress } = useScroll({
+    target: spineRef,
+    offset: ["start end", "end start"],
+  });
+  const spineY = useTransform(spineProgress, [0, 1], ["15%", "-15%"]);
+
+  return (
+    <>
+      <JsonLd id="ld-localbusiness" data={localBusinessJsonLd()} />
+
+      {/* SECTION 1 — HERO */}
+      <HeroSection
+        eyebrow="Saint Louis Park, MN"
+        title="YOUR SPINE HEALTH SPECIALISTS"
+        subtitle="Superior chiropractic care from Dr. Alan Levitt — combining holistic, traditional, and innovative therapies for every stage of life."
+        ctaText="REQUEST APPOINTMENT"
+        ctaHref="/contact/appointment-request"
+        secondaryCtaText="Meet Dr. Levitt"
+        secondaryCtaHref="/meet-the-doctor"
+        backgroundImage={HERO_IMAGE}
+      />
+
+      {/* SECTION 2 — TICKER */}
+      <ScrollTicker
+        items={[
+          "✓ Expert Chiropractic Care",
+          "✓ Accepting New Patients",
+          "✓ Serving Saint Louis Park Since 1999",
+          "✓ Auto & Sports Injury Specialists",
+          "✓ Cold Laser Therapy",
+          "✓ Functional Medicine",
+          "✓ 35+ Years Experience",
+        ]}
+      />
+
+      {/* SECTION 3 — STATS STRIP */}
+      <section className="relative overflow-hidden bg-dark py-16 text-white">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-dark via-navy/40 to-dark"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 left-1/2 h-72 w-[80%] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
+        />
+        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 sm:grid-cols-4">
+          {[
+            { value: 35, suffix: "+", label: "Years of Experience" },
+            { value: 1999, prefix: "", suffix: "", label: "Serving Since" },
+            { value: 6, suffix: "+", label: "Specialty Techniques" },
+            { value: 5, suffix: "★", label: "Patient Trusted" },
+          ].map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              className="text-center"
+            >
+              <p className="font-heading text-4xl font-bold text-primary sm:text-5xl">
+                <StatCounter
+                  to={s.value}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                  duration={1.6}
+                />
+              </p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                {s.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 4 — WELCOME / ABOUT */}
+      <section
+        ref={welcomeRef}
+        className="relative overflow-hidden bg-white py-24 sm:py-32"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+        />
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:items-center lg:gap-20">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7"
+          >
+            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="h-px w-8 bg-primary" />
+              Welcome
+            </p>
+            <h2 className="mt-4 font-heading text-4xl font-bold leading-[1.05] tracking-tight text-dark sm:text-5xl lg:text-6xl">
+              Compassionate care.{" "}
+              <span className="text-primary">Whole-body</span> results.
+            </h2>
+
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-700 sm:text-lg">
+              <p>
+                Dr. Alan Levitt at the Levitt Chiropractic Center offers
+                superior chiropractic care to the residents of Saint Louis Park,
+                MN. His mission is to improve and maximize every patient&rsquo;s
+                quality of life regardless of diagnosis, with innovative and
+                traditional therapeutic practices.
+              </p>
+              <p>
+                Dr. Levitt opened his practice doors to the local community in
+                1999. Still, he has been a chiropractor and naturopathic doctor
+                for over 35 years — bringing a wealth of experience and
+                knowledge to every appointment.
+              </p>
+              <p>
+                Our patient care doesn&rsquo;t only focus on symptoms. Instead,
+                Dr. Levitt addresses the underlying cause through a holistic
+                approach combining chemical, nutritional, and structural
+                interventions for overall well-being.
+              </p>
+            </div>
+
+            {/* Techniques chips */}
+            <div className="mt-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Specialty techniques
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {techniques.map((t, i) => (
+                  <motion.span
+                    key={t}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.05 * i }}
+                    whileHover={{ y: -2, scale: 1.04 }}
+                    className="rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-sm font-medium text-dark transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                  >
+                    {t}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button href="/contact" variant="primary" size="lg">
+                Contact Us
+              </Button>
+              <Button
+                href="/meet-the-doctor"
+                variant="outline"
+                size="lg"
+              >
+                Meet Dr. Levitt
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Image with parallax & floating accents */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="relative lg:col-span-5"
+          >
+            <motion.div
+              style={{ y: welcomeImageY, rotate: welcomeImageRotate }}
+              className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={WELCOME_IMAGE}
+                alt="Dr. Alan Levitt — Levitt Chiropractic Center"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-dark/30 via-transparent to-transparent"
+              />
+            </motion.div>
+
+            {/* Floating badge — Years */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -left-6 top-12 hidden rounded-2xl bg-white p-5 shadow-2xl shadow-black/15 ring-1 ring-slate-200/50 sm:block"
+            >
+              <p className="font-heading text-3xl font-bold text-dark">35+</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Years of care
+              </p>
+            </motion.div>
+
+            {/* Floating badge — Rating */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -right-4 bottom-12 hidden rounded-2xl bg-primary p-5 text-white shadow-2xl shadow-orange-500/30 sm:block"
+            >
+              <p className="font-heading text-2xl font-bold">★★★★★</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/90">
+                Patient trusted
+              </p>
+            </motion.div>
+
+            {/* Decorative ring */}
+            <motion.div
+              aria-hidden
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 50,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="pointer-events-none absolute -bottom-10 -right-10 hidden h-44 w-44 rounded-full border border-dashed border-primary/40 lg:block"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 5 — VALUE PROPS / WHY CHOOSE US */}
+      <section className="relative overflow-hidden bg-slate-50 py-24 sm:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-0 top-0 h-full w-full opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#0F172A 1px, transparent 1px), linear-gradient(90deg, #0F172A 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Why Levitt Chiropractic
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
+              A practice built around{" "}
+              <span className="text-primary">your wellness</span>
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {valueProps.map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.1,
+                  ease: "easeOut",
+                }}
+                whileHover={{ y: -8 }}
+                className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/50 ring-1 ring-slate-100 transition-all hover:shadow-2xl hover:shadow-orange-500/15 hover:ring-primary/30"
+              >
+                <span
+                  aria-hidden
+                  className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/0 blur-2xl transition-all duration-500 group-hover:bg-primary/20"
+                />
+                <div className="relative">
+                  <motion.div
+                    whileHover={{ rotate: -8, scale: 1.08 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                    className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20"
+                  >
+                    <span className="h-7 w-7">{v.icon}</span>
+                  </motion.div>
+                  <h3 className="mt-6 font-heading text-xl font-bold text-dark">
+                    {v.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {v.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6 — PROCESS / TIMELINE */}
+      <section className="relative overflow-hidden bg-dark py-24 text-white sm:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]"
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Our Process
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-5xl">
+              Four steps to{" "}
+              <span className="text-primary">feeling your best</span>
+            </h2>
+          </div>
+
+          <div className="relative mt-20">
+            {/* Animated connecting line (lg+) */}
+            <motion.div
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.4, ease: "easeOut" }}
+              className="absolute left-[12%] right-[12%] top-8 hidden h-px origin-left bg-gradient-to-r from-transparent via-primary/40 to-transparent lg:block"
+            />
+
+            <div className="grid gap-10 lg:grid-cols-4 lg:gap-8">
+              {steps.map((s, i) => (
+                <motion.div
+                  key={s.n}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.15 * i,
+                    ease: "easeOut",
+                  }}
+                  className="relative text-center lg:text-left"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.08, rotate: 6 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                    className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-dark shadow-lg shadow-orange-500/40 lg:mx-0"
+                  >
+                    <span className="font-heading text-xl font-bold">
+                      {s.n}
+                    </span>
+                    <motion.span
+                      aria-hidden
+                      animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2.5, repeat: Infinity }}
+                      className="absolute inset-0 rounded-2xl bg-primary"
+                    />
+                  </motion.div>
+                  <h3 className="mt-6 font-heading text-2xl font-bold">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">
+                    {s.body}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7 — QUICK LINKS / SERVICES */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24 sm:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 bottom-20 h-80 w-80 rounded-full bg-navy/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                Patient Resources
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
+                How can we help you today?
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-dark hover:text-primary"
+            >
+              View all services
+              <span
+                aria-hidden
+                className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {quickLinks.map((q, i) => (
+              <QuickLinkCard
+                key={q.href}
+                title={q.title}
+                href={q.href}
+                image={q.image}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8 — 3D SPINE SIMULATOR */}
+      <section
+        ref={spineRef}
+        className="relative overflow-hidden bg-navy py-24 text-white sm:py-32"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-32 top-0 h-[36rem] w-[36rem] rounded-full bg-primary/15 blur-[140px]"
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="h-px w-8 bg-primary" />
+              Interactive Tool
+            </p>
+            <h2 className="mt-4 font-heading text-3xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+              Explore the{" "}
+              <span className="text-primary">3D Spine Simulator</span>
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
+              Every function of the body is coordinated by the nervous system.
+              Stresses anywhere along your spine can ripple into how you feel,
+              move, and recover. Take a moment to explore which areas of the
+              body are influenced by each region of your spine.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button
+                href="/resources/3d-spine-simulator"
+                variant="primary"
+                size="lg"
+              >
+                Launch Simulator
+              </Button>
+              <Button
+                href="/services/spinal-manipulation-adjustment"
+                variant="outline"
+                size="lg"
+              >
+                Learn About Adjustments
+              </Button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="relative mx-auto w-full max-w-md"
+          >
+            <motion.div
+              style={{ y: spineY }}
+              className="relative aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl shadow-black/50"
+            >
+              <Image
+                src={SPINE_IMAGE}
+                alt="3D Spine Simulator"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent"
+              />
+            </motion.div>
+
+            {/* Animated dotted ring */}
+            <motion.div
+              aria-hidden
+              animate={{ rotate: 360 }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className="pointer-events-none absolute -inset-6 rounded-full border border-dashed border-primary/40"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 9 — TESTIMONIALS MARQUEE */}
+      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Patient Testimonials
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
+              Real stories. <span className="text-primary">Real relief.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div className="relative mt-16 overflow-hidden">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent"
+          />
+
+          <motion.div
+            className="flex gap-6 px-6"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+              <article
+                key={i}
+                className="flex w-[88vw] max-w-md flex-shrink-0 flex-col rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-100"
+              >
+                <span className="text-5xl leading-none text-primary">“</span>
+                <p className="mt-2 text-base leading-relaxed text-slate-700">
+                  {t.quote}
+                </p>
+                <div className="mt-6 border-t border-slate-200 pt-5">
+                  <p className="font-heading font-semibold text-dark">
+                    {t.author}
+                  </p>
+                  <p className="text-xs uppercase tracking-wider text-slate-500">
+                    {t.location}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 10 — LOCATION & HOURS */}
+      <section className="relative overflow-hidden bg-slate-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Visit Us
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
+              Find us in <span className="text-primary">Saint Louis Park</span>
+            </h2>
+          </motion.div>
+
+          <div className="mt-14 grid gap-8 lg:grid-cols-5 lg:items-stretch">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="rounded-3xl bg-dark p-8 text-white shadow-2xl shadow-black/30 sm:p-10 lg:col-span-2"
+            >
+              <h3 className="font-heading text-xl font-bold uppercase tracking-wide">
+                Hours of Operation
+              </h3>
+              <ul className="mt-6 divide-y divide-white/10">
+                {hours.map((h, i) => (
+                  <motion.li
+                    key={h.day}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.05 * i }}
+                    className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <span className="font-semibold text-white">{h.day}</span>
+                    <span className="text-sm text-white/80">{h.time}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="mt-8 grid gap-5 border-t border-white/10 pt-6 text-sm text-white/80 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    Address
+                  </p>
+                  <p className="mt-2 leading-relaxed text-white">
+                    6200 Excelsior Blvd #201
+                    <br />
+                    Saint Louis Park, MN 55416
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    Phone
+                  </p>
+                  <p className="mt-2">
+                    <a
+                      href={siteConfig.phoneHref}
+                      className="font-semibold text-white hover:text-primary"
+                    >
+                      952-920-7535
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <Button
+                  href="/contact/appointment-request"
+                  variant="primary"
+                  size="md"
+                >
+                  Book an Appointment
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative min-h-[460px] overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl lg:col-span-3"
+            >
+              <iframe
+                title="Levitt Chiropractic Center map"
+                src="https://www.google.com/maps?q=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full border-0"
+                allowFullScreen
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 11 — FINAL CTA */}
+      <section className="relative overflow-hidden bg-dark py-24 text-white sm:py-28">
+        <motion.div
+          aria-hidden
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%"],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear",
+          }}
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 30% 30%, rgba(249,115,22,0.3), transparent 40%), radial-gradient(circle at 70% 70%, rgba(30,58,95,0.7), transparent 50%)",
+            backgroundSize: "200% 200%",
+          }}
+        />
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+            className="font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl"
+          >
+            Ready to feel{" "}
+            <span className="text-primary">like yourself</span> again?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="mx-auto mt-6 max-w-2xl text-lg text-white/80"
+          >
+            Call today at{" "}
+            <a
+              href={siteConfig.phoneHref}
+              className="font-semibold text-primary hover:underline"
+            >
+              952-920-7535
+            </a>{" "}
+            or request your appointment online — Dr. Levitt is welcoming new
+            patients.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Button
+              href="/contact/appointment-request"
+              variant="primary"
+              size="lg"
+            >
+              Request Appointment
+            </Button>
+            <Button href={siteConfig.phoneHref} variant="outline" size="lg">
+              Call 952-920-7535
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  );
+}
