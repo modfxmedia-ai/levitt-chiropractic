@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import AutoInjuryContent from "@/components/services/AutoInjuryContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function AutoInjuryPage() {
-  return <AutoInjuryContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Auto Injury Chiropractic Care"
+        slug="auto-injury"
+        description="Auto accident chiropractic care in Saint Louis Park, MN — whiplash, neck and back pain, soft- and hard-tissue injuries after a collision."
+      />
+      <AutoInjuryContent />
+    </>
+  );
 }

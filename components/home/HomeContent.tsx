@@ -14,12 +14,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/jsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
-const HERO_IMAGE =
-  "https://cdcssl.ibsrv.net/ibimg/smb/1023x432_80/webmgr/1x/c/r/harrisburg/637d1145bd08f_banner.jpg.webp?81efc09d086b13d4119395ef48346b0f";
-const WELCOME_IMAGE =
-  "https://cdcssl.ibsrv.net/ibimg/smb/1023x1029_80/webmgr/1x/c/r/harrisburg/637d13447cae4_blade.jpg.webp?e10402495529abf06e88dfd526f9296e";
-const SPINE_IMAGE =
-  "https://cdcssl.ibsrv.net/ibimg/smb/1023x1023_80/webmgr/1x/c/r/harrisburg/638785567e288_3dspine.jpg.webp?a9059e2eb31cbe18994a89fa0f09c77d";
+const HERO_IMAGE = "/images/adjustment-1.jpg";
+const WELCOME_IMAGE = "/images/dr-alan-g-levitt-dc.png";
+const SPINE_IMAGE = "/images/3d-spine-simulator.jpg";
 
 const quickLinks = [
   {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import AlternativeMedicineContent from "@/components/services/AlternativeMedicineContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function AlternativeMedicinePage() {
-  return <AlternativeMedicineContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Alternative Medicine"
+        slug="alternative-medicine"
+        description="Alternative medicine in Saint Louis Park, MN — natural, drug-free therapies including chiropractic, nutritional and lifestyle care from Dr. Alan Levitt."
+      />
+      <AlternativeMedicineContent />
+    </>
+  );
 }

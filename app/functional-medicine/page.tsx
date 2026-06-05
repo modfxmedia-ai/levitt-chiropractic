@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import FunctionalMedicineContent from "@/components/services/FunctionalMedicineContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function FunctionalMedicinePage() {
-  return <FunctionalMedicineContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Functional Medicine"
+        slug="functional-medicine"
+        description="Functional medicine in Saint Louis Park, MN. A personalized, whole-person approach to address chronic pain and chronic illness at the root cause."
+      />
+      <FunctionalMedicineContent />
+    </>
+  );
 }

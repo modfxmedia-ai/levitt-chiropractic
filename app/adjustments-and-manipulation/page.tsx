@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import AdjustmentsContent from "@/components/services/AdjustmentsContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -12,5 +13,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function AdjustmentsPage() {
-  return <AdjustmentsContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Chiropractic Adjustments & Spinal Manipulation"
+        slug="adjustments-and-manipulation"
+        description="Chiropractic adjustments and spinal manipulation in Saint Louis Park, MN using Diversified Technique, Zone Therapy and Torque Release Technique to relieve pain and restore alignment."
+      />
+      <AdjustmentsContent />
+    </>
+  );
 }

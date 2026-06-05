@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import ColdLaserTherapyContent from "@/components/services/ColdLaserTherapyContent";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -37,6 +38,11 @@ const faqSchema = {
 export default function ColdLaserTherapyPage() {
   return (
     <>
+      <ServiceSchema
+        name="Cold Laser Therapy"
+        slug="cold-laser-therapy"
+        description="Low-level laser therapy in Saint Louis Park, MN for back pain, arthritis, carpal tunnel, tendonitis, fibromyalgia and more. Drug-free, non-invasive pain relief."
+      />
       <JsonLd id="cold-laser-faq" data={faqSchema} />
       <ColdLaserTherapyContent />
     </>

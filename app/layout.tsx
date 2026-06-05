@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 import { generateMeta } from "@/lib/metadata";
-import { websiteJsonLd } from "@/lib/jsonLd";
+import { localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,6 +47,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <JsonLd id="ld-website" data={websiteJsonLd()} />
+        <JsonLd id="ld-localbusiness" data={localBusinessJsonLd()} />
       </body>
     </html>
   );

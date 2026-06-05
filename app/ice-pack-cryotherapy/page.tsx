@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import IcePackCryotherapyContent from "@/components/services/IcePackCryotherapyContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function IcePackCryotherapyPage() {
-  return <IcePackCryotherapyContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Ice Pack Cryotherapy"
+        slug="ice-pack-cryotherapy"
+        description="Ice pack cryotherapy in Saint Louis Park, MN to reduce pain, swelling and inflammation. Used in sports medicine and chiropractic rehab."
+      />
+      <IcePackCryotherapyContent />
+    </>
+  );
 }

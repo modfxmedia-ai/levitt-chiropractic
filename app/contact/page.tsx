@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
-import { JsonLd } from "@/components/seo/JsonLd";
 import { generateMeta } from "@/lib/metadata";
-import { localBusinessJsonLd } from "@/lib/jsonLd";
 import ContactContent from "@/components/contact/ContactContent";
 
 export const metadata: Metadata = generateMeta({
@@ -13,10 +11,5 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function Page() {
-  return (
-    <>
-      <JsonLd id="ld-localbusiness-contact" data={localBusinessJsonLd()} />
-      <ContactContent />
-    </>
-  );
+  return <ContactContent />;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import CommonChiropracticConditionsContent from "@/components/services/CommonChiropracticConditionsContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function CommonChiropracticConditionsPage() {
-  return <CommonChiropracticConditionsContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Common Chiropractic Conditions Treatment"
+        slug="common-chiropractic-conditions"
+        description="Chiropractic care for allergies, headaches, sciatica, whiplash, carpal tunnel, fibromyalgia, joint dysfunction and more in Saint Louis Park, MN."
+      />
+      <CommonChiropracticConditionsContent />
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import InjuriesContent from "@/components/services/InjuriesContent";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
@@ -11,5 +12,14 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function InjuriesPage() {
-  return <InjuriesContent />;
+  return (
+    <>
+      <ServiceSchema
+        name="Injury Chiropractic Care"
+        slug="injuries"
+        description="Chiropractic treatment for auto, personal and sports injuries in Saint Louis Park, MN by Dr. Alan Levitt."
+      />
+      <InjuriesContent />
+    </>
+  );
 }

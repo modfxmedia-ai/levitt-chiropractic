@@ -105,3 +105,40 @@ export function websiteJsonLd() {
     inLanguage: "en-US",
   };
 }
+
+export function serviceJsonLd(input: {
+  name: string;
+  slug: string;
+  description: string;
+  serviceType?: string;
+}) {
+  const url = `${siteConfig.url}/${input.slug.replace(/^\/+/, "")}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalTherapy",
+    name: input.name,
+    description: input.description,
+    url,
+    serviceType: input.serviceType ?? input.name,
+    provider: {
+      "@type": "Chiropractor",
+      "@id": `${siteConfig.url}/#chiropractor`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      telephone: siteConfig.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.state,
+        postalCode: siteConfig.address.zip,
+        addressCountry: "US",
+      },
+    },
+    areaServed: [
+      { "@type": "City", name: "Saint Louis Park" },
+      { "@type": "City", name: "Minneapolis" },
+      { "@type": "AdministrativeArea", name: "Minnesota" },
+    ],
+  };
+}
