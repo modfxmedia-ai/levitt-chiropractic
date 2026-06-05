@@ -177,16 +177,6 @@ const testimonials = [
   },
 ];
 
-const hours = [
-  { day: "Monday", time: "8:30–11:30am · 2:30–5:30pm" },
-  { day: "Tuesday", time: "8:30am – 11:30am" },
-  { day: "Wednesday", time: "10:00am – 12:00pm" },
-  { day: "Thursday", time: "8:30–11:30am · 2:30–5:30pm" },
-  { day: "Friday", time: "8:30am – 11:30am" },
-  { day: "Saturday", time: "By Appointment" },
-  { day: "Sunday", time: "Closed" },
-];
-
 export default function HomeContent() {
   const welcomeRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: welcomeProgress } = useScroll({
@@ -749,8 +739,8 @@ export default function HomeContent() {
       </section>
 
       {/* SECTION 10 — LOCATION & HOURS */}
-      <section className="relative overflow-hidden bg-slate-50 py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -758,95 +748,108 @@ export default function HomeContent() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto max-w-2xl text-center"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               Visit Us
             </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-4xl">
               Find us in <span className="text-primary">Saint Louis Park</span>
             </h2>
+            <span
+              aria-hidden
+              className="mx-auto mt-4 block h-1 w-16 rounded-full bg-primary"
+            />
           </motion.div>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-5 lg:items-stretch">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="rounded-3xl bg-dark p-8 text-white shadow-2xl shadow-black/30 sm:p-10 lg:col-span-2"
-            >
-              <h3 className="font-heading text-xl font-bold uppercase tracking-wide">
-                Hours of Operation
-              </h3>
-              <ul className="mt-6 divide-y divide-white/10">
-                {hours.map((h, i) => (
-                  <motion.li
-                    key={h.day}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.05 * i }}
-                    className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <span className="font-semibold text-white">{h.day}</span>
-                    <span className="text-sm text-white/80">{h.time}</span>
-                  </motion.li>
-                ))}
-              </ul>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-10 overflow-hidden rounded-3xl bg-dark text-white shadow-2xl shadow-black/20 ring-1 ring-black/5"
+          >
+            <div className="grid lg:grid-cols-5">
+              {/* Info column */}
+              <div className="relative p-7 sm:p-9 lg:col-span-2">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-20 -left-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
+                />
+                <div className="relative">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+                    Hours
+                  </p>
+                  <ul className="mt-3 space-y-1.5 text-sm">
+                    <li className="flex items-baseline justify-between gap-3 border-b border-white/5 pb-1.5">
+                      <span className="font-semibold">Mon · Thu</span>
+                      <span className="text-white/75">8:30–11:30 · 2:30–5:30</span>
+                    </li>
+                    <li className="flex items-baseline justify-between gap-3 border-b border-white/5 pb-1.5">
+                      <span className="font-semibold">Tue · Fri</span>
+                      <span className="text-white/75">8:30 – 11:30am</span>
+                    </li>
+                    <li className="flex items-baseline justify-between gap-3 border-b border-white/5 pb-1.5">
+                      <span className="font-semibold">Wed</span>
+                      <span className="text-white/75">10:00 – 12:00pm</span>
+                    </li>
+                    <li className="flex items-baseline justify-between gap-3 border-b border-white/5 pb-1.5">
+                      <span className="font-semibold">Sat</span>
+                      <span className="text-white/75">By Appointment</span>
+                    </li>
+                    <li className="flex items-baseline justify-between gap-3">
+                      <span className="font-semibold">Sun</span>
+                      <span className="text-white/55">Closed</span>
+                    </li>
+                  </ul>
 
-              <div className="mt-8 grid gap-5 border-t border-white/10 pt-6 text-sm text-white/80 sm:grid-cols-2">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    Address
-                  </p>
-                  <p className="mt-2 leading-relaxed text-white">
-                    6200 Excelsior Blvd #201
-                    <br />
-                    Saint Louis Park, MN 55416
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    Phone
-                  </p>
-                  <p className="mt-2">
-                    <a
-                      href={siteConfig.phoneHref}
-                      className="font-semibold text-white hover:text-primary"
+                  <div className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                        Address
+                      </p>
+                      <p className="mt-1.5 leading-snug text-white/85">
+                        6200 Excelsior Blvd #201
+                        <br />
+                        St Louis Park, MN 55416
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                        Phone
+                      </p>
+                      <a
+                        href={siteConfig.phoneHref}
+                        className="mt-1.5 block font-semibold text-white transition-colors hover:text-primary"
+                      >
+                        952-920-7535
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <Button
+                      href="/contact/appointment-request"
+                      variant="primary"
+                      size="md"
                     >
-                      952-920-7535
-                    </a>
-                  </p>
+                      Book an Appointment
+                    </Button>
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-8">
-                <Button
-                  href="/contact/appointment-request"
-                  variant="primary"
-                  size="md"
-                >
-                  Book an Appointment
-                </Button>
+              {/* Map column */}
+              <div className="relative min-h-[300px] lg:col-span-3 lg:min-h-0">
+                <iframe
+                  title="Levitt Chiropractic Center map"
+                  src="https://www.google.com/maps?q=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 h-full w-full border-0"
+                  allowFullScreen
+                />
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative min-h-[460px] overflow-hidden rounded-3xl ring-1 ring-slate-200 shadow-xl lg:col-span-3"
-            >
-              <iframe
-                title="Levitt Chiropractic Center map"
-                src="https://www.google.com/maps?q=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 h-full w-full border-0"
-                allowFullScreen
-              />
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

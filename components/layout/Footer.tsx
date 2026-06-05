@@ -47,6 +47,7 @@ const exploreLinks = [
   { label: "Services", href: "/services" },
   { label: "New Patient Center", href: "/new-patient-center" },
   { label: "Resources", href: "/resources" },
+  { label: "Areas We Serve", href: "/areas-we-serve" },
   { label: "Testimonials", href: "/testimonials/page" },
   { label: "Contact", href: "/contact" },
 ];

@@ -1,13 +1,34 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/siteConfig";
-import { sitemapEntries } from "@/lib/sitemapEntries";
+import { sitemapEntries, type SitemapEntry } from "@/lib/sitemapEntries";
+import { servedCities } from "@/lib/areasData";
+import { pseoServices } from "@/lib/pseoServices";
 
 export const dynamic = "force-static";
 
 export async function GET() {
   const lastmod = new Date().toISOString();
 
-  const urls = sitemapEntries
+  // Programmatic /areas-we-serve URLs (hub + city + city/service)
+  const pseoEntries: SitemapEntry[] = [
+    { path: "/areas-we-serve", priority: 0.8, changefreq: "monthly" },
+    ...servedCities.map<SitemapEntry>((c) => ({
+      path: `/areas-we-serve/${c.slug}`,
+      priority: 0.6,
+      changefreq: "monthly",
+    })),
+    ...servedCities.flatMap<SitemapEntry>((c) =>
+      pseoServices.map<SitemapEntry>((s) => ({
+        path: `/areas-we-serve/${c.slug}/${s.slug}`,
+        priority: 0.5,
+        changefreq: "monthly",
+      })),
+    ),
+  ];
+
+  const allEntries = [...sitemapEntries, ...pseoEntries];
+
+  const urls = allEntries
     .map((e) => {
       const loc = new URL(e.path, siteConfig.url).toString();
       return [

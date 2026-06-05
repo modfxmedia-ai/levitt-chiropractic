@@ -1,6 +1,8 @@
 /** All public URL slugs (relative paths) with sitemap metadata.
  *  Single source of truth for /sitemap.xml and the user-facing /site-map page.
  */
+import { servedCities } from "./areasData";
+
 export type SitemapEntry = {
   path: string;
   priority: number;
@@ -150,6 +152,17 @@ export const sitemapSections: SitemapSection[] = [
     links: [
       { label: "Contact Us", href: "/contact" },
       { label: "Request an Appointment", href: "/contact/appointment-request" },
+    ],
+  },
+  {
+    title: "Areas We Serve",
+    description: `Drug-free chiropractic care for ${servedCities.length}+ Twin Cities communities.`,
+    links: [
+      { label: "All Areas We Serve", href: "/areas-we-serve" },
+      ...servedCities.slice(0, 24).map((c) => ({
+        label: c.name,
+        href: `/areas-we-serve/${c.slug}`,
+      })),
     ],
   },
   {
