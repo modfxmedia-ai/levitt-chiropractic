@@ -71,14 +71,14 @@ export function PageHero({
         </motion.span>
       )}
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
+      <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
         {/* Breadcrumb */}
         <motion.nav
           aria-label="Breadcrumb"
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60"
+          className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60 sm:mb-8"
         >
           <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
             {crumbs.map((c, i) => {
@@ -102,7 +102,7 @@ export function PageHero({
           </ol>
         </motion.nav>
 
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div className="grid gap-6 sm:gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             {eyebrow && (
               <motion.div
@@ -122,7 +122,7 @@ export function PageHero({
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+              className="font-heading text-3xl font-black leading-[1.1] tracking-tight sm:text-5xl sm:leading-[1.05] lg:text-6xl"
             >
               {title}
             </motion.h1>
@@ -132,7 +132,7 @@ export function PageHero({
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-6 max-w-2xl text-base text-white/70 sm:text-lg"
+                className="mt-3 max-w-2xl text-sm text-white/70 sm:mt-6 sm:text-lg"
               >
                 {subtitle}
               </motion.p>
@@ -166,14 +166,14 @@ export function PageHero({
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 h-px origin-left bg-gradient-to-r from-primary via-primary/40 to-transparent"
+          className="mt-6 h-px origin-left bg-gradient-to-r from-primary via-primary/40 to-transparent sm:mt-12"
         />
       </div>
 
       {/* Angled bottom edge */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-dark"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-dark sm:h-12"
       />
     </section>
   );
