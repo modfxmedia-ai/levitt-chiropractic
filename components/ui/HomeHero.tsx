@@ -73,7 +73,7 @@ export function HeroSection({
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[92vh] w-full items-center overflow-hidden bg-dark text-white"
+      className="relative isolate flex w-full items-center overflow-hidden bg-dark text-white lg:min-h-[92vh]"
     >
       {/* Parallax background image */}
       {backgroundImage && (
@@ -173,7 +173,7 @@ export function HeroSection({
       )}
 
       {/* Main grid */}
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-5 py-16 sm:px-6 sm:py-24 lg:grid-cols-12 lg:gap-12 lg:py-32">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-10 pb-14 sm:px-6 sm:pt-16 sm:pb-20 lg:grid-cols-12 lg:gap-12 lg:py-32">
         {/* LEFT — Content */}
         <motion.div
           style={
@@ -304,7 +304,7 @@ export function HeroSection({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 lg:block"
         >
           <div className="flex flex-col items-center gap-2">
             <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">

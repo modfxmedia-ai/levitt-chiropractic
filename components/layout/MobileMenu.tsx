@@ -182,7 +182,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 xl:hidden"
+          className="fixed inset-0 z-50 h-[100dvh] lg:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -198,13 +198,13 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
             exit={{ opacity: 0 }}
           />
           <motion.div
-            className="relative flex h-full flex-col"
+            className="absolute inset-0 flex flex-col"
             initial={{ y: -16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -16, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <div className="flex h-16 items-center justify-between border-b border-white/10 px-4 sm:px-6">
+            <div className="flex h-16 flex-shrink-0 items-center justify-between border-b border-white/10 px-4 sm:px-6">
               <Link
                 href="/"
                 onClick={onClose}
@@ -236,7 +236,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
             </div>
 
             <nav
-              className="flex-1 overflow-y-auto px-3 py-4"
+              className="flex-1 overflow-y-auto overscroll-contain px-3 py-4"
               aria-label="Mobile primary"
             >
               {primaryNav.map((entry) => (
@@ -249,7 +249,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
               ))}
             </nav>
 
-            <div className="border-t border-white/10 bg-dark p-4 sm:p-6">
+            <div className="flex-shrink-0 border-t border-white/10 bg-dark p-4 sm:p-6">
               <a
                 href={siteConfig.phoneHref}
                 className="flex items-center gap-2 text-base font-semibold text-white"
