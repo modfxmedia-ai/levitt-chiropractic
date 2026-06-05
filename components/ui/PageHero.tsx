@@ -71,7 +71,7 @@ export function PageHero({
         </motion.span>
       )}
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
         {/* Breadcrumb */}
         <motion.nav
           aria-label="Breadcrumb"

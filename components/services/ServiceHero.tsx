@@ -19,7 +19,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
 
   return (
     <section
-      className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
+      className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white sm:min-h-[45vh]"
     >
       <div
         aria-hidden
@@ -41,7 +41,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
         className="pointer-events-none absolute -left-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-[#1E3A5F]/60 blur-[140px]"
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 pb-10 sm:px-6 sm:pt-28 sm:pb-12 lg:pt-32">
+      <div className="relative mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 sm:py-12 lg:pt-32 lg:pb-12">
         <motion.nav
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
