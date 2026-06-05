@@ -288,6 +288,88 @@ export default function AreasWeServeContent() {
         </div>
       </section>
 
+      {/* Complete directory — every city × every service */}
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
+              Complete Directory
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              Every city, every service
+            </h2>
+            <span
+              aria-hidden
+              className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
+            />
+            <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+              Browse all {totalPages.toLocaleString()} local service pages — grouped by community.
+              Click any city to expand the {totalServices} services available there.
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {servedCities.map((c) => (
+              <details
+                key={c.slug}
+                className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition open:border-[#F97316] open:bg-white open:shadow-md"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-600">
+                      {c.region}
+                    </p>
+                    <p className="mt-1 truncate font-heading text-base font-bold text-[#0F172A]">
+                      {c.name}, MN
+                    </p>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#F97316]/10 text-sm font-bold text-[#F97316] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <ul className="mt-4 space-y-1.5 border-t border-slate-200 pt-4">
+                  <li>
+                    <Link
+                      href={`/areas-we-serve/${c.slug}`}
+                      className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-semibold text-[#0F172A] transition-colors hover:bg-orange-50 hover:text-[#F97316]"
+                    >
+                      <span aria-hidden className="text-[#F97316]">★</span>
+                      {c.name} overview
+                    </Link>
+                  </li>
+                  {pseoServices.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/areas-we-serve/${c.slug}/${s.slug}`}
+                        className="flex items-start gap-2 rounded-md px-2 py-1.5 text-sm text-slate-700 transition-colors hover:bg-orange-50 hover:text-[#F97316]"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F97316]/60"
+                        />
+                        <span>
+                          {s.name} <span className="text-slate-400">in {c.name}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-3xl px-6">

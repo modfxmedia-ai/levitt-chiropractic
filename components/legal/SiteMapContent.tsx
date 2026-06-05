@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
 import { sitemapSections } from "@/lib/sitemapEntries";
+import { servedCities } from "@/lib/areasData";
+import { pseoServices } from "@/lib/pseoServices";
 import { CtaCard } from "@/components/services/CtaCard";
 import { LocationStrip } from "@/components/services/LocationStrip";
 import { ServiceHero } from "@/components/services/ServiceHero";
@@ -23,6 +25,8 @@ export default function SiteMapContent() {
     (sum, s) => sum + s.links.length,
     0,
   );
+  const totalAreaPages =
+    1 + servedCities.length + servedCities.length * pseoServices.length;
 
   return (
     <>
@@ -56,7 +60,7 @@ export default function SiteMapContent() {
               className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 border-l-4 border-[#F97316] pl-6 text-left text-base leading-relaxed text-slate-700 sm:text-lg">
-              {totalLinks} pages across {sitemapSections.length} sections.
+              {totalLinks + totalAreaPages} pages across {sitemapSections.length + 1} sections.
               Looking for the machine-readable version?{" "}
               <a
                 href="/sitemap.xml"
@@ -125,6 +129,88 @@ export default function SiteMapContent() {
                   ))}
                 </ul>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Areas We Serve — complete programmatic directory */}
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
+              Areas We Serve · Full Directory
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              All {totalAreaPages.toLocaleString()} local pages
+            </h2>
+            <span
+              aria-hidden
+              className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
+            />
+            <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+              Every Twin Cities community we serve, with all {pseoServices.length} specialty
+              services available locally. Click any city to expand.
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {servedCities.map((c) => (
+              <details
+                key={c.slug}
+                className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition open:border-[#F97316] open:bg-white open:shadow-md"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-600">
+                      {c.region}
+                    </p>
+                    <p className="mt-1 truncate font-heading text-base font-bold text-[#0F172A]">
+                      {c.name}, MN
+                    </p>
+                  </div>
+                  <span
+                    aria-hidden
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#F97316]/10 text-sm font-bold text-[#F97316] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <ul className="mt-4 space-y-1.5 border-t border-slate-200 pt-4">
+                  <li>
+                    <Link
+                      href={`/areas-we-serve/${c.slug}`}
+                      className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-semibold text-[#0F172A] transition-colors hover:bg-orange-50 hover:text-[#F97316]"
+                    >
+                      <span aria-hidden className="text-[#F97316]">★</span>
+                      {c.name} overview
+                    </Link>
+                  </li>
+                  {pseoServices.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/areas-we-serve/${c.slug}/${s.slug}`}
+                        className="flex items-start gap-2 rounded-md px-2 py-1.5 text-sm text-slate-700 transition-colors hover:bg-orange-50 hover:text-[#F97316]"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F97316]/60"
+                        />
+                        <span>
+                          {s.name} <span className="text-slate-400">in {c.name}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
             ))}
           </div>
         </div>
