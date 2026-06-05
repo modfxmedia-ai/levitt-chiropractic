@@ -58,11 +58,13 @@ export const primaryNav: NavEntry[] = [
       {
         label: "Common Chiropractic Conditions",
         href: "/common-chiropractic-conditions",
-      },
-      { label: "Back Pain Treatments", href: "/back-pain-treatments" },
-      {
-        label: "Degenerative Disc Disease",
-        href: "/degenerative-disc-disease",
+        items: [
+          { label: "Back Pain Treatments", href: "/back-pain-treatments" },
+          {
+            label: "Degenerative Disc Disease",
+            href: "/degenerative-disc-disease",
+          },
+        ],
       },
       { label: "Therapeutic Exercise", href: "/therapeutic-exercise" },
       { label: "Functional Medicine", href: "/functional-medicine" },

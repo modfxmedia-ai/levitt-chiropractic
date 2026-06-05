@@ -24,39 +24,33 @@ const SPINE_IMAGE =
 const quickLinks = [
   {
     title: "Pain Relief",
-    href: "/services/common-chiropractic-conditions",
-    image:
-      "https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?auto=format&fit=crop&w=1200&q=80",
+    href: "/common-chiropractic-conditions",
+    image: "/images/pain-relief.jpg",
   },
   {
     title: "Auto Injury",
-    href: "/services/injuries/auto-injury",
-    image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
+    href: "/auto-injury",
+    image: "/images/auto-injury.jpg",
   },
   {
     title: "Sports Injury",
-    href: "/services/injuries/sports-injury",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+    href: "/sports-injury",
+    image: "/images/sports-injuries.jpg",
   },
   {
     title: "Therapeutic Exercise",
-    href: "/services/therapeutic-exercise",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",
+    href: "/therapeutic-exercise",
+    image: "/images/therapeutic-exercise.jpg",
   },
   {
     title: "3D Spine Simulator",
     href: "/resources/3d-spine-simulator",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/3d-spine-simulator.jpg",
   },
   {
     title: "Contact Us",
     href: "/contact",
-    image:
-      "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/contact-us.jpg",
   },
 ];
 
@@ -144,27 +138,45 @@ const steps = [
 const testimonials = [
   {
     quote:
-      "Dr. Levitt and his team got me back on my feet after a car accident. Truly the best care I've experienced.",
-    author: "Jennifer M.",
-    location: "Minneapolis, MN",
+      "Dr. Levitt has provided continued excellent care in treating my condition — ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned.",
+    author: "Richard B.",
+    location: "Patient",
   },
   {
     quote:
-      "Patient, thorough, and genuinely caring. I leave every visit feeling better than I came in.",
-    author: "David R.",
-    location: "Saint Louis Park, MN",
+      "Upon the recommendation of a friend, I saw Dr. Levitt for a sudden back problem. The problem went away after only 2 visits.",
+    author: "Barbara N.",
+    location: "Patient",
   },
   {
     quote:
-      "The combination of adjustments, cold laser, and functional medicine made a real difference for my chronic back pain.",
-    author: "Sara K.",
-    location: "Edina, MN",
+      "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt — within a month I was running again, pain free!",
+    author: "Sanoma62",
+    location: "Patient",
   },
   {
     quote:
-      "Dr. Levitt actually listens. He found things other doctors missed and built a plan that worked for me.",
-    author: "Michael P.",
-    location: "Hopkins, MN",
+      "I’ve seen Dr. Levitt multiple times since I was in a serious car accident. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit.",
+    author: "Barb W.",
+    location: "Patient",
+  },
+  {
+    quote:
+      "Excellent and very helpful. Dr. Levitt is practical and yet thorough in his treatment. I feel like he listens well, pushes when necessary and also respects my preferences.",
+    author: "Catherine G.",
+    location: "Patient",
+  },
+  {
+    quote:
+      "I have seen Dr. Levitt for the past 10+ years with a lifelong history of musculoskeletal issues. He has always been able to keep me functional with his muscle-testing and various ways of getting to what is really going on.",
+    author: "Linda M.",
+    location: "Patient",
+  },
+  {
+    quote:
+      "Dr. Levitt is not the conventional in-and-out chiropractor. He actually listens to what you say and runs tests against your own body to find the root cause of a problem.",
+    author: "Handy H.",
+    location: "Patient",
   },
 ];
 

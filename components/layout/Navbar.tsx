@@ -80,9 +80,17 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-2 transition-opacity hover:opacity-90"
+      className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
       aria-label={`${siteConfig.name} home`}
     >
+      <Image
+        src="/images/fevicon.png"
+        alt=""
+        width={48}
+        height={48}
+        priority
+        className="h-9 w-9 flex-shrink-0 object-contain sm:h-10 sm:w-10"
+      />
       <Image
         src={LOGO_SRC}
         alt={siteConfig.name}
@@ -109,13 +117,13 @@ function Dropdown({ entry, pathname }: DropdownProps) {
     return (
       <Link
         href={entry.href}
-        className={`group relative inline-flex h-16 items-center px-3.5 text-[12.5px] font-semibold uppercase tracking-[0.12em] transition-colors ${
+        className={`group relative inline-flex h-16 items-center whitespace-nowrap px-3 text-[12px] font-semibold uppercase tracking-[0.1em] transition-colors xl:px-3.5 xl:text-[12.5px] xl:tracking-[0.12em] ${
           active ? "text-primary" : "text-white/85 hover:text-white"
         }`}
       >
         {entry.label}
         <span
-          className={`absolute inset-x-3.5 bottom-3 h-0.5 origin-left rounded-full bg-primary transition-transform duration-300 ${
+          className={`absolute inset-x-3 bottom-3 h-0.5 origin-left rounded-full bg-primary transition-transform duration-300 xl:inset-x-3.5 ${
             active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
           }`}
         />
@@ -135,7 +143,7 @@ function Dropdown({ entry, pathname }: DropdownProps) {
     >
       <Link
         href={entry.href}
-        className={`group relative inline-flex h-16 items-center gap-1.5 px-3.5 text-[12.5px] font-semibold uppercase tracking-[0.12em] transition-colors ${
+        className={`group relative inline-flex h-16 items-center gap-1.5 whitespace-nowrap px-3 text-[12px] font-semibold uppercase tracking-[0.1em] transition-colors xl:px-3.5 xl:text-[12.5px] xl:tracking-[0.12em] ${
           active ? "text-primary" : "text-white/85 hover:text-white"
         }`}
         aria-haspopup="true"
@@ -148,7 +156,7 @@ function Dropdown({ entry, pathname }: DropdownProps) {
           }`}
         />
         <span
-          className={`absolute inset-x-3.5 bottom-3 h-0.5 origin-left rounded-full bg-primary transition-transform duration-300 ${
+          className={`absolute inset-x-3 bottom-3 h-0.5 origin-left rounded-full bg-primary transition-transform duration-300 xl:inset-x-3.5 ${
             active || open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
           }`}
         />
@@ -162,53 +170,121 @@ function Dropdown({ entry, pathname }: DropdownProps) {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
             role="menu"
-            className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[280px]"
+            className="absolute top-full left-1/2 -translate-x-1/2 pt-2 min-w-[260px]"
           >
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-dark/95 p-2 shadow-2xl ring-1 ring-black/20 backdrop-blur-md">
+            <div className="overflow-visible rounded-2xl border border-white/10 bg-dark/95 p-2 shadow-2xl ring-1 ring-black/20 backdrop-blur-md">
               {entry.groups!.map((item) => {
                 if (isGroup(item)) {
                   return (
-                    <div key={(item as NavGroup).label} className="rounded-lg p-2">
-                      {item.href ? (
-                        <Link
-                          href={item.href}
-                          className={`block rounded-md px-2 py-1.5 text-sm font-semibold ${
-                            isActive(pathname, item.href)
-                              ? "text-primary"
-                              : "text-white"
-                          } hover:text-primary`}
-                        >
-                          {item.label}
-                        </Link>
-                      ) : (
-                        <p className="px-2 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                          {item.label}
-                        </p>
-                      )}
-                      <ul className="mt-1 ml-2 space-y-0.5 border-l border-white/10 pl-2">
-                        {item.items.map((leaf) => {
-                          const a = isActive(pathname, leaf.href);
-                          return (
-                            <li key={leaf.href}>
-                              <Link
-                                href={leaf.href}
-                                role="menuitem"
-                                className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
-                                  a
-                                    ? "text-primary"
-                                    : "text-white/75 hover:bg-white/5 hover:text-primary"
-                                }`}
-                              >
-                                {leaf.label}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+                    <SubMenu
+                      key={(item as NavGroup).label + (item.href ?? "")}
+                      group={item as NavGroup}
+                      pathname={pathname}
+                    />
                   );
                 }
                 const leaf = item as NavLeaf;
+                const a = isActive(pathname, leaf.href);
+                return (
+                  <Link
+                    key={leaf.href}
+                    href={leaf.href}
+                    role="menuitem"
+                    className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                      a
+                        ? "bg-white/5 text-primary"
+                        : "text-white/85 hover:bg-white/5 hover:text-primary"
+                    }`}
+                  >
+                    {leaf.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/** Side-flyout submenu for grouped nav items (e.g. Injuries → Auto / Personal / Sports) */
+function SubMenu({
+  group,
+  pathname,
+}: {
+  group: NavGroup;
+  pathname: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const parentActive = group.href ? isActive(pathname, group.href) : false;
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={() => setOpen(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false);
+      }}
+    >
+      {group.href ? (
+        <Link
+          href={group.href}
+          role="menuitem"
+          className={`flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
+            parentActive
+              ? "bg-white/5 text-primary"
+              : "text-white/85 hover:bg-white/5 hover:text-primary"
+          }`}
+          aria-haspopup="true"
+          aria-expanded={open}
+        >
+          <span>{group.label}</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-3 w-3 flex-shrink-0"
+            aria-hidden
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </Link>
+      ) : (
+        <div className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-white">
+          <span>{group.label}</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-3 w-3 flex-shrink-0"
+            aria-hidden
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      )}
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -6 }}
+            transition={{ duration: 0.16, ease: "easeOut" }}
+            role="menu"
+            className="absolute left-full top-0 pl-2 min-w-[220px]"
+          >
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-dark/95 p-2 shadow-2xl ring-1 ring-black/20 backdrop-blur-md">
+              {group.items.map((leaf) => {
                 const a = isActive(pathname, leaf.href);
                 return (
                   <Link
@@ -277,7 +353,7 @@ export function Navbar() {
             : "bg-dark border-b border-white/5"
         }`}
       >
-        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-6 px-4 sm:px-6 lg:gap-10">
+        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:gap-6 xl:gap-10">
           {/* Left — logo */}
           <Logo />
 

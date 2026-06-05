@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
@@ -60,25 +61,19 @@ export default function MeetTheDoctorContent() {
                   className="absolute -inset-4 -z-10 rounded-3xl bg-[#F97316]/15 blur-2xl"
                 />
                 <div className="relative overflow-hidden rounded-3xl border-t-4 border-[#F97316] bg-[#0F172A] text-white shadow-2xl ring-1 ring-white/10">
-                  {/* placeholder portrait */}
-                  <div className="relative grid aspect-[4/5] place-items-center bg-gradient-to-br from-[#1E3A5F] via-[#0F172A] to-[#0F172A]">
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 opacity-[0.06]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(to right, rgba(249,115,22,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(249,115,22,0.6) 1px, transparent 1px)",
-                        backgroundSize: "32px 32px",
-                      }}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[#0F172A]">
+                    <Image
+                      src="/images/dr-alan-g-levitt-dc.png"
+                      alt="Dr. Alan G. Levitt, DC"
+                      fill
+                      sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 90vw"
+                      className="object-cover"
+                      priority
                     />
-                    <div className="relative text-center">
-                      <p className="font-heading text-7xl font-black text-[#F97316] drop-shadow-[0_0_24px_rgba(249,115,22,0.45)]">
-                        AL
-                      </p>
-                      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/70">
-                        Dr. Alan G. Levitt, DC
-                      </p>
-                    </div>
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/10 to-transparent"
+                    />
                   </div>
                   <div className="px-7 py-6">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-300">

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion, useReducedMotion, type MotionProps } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
-import { primaryNav } from "./navData";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
 function PhoneIcon({ className = "" }: { className?: string }) {
@@ -43,26 +42,17 @@ function PinIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function ClockIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
-  );
-}
+const exploreLinks = [
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "New Patient Center", href: "/new-patient-center" },
+  { label: "Resources", href: "/resources" },
+  { label: "Testimonials", href: "/testimonials/page" },
+  { label: "Contact", href: "/contact" },
+];
 
 const legalLinks = [
-  { label: "Site Map", href: "/sitemap.xml" },
+  { label: "Site Map", href: "/site-map" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "HIPAA Policy", href: "/hipaa-policy" },
   { label: "Terms of Use", href: "/terms-of-use" },
@@ -71,169 +61,128 @@ const legalLinks = [
 
 export function Footer() {
   const reduce = useReducedMotion();
-  const quickLinkColumns = primaryNav.filter((e) => e.href !== "/");
-  const half = Math.ceil(quickLinkColumns.length / 2);
-  const colA = quickLinkColumns.slice(0, half);
-  const colB = quickLinkColumns.slice(half);
   const year = new Date().getFullYear();
 
   const fadeUp: MotionProps = reduce
     ? {}
     : {
-        initial: { opacity: 0, y: 24 },
+        initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, margin: "-80px" },
-        transition: { duration: 0.6, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" },
       };
 
   return (
     <>
       <motion.footer
         {...fadeUp}
-        className="mt-auto border-t border-white/5 bg-dark text-white/80"
+        className="mt-auto border-t border-white/5 bg-dark text-white/75"
       >
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
-          <div className="grid gap-12 lg:grid-cols-3">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:py-14">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Brand */}
-            <div>
+            <div className="lg:col-span-5">
               <Link
                 href="/"
-                className="inline-flex items-center"
+                className="inline-flex items-center gap-2.5"
                 aria-label={`${siteConfig.name} home`}
               >
                 <Image
+                  src="/images/fevicon.png"
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="h-9 w-9 flex-shrink-0 object-contain"
+                />
+                <Image
                   src="/images/logo.png"
                   alt={siteConfig.name}
-                  width={240}
-                  height={60}
-                  className="h-12 w-auto object-contain"
+                  width={220}
+                  height={56}
+                  className="h-9 w-auto object-contain"
                 />
               </Link>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {siteConfig.tagline}
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/65">
+                {siteConfig.tagline} — proudly serving Saint Louis Park and
+                the Twin Cities since 1999.
               </p>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-                Proudly serving Saint Louis Park and the Twin Cities with
-                expert chiropractic care, integrative therapies, and
-                personalized treatment plans.
-              </p>
+
+              {/* Contact row */}
+              <div className="mt-5 space-y-2 text-sm">
+                <a
+                  href={siteConfig.phoneHref}
+                  className="inline-flex items-center gap-2 text-white hover:text-primary"
+                >
+                  <PhoneIcon className="h-4 w-4 text-primary" />
+                  <span className="font-semibold">{siteConfig.phone}</span>
+                </a>
+                <p className="flex items-start gap-2 text-white/65">
+                  <PinIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                  <span>{siteConfig.address.full}</span>
+                </p>
+              </div>
+
               <Link
                 href={siteConfig.appointmentUrl}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
+                className="mt-5 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-orange-600"
               >
                 Request Appointment
               </Link>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-primary">
-                Quick Links
+            {/* Explore */}
+            <div className="lg:col-span-3">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Explore
               </h3>
-              <div className="mt-5 grid grid-cols-2 gap-8">
-                {[colA, colB].map((col, idx) => (
-                  <ul key={idx} className="space-y-4 text-sm">
-                    {col.map((entry) => (
-                      <li key={entry.href}>
-                        <Link
-                          href={entry.href}
-                          className="font-semibold text-white hover:text-primary"
-                        >
-                          {entry.label}
-                        </Link>
-                        {entry.groups && entry.groups.length > 0 && (
-                          <ul className="mt-2 space-y-1.5">
-                            {entry.groups.map((g) => (
-                              <li key={g.label + ("href" in g ? g.href : "")}>
-                                {"href" in g && g.href ? (
-                                  <Link
-                                    href={g.href}
-                                    className="text-white/70 hover:text-primary"
-                                  >
-                                    {g.label}
-                                  </Link>
-                                ) : (
-                                  <span className="text-white/60">
-                                    {g.label}
-                                  </span>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {exploreLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-white/70 transition-colors hover:text-primary"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            {/* Contact & Hours */}
-            <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-primary">
-                Contact & Hours
+            {/* Legal */}
+            <div className="lg:col-span-4">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Legal
               </h3>
-
-              <ul className="mt-5 space-y-3 text-sm">
-                <li className="flex items-start gap-3">
-                  <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <span className="text-white/80">
-                    {siteConfig.address.street}
-                    <br />
-                    {siteConfig.address.city}, {siteConfig.address.state}{" "}
-                    {siteConfig.address.zip}
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <PhoneIcon className="h-5 w-5 shrink-0 text-primary" />
-                  <a
-                    href={siteConfig.phoneHref}
-                    className="font-semibold text-white hover:text-primary"
-                  >
-                    {siteConfig.phone}
-                  </a>
-                </li>
-              </ul>
-
-              <div className="mt-6">
-                <p className="flex items-center gap-2 text-sm font-semibold text-white">
-                  <ClockIcon className="h-5 w-5 text-primary" />
-                  Hours of Operation
-                </p>
-                <ul className="mt-3 space-y-1.5 text-sm">
-                  {siteConfig.hours.map((h) => (
-                    <li
-                      key={h.day}
-                      className="flex justify-between gap-4 border-b border-white/5 pb-1.5"
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {legalLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-white/70 transition-colors hover:text-primary"
                     >
-                      <span className="font-medium text-white/85">{h.day}</span>
-                      <span className="text-right text-white/70">
-                        {h.hours}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-            <p className="text-xs text-white/60">
+          <div className="mt-10 flex flex-col items-start gap-3 border-t border-white/10 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+            <p>
               © {year} {siteConfig.name} All Rights Reserved.
             </p>
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {legalLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-xs text-white/60 hover:text-primary"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <a
+              href="https://modfxmedia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              Powered by{" "}
+              <span className="font-semibold text-white/75">ModFX Media</span>
+            </a>
           </div>
         </div>
       </motion.footer>
