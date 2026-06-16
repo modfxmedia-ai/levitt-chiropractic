@@ -389,7 +389,15 @@ export function HeroSection({
                 type="button"
                 aria-selected={active}
                 aria-label={`Show hero image ${i + 1}`}
-                onClick={() => setSlideIndex(i)}
+                onClick={() =>
+                  setSlideTick((t) => {
+                    const cur = t % slides.length;
+                    const delta =
+                      (i - cur + slides.length) % slides.length ||
+                      slides.length;
+                    return t + delta;
+                  })
+                }
                 className={`h-1.5 rounded-full transition-all duration-500 ${
                   active
                     ? "w-8 bg-primary"
