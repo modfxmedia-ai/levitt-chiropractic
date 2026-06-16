@@ -6,7 +6,7 @@ export const metadata: Metadata = generateMeta({
   title:
     "Meet Dr. Alan G. Levitt, DC | Saint Louis Park Chiropractor for 35+ Years",
   description:
-    "Born and raised in Saint Louis Park, MN, Dr. Alan G. Levitt graduated from Northwestern College of Chiropractic in 1986 and has been in private practice for 35+ years. Call 952-920-7535.",
+    "Meet Dr. Alan G. Levitt, DC — born and raised in Saint Louis Park, MN. Learn about his nervous-system-first approach (Applied Kinesiology, Koren, Torque Release & more) and 35+ years of experience. Call 952-920-7535.",
   slug: "meet-the-doctor",
 });
 

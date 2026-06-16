@@ -9,25 +9,6 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 
 const accidents = [
   {
-    title: "Automobile accidents",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-        aria-hidden
-      >
-        <path d="M5 17h14l-1.5-5a2 2 0 00-1.9-1.4H8.4A2 2 0 006.5 12L5 17z" />
-        <circle cx="7.5" cy="17.5" r="1.5" />
-        <circle cx="16.5" cy="17.5" r="1.5" />
-      </svg>
-    ),
-  },
-  {
     title: "Bike and pedestrian collisions",
     icon: (
       <svg

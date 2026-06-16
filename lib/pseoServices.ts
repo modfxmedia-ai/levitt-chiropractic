@@ -6,7 +6,7 @@
 export type PseoService = {
   slug: string;
   name: string;
-  /** Short noun phrase used inline (e.g. "auto injury chiropractic care"). */
+  /** Short noun phrase used inline (e.g. "injury chiropractic care"). */
   inlineNoun: string;
   /** Quick visitor-facing tagline for hero subtitle. */
   tagline: string;
@@ -45,36 +45,17 @@ export const pseoServices: PseoService[] = [
     name: "Injury Chiropractic Care",
     inlineNoun: "injury chiropractic care",
     tagline:
-      "Comprehensive care for auto, sports and personal injuries — diagnosis, hands-on treatment and rehab in one place.",
+      "Comprehensive care for personal injuries — diagnosis, hands-on treatment and rehab in one place.",
     benefits: [
       "Targeted evaluation of soft- and hard-tissue injuries",
       "Coordinated care across adjustments, soft tissue and exercise",
-      "Documentation suitable for insurance and legal needs",
-      "Decades of experience with auto, sports and personal injury cases",
+      "Detailed clinical documentation and progress notes",
+      "Decades of experience with personal injury cases",
     ],
-    conditions: ["whiplash", "muscle strains and tears", "post-collision back and neck pain"],
+    conditions: ["muscle strains and tears", "post-incident neck and back pain", "joint and soft-tissue injuries"],
     faqs: [
       { q: "When should I see a chiropractor after an injury?", a: "As soon as possible. Early intervention prevents minor sprains and strains from becoming chronic pain patterns and supports faster, fuller recovery." },
-      { q: "Will my insurance cover injury care?", a: "Most auto, work and health plans include chiropractic. We help you understand your coverage before treatment begins." },
-    ],
-  },
-  {
-    slug: "auto-injury",
-    name: "Auto Injury Chiropractic Care",
-    inlineNoun: "auto injury chiropractic care",
-    tagline:
-      "Whiplash, neck pain, back pain and soft-tissue injuries after a car accident — assessed and treated.",
-    benefits: [
-      "Evaluation for whiplash and cervical strain",
-      "Treatment of soft- and hard-tissue collision injuries",
-      "Documentation for auto insurance and legal counsel",
-      "Coordinated rehab to prevent chronic pain patterns",
-      "Same-week appointments for new auto-injury patients",
-    ],
-    conditions: ["whiplash", "post-MVA neck and back pain", "headaches after a crash"],
-    faqs: [
-      { q: "Do I need a doctor's referral after a car accident?", a: "No. In Minnesota you can see a chiropractor directly under your no-fault auto coverage." },
-      { q: "What if my pain didn't start until days later?", a: "That's typical for soft-tissue trauma. Inflammation builds over 24–72 hours. Schedule an evaluation as soon as symptoms appear." },
+      { q: "What does an initial injury evaluation involve?", a: "Dr. Levitt reviews your history, performs a hands-on exam, and orders imaging only when it would change your plan. You'll leave the first visit with a clear next step." },
     ],
   },
   {
@@ -82,35 +63,17 @@ export const pseoServices: PseoService[] = [
     name: "Personal Injury Chiropractic Care",
     inlineNoun: "personal injury chiropractic care",
     tagline:
-      "Injury recovery from auto, bike, construction, OSHA and workplace incidents — with documentation.",
+      "Injury recovery from bike, construction, OSHA and workplace incidents — with documentation.",
     benefits: [
       "Thorough evaluation and diagnosis of injury-related conditions",
       "Hands-on treatment plus rehabilitative exercise",
-      "Detailed records for insurance and legal use",
+      "Detailed clinical records and progress reports",
       "Long history of working with personal-injury attorneys",
     ],
     conditions: ["slip-and-fall back pain", "construction and workplace injuries", "bike crash trauma"],
     faqs: [
       { q: "Can you work with my attorney?", a: "Yes. Dr. Levitt regularly provides records and progress reports to attorneys handling personal-injury claims." },
       { q: "What should I bring to my first visit?", a: "Any imaging or records from the ER, urgent care or your primary doctor — and a brief written description of how the injury happened." },
-    ],
-  },
-  {
-    slug: "sports-injury",
-    name: "Sports Injury Chiropractic Care",
-    inlineNoun: "sports injury chiropractic care",
-    tagline:
-      "Treatment that gets athletes moving again — adjustments, soft-tissue work and progressive rehab.",
-    benefits: [
-      "Treats muscle, tendon and ligament strains",
-      "Restores joint motion and proprioception",
-      "Progressive return-to-play protocols",
-      "Performance-focused: not just pain relief",
-    ],
-    conditions: ["runner's knee", "shoulder impingement", "low-back strain from training"],
-    faqs: [
-      { q: "Can chiropractic help with sports performance?", a: "Yes. Better joint motion and neuromuscular control translates directly into power, agility and reduced injury risk." },
-      { q: "Do you treat youth athletes?", a: "Absolutely. Many young athletes in our area come in for sports-related back, neck and shoulder issues." },
     ],
   },
   {
@@ -136,12 +99,12 @@ export const pseoServices: PseoService[] = [
     name: "Ice Pack Cryotherapy",
     inlineNoun: "ice pack cryotherapy",
     tagline:
-      "Localized ice therapy used in sports medicine and chiropractic rehab to reduce pain and inflammation.",
+      "Localized ice therapy used in chiropractic rehab to reduce pain and inflammation.",
     benefits: [
       "Reduces pain, swelling and bruising",
       "Slows nerve impulses to interrupt pain signals",
       "Easy to combine with adjustments and soft-tissue work",
-      "Used widely in sports medicine and rehab",
+      "Used widely in rehabilitation and recovery",
     ],
     conditions: ["acute injury swelling", "joint sprains", "post-treatment soreness"],
     faqs: [
@@ -190,7 +153,7 @@ export const pseoServices: PseoService[] = [
     name: "Treatment for Common Chiropractic Conditions",
     inlineNoun: "chiropractic care",
     tagline:
-      "Headaches, sciatica, whiplash, fibromyalgia, joint dysfunction and more — treated with a whole-person approach.",
+      "Headaches, sciatica, fibromyalgia, joint dysfunction and more — treated with a whole-person approach.",
     benefits: [
       "Treats a wide range of musculoskeletal and neurological conditions",
       "Combines adjustments, soft-tissue work, exercise and modalities",
@@ -200,7 +163,7 @@ export const pseoServices: PseoService[] = [
     conditions: ["headaches and migraines", "sciatica", "fibromyalgia", "carpal tunnel syndrome"],
     faqs: [
       { q: "Can chiropractic care help conditions other than back pain?", a: "Yes. Many headache, sciatica, joint and even allergy-related symptoms respond well to spinal and structural care." },
-      { q: "Is this covered by insurance?", a: "Most major plans cover chiropractic care. We verify benefits before your visit." },
+      { q: "How quickly will I notice results?", a: "It varies by condition. Many patients feel relief within the first few visits, while chronic patterns often take a structured plan over several weeks." },
     ],
   },
   {

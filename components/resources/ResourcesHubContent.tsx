@@ -13,7 +13,7 @@ type Resource = {
   description: string;
   href: string;
   icon: React.ReactNode;
-  group: "Learn" | "Tools" | "Wellness";
+  group: "Learn" | "Wellness";
 };
 
 const resources: Resource[] = [
@@ -62,10 +62,10 @@ const resources: Resource[] = [
     ),
   },
   {
-    title: "Health Resources",
+    title: "Blog & Insights",
     description:
-      "A curated library of patient resources — covering chiropractic, wellness, and conditions we treat.",
-    href: "/resources/health-resources",
+      "In-depth articles on spinal health, recovery, and getting the most out of chiropractic care.",
+    href: "/blog",
     group: "Learn",
     icon: (
       <svg
@@ -78,51 +78,8 @@ const resources: Resource[] = [
         className="h-6 w-6"
         aria-hidden
       >
-        <path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14l-7-3-7 3z" />
-      </svg>
-    ),
-  },
-  {
-    title: "3D Spine Simulator",
-    description:
-      "Explore each vertebra interactively and see how spinal issues affect the rest of your body.",
-    href: "/resources/3d-spine-simulator",
-    group: "Tools",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-        aria-hidden
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" />
-      </svg>
-    ),
-  },
-  {
-    title: "Helpful Links",
-    description:
-      "Trusted resources from chiropractic and wellness organizations across the web.",
-    href: "/resources/links",
-    group: "Tools",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-        aria-hidden
-      >
-        <path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1" />
-        <path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1" />
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14z" />
+        <path d="M8 7h8M8 11h8M8 15h5" />
       </svg>
     ),
   },
@@ -149,7 +106,7 @@ const resources: Resource[] = [
   },
 ];
 
-const groups: Resource["group"][] = ["Learn", "Tools", "Wellness"];
+const groups: Resource["group"][] = ["Learn", "Wellness"];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },

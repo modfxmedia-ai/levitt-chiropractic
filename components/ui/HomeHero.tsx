@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
@@ -17,7 +18,12 @@ type Props = {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  /** Single hero background image. Ignored when `backgroundImages` is provided. */
   backgroundImage?: string;
+  /** Multiple background images that cross-fade on an interval. */
+  backgroundImages?: string[];
+  /** Cross-fade interval in ms. Defaults to 6000. */
+  rotateInterval?: number;
 };
 
 const containerVariants = {
@@ -55,9 +61,31 @@ export function HeroSection({
   secondaryCtaText,
   secondaryCtaHref,
   backgroundImage,
+  backgroundImages,
+  rotateInterval = 3500,
 }: Props) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
+
+  const slides =
+    backgroundImages && backgroundImages.length > 0
+      ? backgroundImages
+      : backgroundImage
+        ? [backgroundImage]
+        : [];
+  // `slideTick` is a monotonically increasing counter so AnimatePresence keys
+  // stay unique across full cycles (otherwise key collision on loop blanks the card).
+  const [slideTick, setSlideTick] = useState(0);
+  const slideIndex = slides.length > 0 ? slideTick % slides.length : 0;
+
+  useEffect(() => {
+    if (reduce) return;
+    if (slides.length < 2) return;
+    const id = window.setInterval(() => {
+      setSlideTick((t) => t + 1);
+    }, rotateInterval);
+    return () => window.clearInterval(id);
+  }, [reduce, slides.length, rotateInterval]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -75,17 +103,32 @@ export function HeroSection({
       ref={ref}
       className="relative isolate flex w-full items-center overflow-hidden bg-dark text-white lg:min-h-[92vh]"
     >
-      {/* Parallax background image */}
-      {backgroundImage && (
+      {/* Parallax background image(s) */}
+      {slides.length > 0 && (
         <motion.div
           aria-hidden
           style={reduce ? undefined : { y: bgY }}
-          className="absolute inset-0 -z-30 bg-cover bg-center"
+          className="absolute inset-0 -z-30 overflow-hidden"
         >
-          <div
-            className="absolute inset-0 scale-110 bg-cover bg-center opacity-40"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
-          />
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.div
+              key={`bg-${slideTick}`}
+              initial={{ clipPath: "inset(0 0 0 100%)", scale: 1.15 }}
+              animate={{
+                clipPath: "inset(0 0 0 0%)",
+                scale: 1.1,
+                opacity: 0.4,
+              }}
+              exit={{ clipPath: "inset(0 100% 0 0)", scale: 1.05, opacity: 0.4 }}
+              transition={{
+                clipPath: { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
+                scale: { duration: rotateInterval / 1000 + 1.5, ease: "linear" },
+                opacity: { duration: 0.6, ease: "easeOut" },
+              }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slides[slideIndex]})` }}
+            />
+          </AnimatePresence>
         </motion.div>
       )}
 
@@ -293,7 +336,12 @@ export function HeroSection({
           style={reduce ? undefined : { y: spineY }}
           className="relative hidden lg:col-span-5 lg:block"
         >
-          <SpineGraphic reduce={!!reduce} />
+          <SpineGraphic
+            reduce={!!reduce}
+            slides={slides}
+            slideIndex={slideIndex}
+            slideTick={slideTick}
+          />
         </motion.div>
       </div>
 
@@ -324,11 +372,52 @@ export function HeroSection({
           </div>
         </motion.div>
       )}
+
+      {/* Slide indicator dots — only visible when rotating */}
+      {slides.length > 1 && (
+        <div
+          role="tablist"
+          aria-label="Hero image slides"
+          className="absolute bottom-6 right-6 z-10 flex items-center gap-2 sm:bottom-8 sm:right-10"
+        >
+          {slides.map((src, i) => {
+            const active = i === slideIndex;
+            return (
+              <button
+                key={src}
+                role="tab"
+                type="button"
+                aria-selected={active}
+                aria-label={`Show hero image ${i + 1}`}
+                onClick={() => setSlideIndex(i)}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  active
+                    ? "w-8 bg-primary"
+                    : "w-2.5 bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }
 
-function SpineGraphic({ reduce }: { reduce: boolean }) {
+function SpineGraphic({
+  reduce,
+  slides,
+  slideIndex,
+  slideTick,
+}: {
+  reduce: boolean;
+  slides: string[];
+  slideIndex: number;
+  slideTick: number;
+}) {
+  const cardSlides = slides.length > 0 ? slides : ["/images/adjustment-1.jpg"];
+  const activeSrc = cardSlides[slideIndex % cardSlides.length];
+
   return (
     <div className="relative mx-auto w-full max-w-md">
       {/* Soft orange glow halo */}
@@ -369,11 +458,42 @@ function SpineGraphic({ reduce }: { reduce: boolean }) {
         animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-white/10 shadow-2xl shadow-black/50"
+        style={{ perspective: "1400px" }}
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/adjustment-1.jpg)" }}
-        />
+        {/* 3D-flipping slide images */}
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.div
+            key={`card-${slideTick}`}
+            initial={{ rotateY: 95, opacity: 0, scale: 1.05 }}
+            animate={{ rotateY: 0, opacity: 1, scale: 1 }}
+            exit={{ rotateY: -95, opacity: 0, scale: 1.02 }}
+            transition={{
+              rotateY: { duration: 0.95, ease: [0.76, 0, 0.24, 1] },
+              opacity: { duration: 0.45, ease: "easeOut" },
+              scale: { duration: 6, ease: "linear" },
+            }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${activeSrc})`,
+              transformStyle: "preserve-3d",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transformOrigin: "center center",
+            }}
+          />
+        </AnimatePresence>
+
+        {/* Shine sweep that fires on every slide change */}
+        {!reduce && (
+          <motion.div
+            key={`shine-${slideTick}`}
+            aria-hidden
+            initial={{ x: "-120%", opacity: 0 }}
+            animate={{ x: "130%", opacity: [0, 0.9, 0] }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute inset-y-0 z-[1] w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent mix-blend-overlay"
+          />
+        )}
 
         {/* Image color treatment + readability gradient */}
         <div
@@ -521,45 +641,6 @@ function SpineGraphic({ reduce }: { reduce: boolean }) {
                 6+ Therapies
               </p>
             </div>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      {/* FLOATING — Insurance / accepted (top left) */}
-      <motion.div
-        initial={reduce ? undefined : { opacity: 0, x: -20, y: -20 }}
-        animate={reduce ? undefined : { opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.7, ease: "easeOut" }}
-        className="absolute -left-2 top-32 hidden xl:block"
-      >
-        <motion.div
-          animate={reduce ? undefined : { y: [0, -5, 0] }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className="rounded-xl bg-white/95 px-4 py-2.5 shadow-xl shadow-black/30 ring-1 ring-black/5"
-        >
-          <div className="flex items-center gap-2">
-            <span className="grid h-6 w-6 place-items-center rounded-md bg-primary/10 text-primary">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-3.5 w-3.5"
-                aria-hidden
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </span>
-            <p className="text-[11px] font-semibold text-dark">
-              Most insurance accepted
-            </p>
           </div>
         </motion.div>
       </motion.div>

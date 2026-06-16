@@ -88,8 +88,7 @@ const steps = [
 
 const checklist = [
   "A photo ID",
-  "Your insurance card (if applicable)",
-  "Completed new-patient form (or arrive 15 min early)",
+  "Plan to arrive 10–15 minutes early to complete intake paperwork",
   "Comfortable clothing you can move in",
 ];
 
@@ -305,10 +304,10 @@ export default function WhatToExpectContent() {
                   ))}
                 </ul>
                 <Link
-                  href="/new-patient-center/online-forms"
+                  href="/contact/appointment-request"
                   className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#F97316] transition-colors hover:text-orange-600"
                 >
-                  Download the form
+                  Request an appointment
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"

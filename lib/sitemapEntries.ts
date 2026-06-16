@@ -23,16 +23,13 @@ export const sitemapEntries: SitemapEntry[] = [
   // About
   { path: "/about", priority: 0.9, changefreq: "monthly" },
   { path: "/meet-the-doctor", priority: 0.8, changefreq: "monthly" },
-  { path: "/unique-care", priority: 0.7, changefreq: "monthly" },
   { path: "/testimonials/page", priority: 0.7, changefreq: "monthly" },
 
   // Services
   { path: "/services", priority: 0.9, changefreq: "monthly" },
   { path: "/adjustments-and-manipulation", priority: 0.8, changefreq: "monthly" },
   { path: "/injuries", priority: 0.8, changefreq: "monthly" },
-  { path: "/auto-injury", priority: 0.8, changefreq: "monthly" },
   { path: "/personal-injury", priority: 0.7, changefreq: "monthly" },
-  { path: "/sports-injury", priority: 0.7, changefreq: "monthly" },
   { path: "/cryotherapy", priority: 0.7, changefreq: "monthly" },
   { path: "/ice-pack-cryotherapy", priority: 0.6, changefreq: "monthly" },
   { path: "/cold-laser-therapy", priority: 0.7, changefreq: "monthly" },
@@ -46,17 +43,16 @@ export const sitemapEntries: SitemapEntry[] = [
 
   // New patient center
   { path: "/new-patient-center", priority: 0.8, changefreq: "monthly" },
-  { path: "/new-patient-center/online-forms", priority: 0.7, changefreq: "monthly" },
   { path: "/new-patient-center/what-to-expect", priority: 0.7, changefreq: "monthly" },
 
   // Resources
   { path: "/resources", priority: 0.7, changefreq: "monthly" },
   { path: "/resources/about-chiropractic", priority: 0.6, changefreq: "monthly" },
-  { path: "/resources/3d-spine-simulator", priority: 0.6, changefreq: "monthly" },
-  { path: "/resources/health-resources", priority: 0.5, changefreq: "monthly" },
-  { path: "/resources/links", priority: 0.4, changefreq: "yearly" },
   { path: "/resources/qa", priority: 0.6, changefreq: "monthly" },
   { path: "/resources/wellness-tips", priority: 0.6, changefreq: "monthly" },
+
+  // Blog
+  { path: "/blog", priority: 0.8, changefreq: "weekly" },
 
   // Contact
   { path: "/contact", priority: 0.9, changefreq: "monthly" },
@@ -98,7 +94,6 @@ export const sitemapSections: SitemapSection[] = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Meet the Doctor", href: "/meet-the-doctor" },
-      { label: "Unique Care", href: "/unique-care" },
       { label: "Testimonials", href: "/testimonials/page" },
     ],
   },
@@ -109,9 +104,7 @@ export const sitemapSections: SitemapSection[] = [
       { label: "Services Overview", href: "/services" },
       { label: "Adjustments & Manipulation", href: "/adjustments-and-manipulation" },
       { label: "Injuries", href: "/injuries" },
-      { label: "Auto Injury", href: "/auto-injury" },
       { label: "Personal Injury", href: "/personal-injury" },
-      { label: "Sports Injury", href: "/sports-injury" },
       { label: "Cryotherapy", href: "/cryotherapy" },
       { label: "Ice Pack Cryotherapy", href: "/ice-pack-cryotherapy" },
       { label: "Cold Laser Therapy", href: "/cold-laser-therapy" },
@@ -129,7 +122,6 @@ export const sitemapSections: SitemapSection[] = [
     description: "Everything you need before your first visit.",
     links: [
       { label: "New Patient Center", href: "/new-patient-center" },
-      { label: "Online Forms", href: "/new-patient-center/online-forms" },
       { label: "What to Expect", href: "/new-patient-center/what-to-expect" },
     ],
   },
@@ -139,11 +131,15 @@ export const sitemapSections: SitemapSection[] = [
     links: [
       { label: "Resources Overview", href: "/resources" },
       { label: "About Chiropractic", href: "/resources/about-chiropractic" },
-      { label: "3D Spine Simulator", href: "/resources/3d-spine-simulator" },
-      { label: "Health Resources", href: "/resources/health-resources" },
       { label: "Wellness Tips", href: "/resources/wellness-tips" },
       { label: "Q & A", href: "/resources/qa" },
-      { label: "Useful Links", href: "/resources/links" },
+    ],
+  },
+  {
+    title: "Blog",
+    description: "Articles on chiropractic care, recovery, and spinal health.",
+    links: [
+      { label: "All Blog Posts", href: "/blog" },
     ],
   },
   {

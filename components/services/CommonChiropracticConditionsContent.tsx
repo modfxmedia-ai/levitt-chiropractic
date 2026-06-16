@@ -142,12 +142,12 @@ const conditions: Condition[] = [
     id: "whiplash",
     title: "Whiplash",
     blurb:
-      "Soft-tissue damage and structural injury from car collisions — schedule before relying on meds or surgery.",
+      "Soft-tissue damage and structural injury from sudden-impact trauma — schedule before relying on meds or surgery.",
     paragraphs: [
-      "Whiplash is a common injury for people involved in car collisions. When a car is struck from behind or collides with another object, it causes the neck to snap back and forth violently. This causes the muscles and ligaments to overextend, leading to strains and/or tears — referred to as soft tissue damage.",
+      "Whiplash is a common injury caused by a sudden, forceful back-and-forth motion of the neck. The rapid movement causes the muscles and ligaments to overextend, leading to strains and/or tears — referred to as soft tissue damage.",
       "Whiplash can also cause structural damage such as misaligned vertebrae, herniated, bulging or ruptured discs, or nerve damage due to the overextension from the violent movement.",
-      "Chiropractic can help with both types of injuries. Adjustments and alignments can be performed specifically for those who have been in car accidents and suffered from whiplash. The pressure on the discs and nerves is released when the spine is returned to its proper alignment. Chiropractic massage can be used to help relieve the pain and discomfort from soft tissue injuries.",
-      "If you have been in a car accident, schedule an appointment with us before relying on pain medications and surgery.",
+      "Chiropractic can help with both types of injuries. Adjustments and alignments can be performed for those experiencing whiplash symptoms. The pressure on the discs and nerves is released when the spine is returned to its proper alignment. Chiropractic massage can be used to help relieve the pain and discomfort from soft tissue injuries.",
+      "If you have whiplash symptoms, schedule an appointment with us before relying on pain medications and surgery.",
     ],
   },
 ];
@@ -260,7 +260,7 @@ export default function CommonChiropracticConditionsContent() {
     <>
       <ServiceHero
         title="Common Chiropractic Conditions"
-        subtitle="From headaches and pinched nerves to sciatica and whiplash — conditions Dr. Levitt treats every week."
+        subtitle="From headaches and pinched nerves to sciatica and joint pain — conditions Dr. Levitt treats every week."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },

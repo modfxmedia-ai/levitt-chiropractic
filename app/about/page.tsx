@@ -6,7 +6,7 @@ export const metadata: Metadata = generateMeta({
   title:
     "About Levitt Chiropractic Center in Saint Louis Park, MN | Dr. Alan Levitt",
   description:
-    "About Levitt Chiropractic Center in Saint Louis Park, MN — practice policies, payment options, and conditions Dr. Levitt treats including auto injuries, sports injuries, subluxations and headaches. Call 952-920-7535.",
+    "About Levitt Chiropractic Center in Saint Louis Park, MN — practice policies, payment options, and conditions Dr. Levitt treats including personal injuries, subluxations and headaches. Call 952-920-7535.",
   slug: "about",
 });
 

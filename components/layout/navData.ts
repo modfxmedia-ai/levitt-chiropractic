@@ -22,7 +22,6 @@ export const primaryNav: NavEntry[] = [
     href: "/about",
     groups: [
       { label: "Meet the Doctor", href: "/meet-the-doctor" },
-      { label: "Unique Care", href: "/unique-care" },
       { label: "Testimonials", href: "/testimonials/page" },
     ],
   },
@@ -38,9 +37,7 @@ export const primaryNav: NavEntry[] = [
         label: "Injuries",
         href: "/injuries",
         items: [
-          { label: "Auto Injury", href: "/auto-injury" },
           { label: "Personal Injury", href: "/personal-injury" },
-          { label: "Sports Injury", href: "/sports-injury" },
         ],
       },
       {
@@ -75,7 +72,6 @@ export const primaryNav: NavEntry[] = [
     label: "New Patient Center",
     href: "/new-patient-center",
     groups: [
-      { label: "Online Forms", href: "/new-patient-center/online-forms" },
       { label: "What to Expect", href: "/new-patient-center/what-to-expect" },
     ],
   },
@@ -84,11 +80,9 @@ export const primaryNav: NavEntry[] = [
     href: "/resources",
     groups: [
       { label: "About Chiropractic", href: "/resources/about-chiropractic" },
-      { label: "3D Spine Simulator", href: "/resources/3d-spine-simulator" },
-      { label: "Health Resources", href: "/resources/health-resources" },
-      { label: "Links", href: "/resources/links" },
       { label: "Q & A", href: "/resources/qa" },
       { label: "Wellness Tips", href: "/resources/wellness-tips" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {

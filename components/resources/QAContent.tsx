@@ -32,7 +32,7 @@ const faqs: FAQ[] = [
   {
     q: "What is subluxation?",
     a: [
-      "When a vertebra becomes misaligned or moves out of its normal position, this is referred to in the chiropractic profession as a subluxation. Subluxations can be caused by a wide range of issues — from a minor slip or bump to a car accident or any sudden trauma.",
+      "When a vertebra becomes misaligned or moves out of its normal position, this is referred to in the chiropractic profession as a subluxation. Subluxations can be caused by a wide range of issues — from a minor slip or bump to any sudden trauma.",
       "When a vertebra is subluxated, it begins to put pressure on nerves, blood vessels, and everything around it. This pressure comes with a price: the subluxation interrupts the natural pathways that messages from the brain need to be clear in order to be completed properly.",
     ],
   },
@@ -47,7 +47,7 @@ const faqs: FAQ[] = [
   {
     q: "What is a chiropractic adjustment? Is it safe?",
     a: [
-      "Adjustments, or manipulation as they&rsquo;re sometimes referred to, is the minor movement of vertebrae in the spine. The objective of this movement is to realign vertebrae that have moved out of place for a number of reasons — from normal daily activity to trauma such as a car accident.",
+      "Adjustments, or manipulation as they&rsquo;re sometimes referred to, is the minor movement of vertebrae in the spine. The objective of this movement is to realign vertebrae that have moved out of place for a number of reasons — from normal daily activity to sudden trauma.",
       "When these vertebrae are out of place, it has an overall systemic effect from muscular to the central nervous system. Without proper alignment and flow of all nerves and systems in the body from the brain, we can&rsquo;t function at our peak.",
       "An adjustment is often pressure from the chiropractor utilizing the hands or an instrument to move a vertebra back into place. This happens with a quick movement and is often without discomfort. You may hear a noise that sounds like cracking your knuckles — joint cavitation — which is the release of gases such as oxygen and nitrogen from the joint.",
     ],
@@ -64,7 +64,7 @@ const faqs: FAQ[] = [
     a: [
       "Chiropractic is based on the idea of removing imbalances both structural and postural in an effort to allow our body to heal itself. For this to happen, the network of nerves and signals from your brain — down your spinal cord, to the network of nerves — must be allowed to flow freely without any interruption.",
       "Chiropractors have the ability and skill to remove these interruptions or misalignments and allow the body to perform as it was meant to.",
-      "If you&rsquo;ve ever been in a car accident, played a sport, fell down, or just bumped into something too hard, it&rsquo;s very possible that you are not functioning at your best due to a misalignment. While there are many potential mechanical or structural causes for misalignment, there are also chemical reasons — smoking, drinking excessively, or even just a poor diet can cause underlying conditions and disease to appear.",
+      "If you&rsquo;ve ever experienced a fall, repetitive strain, or just bumped into something too hard, it&rsquo;s very possible that you are not functioning at your best due to a misalignment. While there are many potential mechanical or structural causes for misalignment, there are also chemical reasons — smoking, drinking excessively, or even just a poor diet can cause underlying conditions and disease to appear.",
       "Allowing a chiropractor to get you back on track both chemically and structurally will bring your body back to the proper state it should be in to perform at its peak.",
     ],
   },

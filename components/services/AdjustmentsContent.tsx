@@ -240,8 +240,8 @@ export default function AdjustmentsContent() {
                   Chiropractic care utilizes noninvasive treatments that are
                   custom designed to meet the unique needs of each patient.
                   Levitt Chiropractic Center in Saint Louis Park, MN
-                  specializes in treating automobile injuries, sports injuries,
-                  personal injuries, subluxations, and headaches.
+                  specializes in treating personal injuries, subluxations,
+                  and headaches.
                 </p>
                 <p>
                   Dr. Levitt believes that the nervous system plays a critical

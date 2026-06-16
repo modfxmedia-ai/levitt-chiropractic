@@ -119,26 +119,141 @@ export function serviceJsonLd(input: {
     name: input.name,
     description: input.description,
     url,
-    serviceType: input.serviceType ?? input.name,
-    provider: {
-      "@type": "Chiropractor",
-      "@id": `${siteConfig.url}/#chiropractor`,
-      name: siteConfig.name,
-      url: siteConfig.url,
-      telephone: siteConfig.phone,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: siteConfig.address.street,
-        addressLocality: siteConfig.address.city,
-        addressRegion: siteConfig.address.state,
-        postalCode: siteConfig.address.zip,
-        addressCountry: "US",
-      },
-    },
     areaServed: [
       { "@type": "City", name: "Saint Louis Park" },
       { "@type": "City", name: "Minneapolis" },
       { "@type": "AdministrativeArea", name: "Minnesota" },
     ],
+  };
+}
+
+export function blogPostingJsonLd(input: {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  publishedAt: string;
+  updatedAt?: string;
+  authorName: string;
+  authorUrl?: string;
+  keywords?: string[];
+  articleSection?: string;
+  wordCount?: number;
+}) {
+  const url = `${siteConfig.url}/blog/${input.slug.replace(/^\/+/, "")}`;
+  const image = input.image.startsWith("http")
+    ? input.image
+    : `${siteConfig.url}${input.image.startsWith("/") ? input.image : `/${input.image}`}`;
+  const authorUrl = input.authorUrl
+    ? input.authorUrl.startsWith("http")
+      ? input.authorUrl
+      : `${siteConfig.url}${input.authorUrl.startsWith("/") ? input.authorUrl : `/${input.authorUrl}`}`
+    : undefined;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    headline: input.title,
+    description: input.description,
+    image: [image],
+    datePublished: input.publishedAt,
+    dateModified: input.updatedAt ?? input.publishedAt,
+    inLanguage: "en-US",
+    url,
+    author: {
+      "@type": "Person",
+      name: input.authorName,
+      ...(authorUrl ? { url: authorUrl } : {}),
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#chiropractor`,
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/images/og-default.jpg`,
+      },
+    },
+    ...(input.articleSection ? { articleSection: input.articleSection } : {}),
+    ...(input.keywords && input.keywords.length > 0
+      ? { keywords: input.keywords.join(", ") }
+      : {}),
+    ...(input.wordCount ? { wordCount: input.wordCount } : {}),
+  };
+}
+
+export function blogIndexJsonLd(input: {
+  posts: Array<{
+    slug: string;
+    title: string;
+    description: string;
+    publishedAt: string;
+    updatedAt?: string;
+    authorName: string;
+    image: string;
+  }>;
+}) {
+  const url = `${siteConfig.url}/blog`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${url}#blog`,
+    url,
+    name: `${siteConfig.name} Blog`,
+    description:
+      "Articles on chiropractic care, recovery, and spinal health from Dr. Alan Levitt.",
+    publisher: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#chiropractor`,
+      name: siteConfig.name,
+    },
+    blogPost: input.posts.map((p) => {
+      const postUrl = `${siteConfig.url}/blog/${p.slug}`;
+      const image = p.image.startsWith("http")
+        ? p.image
+        : `${siteConfig.url}${p.image.startsWith("/") ? p.image : `/${p.image}`}`;
+      return {
+        "@type": "BlogPosting",
+        "@id": `${postUrl}#article`,
+        headline: p.title,
+        description: p.description,
+        url: postUrl,
+        datePublished: p.publishedAt,
+        dateModified: p.updatedAt ?? p.publishedAt,
+        image,
+        author: { "@type": "Person", name: p.authorName },
+      };
+    }),
+  };
+}
+
+export function faqPageJsonLd(input: { faqs: Array<{ q: string; a: string }> }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: input.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export function breadcrumbJsonLd(input: {
+  items: Array<{ name: string; url: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: input.items.map((item, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: item.name,
+      item: item.url.startsWith("http")
+        ? item.url
+        : `${siteConfig.url}${item.url.startsWith("/") ? item.url : `/${item.url}`}`,
+    })),
   };
 }

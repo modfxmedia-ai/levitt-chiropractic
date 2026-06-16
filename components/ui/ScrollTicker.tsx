@@ -3,10 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 const DEFAULT_ITEMS = [
-  "✓ Expert Chiropractic Care",
+  "✓ Personalized Chiropractic Care",
   "✓ Serving Saint Louis Park Since 1985",
   "✓ Accepting New Patients",
-  "✓ Auto & Sports Injury Specialists",
   "✓ Cold Laser Therapy",
   "✓ Functional Medicine",
 ];

@@ -67,7 +67,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
               {" "}
               {city.name} families near {city.landmark} and the surrounding{" "}
               {neighborsPhrase(city)} neighborhoods. Whether you're managing
-              chronic back pain, recovering from a car accident, or chasing
+              chronic back pain, recovering from a recent injury, or chasing
               better performance for an active lifestyle, our care is built
               around you, not a template.
             </p>

@@ -10,32 +10,10 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 
 const services = [
   {
-    title: "Auto Injuries",
-    href: "/auto-injury",
-    eyebrow: "After a Collision",
-    body: "Specialized care for whiplash, neck and back pain, and soft- and hard-tissue damage from auto accidents.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-7 w-7"
-        aria-hidden
-      >
-        <path d="M5 17h14l-1.5-5a2 2 0 00-1.9-1.4H8.4A2 2 0 006.5 12L5 17z" />
-        <circle cx="7.5" cy="17.5" r="1.5" />
-        <circle cx="16.5" cy="17.5" r="1.5" />
-      </svg>
-    ),
-  },
-  {
     title: "Personal Injury",
     href: "/personal-injury",
     eyebrow: "Any Accident or Mishap",
-    body: "Uncover and treat the underlying issues that come from accidents — automobile, bike, construction, OSHA, malpractice and more.",
+    body: "Uncover and treat the underlying issues that come from accidents — bike, construction, OSHA, malpractice and more.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -49,26 +27,6 @@ const services = [
       >
         <path d="M12 2L4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z" />
         <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Sports Injury",
-    href: "/sports-injury",
-    eyebrow: "Athletes & Weekend Warriors",
-    body: "Whole-body, integrated care that helps muscles, tendons and ligaments return to normal function and keeps you in the game.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-7 w-7"
-        aria-hidden
-      >
-        <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
       </svg>
     ),
   },
@@ -171,7 +129,7 @@ export default function InjuriesContent() {
               hidden: {},
               show: { transition: { staggerChildren: 0.12 } },
             }}
-            className="mt-8 sm:mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8"
+            className="mt-8 sm:mt-14 grid gap-6 lg:grid-cols-1 lg:gap-8 max-w-xl mx-auto"
           >
             {services.map((s, i) => (
               <motion.div

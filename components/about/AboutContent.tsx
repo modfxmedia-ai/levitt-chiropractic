@@ -69,8 +69,6 @@ const policies = [
 ];
 
 const services = [
-  "Auto Injuries",
-  "Sports Injuries",
   "Personal Injuries",
   "Subluxations",
   "Headaches",

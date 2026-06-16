@@ -14,9 +14,14 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/jsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
-const HERO_IMAGE = "/images/adjustment-1.jpg";
+const HERO_IMAGES = [
+  "/images/adjustment-1.jpg",
+  "/images/pain-relief.jpg",
+  "/images/therapeutic-exercise.jpg",
+  "/images/chronic-lower-back-pain.jpg",
+  "/images/3d-spine-simulator.jpg",
+];
 const WELCOME_IMAGE = "/images/dr-alan-g-levitt-dc.png";
-const SPINE_IMAGE = "/images/3d-spine-simulator.jpg";
 
 const quickLinks = [
   {
@@ -25,14 +30,9 @@ const quickLinks = [
     image: "/images/pain-relief.jpg",
   },
   {
-    title: "Auto Injury",
-    href: "/auto-injury",
-    image: "/images/auto-injury.jpg",
-  },
-  {
-    title: "Sports Injury",
-    href: "/sports-injury",
-    image: "/images/sports-injuries.jpg",
+    title: "Adjustments & Manipulation",
+    href: "/adjustments-and-manipulation",
+    image: "/images/adjustment-1.jpg",
   },
   {
     title: "Therapeutic Exercise",
@@ -40,9 +40,9 @@ const quickLinks = [
     image: "/images/therapeutic-exercise.jpg",
   },
   {
-    title: "3D Spine Simulator",
-    href: "/resources/3d-spine-simulator",
-    image: "/images/3d-spine-simulator.jpg",
+    title: "Insights & Articles",
+    href: "/blog",
+    image: "/images/og-default.jpg",
   },
   {
     title: "Contact Us",
@@ -153,7 +153,7 @@ const testimonials = [
   },
   {
     quote:
-      "I’ve seen Dr. Levitt multiple times since I was in a serious car accident. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit.",
+      "I’ve seen Dr. Levitt many times over the years. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit.",
     author: "Barb W.",
     location: "Patient",
   },
@@ -186,13 +186,6 @@ export default function HomeContent() {
   const welcomeImageY = useTransform(welcomeProgress, [0, 1], ["10%", "-10%"]);
   const welcomeImageRotate = useTransform(welcomeProgress, [0, 1], [-3, 3]);
 
-  const spineRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: spineProgress } = useScroll({
-    target: spineRef,
-    offset: ["start end", "end start"],
-  });
-  const spineY = useTransform(spineProgress, [0, 1], ["15%", "-15%"]);
-
   return (
     <>
       <JsonLd id="ld-localbusiness" data={localBusinessJsonLd()} />
@@ -206,16 +199,15 @@ export default function HomeContent() {
         ctaHref="/contact/appointment-request"
         secondaryCtaText="Meet Dr. Levitt"
         secondaryCtaHref="/meet-the-doctor"
-        backgroundImage={HERO_IMAGE}
+        backgroundImages={HERO_IMAGES}
       />
 
       {/* SECTION 2 — TICKER */}
       <ScrollTicker
         items={[
-          "✓ Expert Chiropractic Care",
+          "✓ Personalized Chiropractic Care",
           "✓ Accepting New Patients",
           "✓ Serving Saint Louis Park Since 1999",
-          "✓ Auto & Sports Injury Specialists",
           "✓ Cold Laser Therapy",
           "✓ Functional Medicine",
           "✓ 35+ Years Experience",
@@ -597,89 +589,6 @@ export default function HomeContent() {
               />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 — 3D SPINE SIMULATOR */}
-      <section
-        ref={spineRef}
-        className="relative overflow-hidden bg-navy py-14 text-white sm:py-24 md:py-32"
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-32 top-0 h-[36rem] w-[36rem] rounded-full bg-primary/15 blur-[140px]"
-        />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" />
-              Interactive Tool
-            </p>
-            <h2 className="mt-4 font-heading text-3xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
-              Explore the{" "}
-              <span className="text-primary">3D Spine Simulator</span>
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-white/80 sm:text-lg">
-              Every function of the body is coordinated by the nervous system.
-              Stresses anywhere along your spine can ripple into how you feel,
-              move, and recover. Take a moment to explore which areas of the
-              body are influenced by each region of your spine.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button
-                href="/resources/3d-spine-simulator"
-                variant="primary"
-                size="lg"
-              >
-                Launch Simulator
-              </Button>
-              <Button
-                href="/services/spinal-manipulation-adjustment"
-                variant="outline"
-                size="lg"
-              >
-                Learn About Adjustments
-              </Button>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="relative mx-auto w-full max-w-md"
-          >
-            <motion.div
-              style={{ y: spineY }}
-              className="relative aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl shadow-black/50"
-            >
-              <Image
-                src={SPINE_IMAGE}
-                alt="3D Spine Simulator"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent"
-              />
-            </motion.div>
-
-            {/* Animated dotted ring */}
-            <motion.div
-              aria-hidden
-              animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="pointer-events-none absolute -inset-6 rounded-full border border-dashed border-primary/40"
-            />
-          </motion.div>
         </div>
       </section>
 

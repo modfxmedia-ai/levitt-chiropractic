@@ -6,7 +6,7 @@ export const metadata: Metadata = generateMeta({
   title:
     "Chiropractor in Saint Louis Park, MN | Levitt Chiropractic Center, P.A.",
   description:
-    "Dr. Alan Levitt offers superior chiropractic care in Saint Louis Park, MN. Specializing in back pain, auto injuries, sports injuries, cold laser therapy, and functional medicine. Call 952-920-7535.",
+    "Dr. Alan Levitt offers personalized chiropractic care in Saint Louis Park, MN. Specializing in back pain, personal injuries, cold laser therapy, and functional medicine. Call 952-920-7535.",
   slug: "",
 });
 

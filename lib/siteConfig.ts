@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Levitt Chiropractic",
   tagline: "Your Spine Health Specialists",
   description:
-    "Levitt Chiropractic Center, P.A. — Your Spine Health Specialists in Saint Louis Park, MN. Expert chiropractic care including spinal manipulation, cold laser therapy, cryotherapy, custom orthotics, and personalized injury recovery.",
+    "Levitt Chiropractic Center, P.A. — Your Spine Health Specialists in Saint Louis Park, MN. Personalized chiropractic care including spinal manipulation, cold laser therapy, cryotherapy, custom orthotics, and individualized injury recovery.",
   url: "https://levittchiro.com",
   locale: "en_US",
   phone: "952-920-7535",
@@ -39,7 +39,6 @@ export const siteConfig = {
       href: "/about",
       children: [
         { label: "Meet the Doctor", href: "/meet-the-doctor" },
-        { label: "Unique Care", href: "/unique-care" },
         { label: "Testimonials", href: "/testimonials/page" },
       ],
     },
@@ -65,7 +64,6 @@ export const siteConfig = {
       label: "New Patient Center",
       href: "/new-patient-center",
       children: [
-        { label: "Online Forms", href: "/new-patient-center/online-forms" },
         { label: "What to Expect", href: "/new-patient-center/what-to-expect" },
       ],
     },
@@ -74,11 +72,9 @@ export const siteConfig = {
       href: "/resources",
       children: [
         { label: "About Chiropractic", href: "/resources/about-chiropractic" },
-        { label: "3D Spine Simulator", href: "/resources/3d-spine-simulator" },
-        { label: "Health Resources", href: "/resources/health-resources" },
-        { label: "Links", href: "/resources/links" },
         { label: "Q&A", href: "/resources/qa" },
         { label: "Wellness Tips", href: "/resources/wellness-tips" },
+        { label: "Blog", href: "/blog" },
       ],
     },
     {

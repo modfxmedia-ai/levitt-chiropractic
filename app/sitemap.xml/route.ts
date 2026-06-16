@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import { sitemapEntries, type SitemapEntry } from "@/lib/sitemapEntries";
 import { servedCities } from "@/lib/areasData";
 import { pseoServices } from "@/lib/pseoServices";
+import { getAllPosts } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -26,7 +27,14 @@ export async function GET() {
     ),
   ];
 
-  const allEntries = [...sitemapEntries, ...pseoEntries];
+  // Blog post URLs
+  const blogEntries: SitemapEntry[] = getAllPosts().map<SitemapEntry>((p) => ({
+    path: `/blog/${p.slug}`,
+    priority: 0.7,
+    changefreq: "monthly",
+  }));
+
+  const allEntries = [...sitemapEntries, ...pseoEntries, ...blogEntries];
 
   const urls = allEntries
     .map((e) => {

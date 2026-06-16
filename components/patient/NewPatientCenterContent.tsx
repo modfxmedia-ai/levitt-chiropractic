@@ -18,28 +18,6 @@ type Card = {
 
 const cards: Card[] = [
   {
-    title: "Online Forms",
-    description:
-      "Save time at your first visit — download and print your new-patient intake form before you arrive.",
-    href: "/new-patient-center/online-forms",
-    cta: "Download Form",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-        aria-hidden
-      >
-        <path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z" />
-        <path d="M14 3v6h6M8 13h8M8 17h5" />
-      </svg>
-    ),
-  },
-  {
     title: "What to Expect",
     description:
       "A friendly walkthrough of your first appointment — paperwork, exam, goals, and your personalized care plan.",
@@ -61,18 +39,40 @@ const cards: Card[] = [
       </svg>
     ),
   },
+  {
+    title: "Request an Appointment",
+    description:
+      "Reach out and our team will follow up to confirm a time. New patients are welcome — call us with any questions.",
+    href: "/contact/appointment-request",
+    cta: "Request a Visit",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-6 w-6"
+        aria-hidden
+      >
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M3 9h18M8 3v4M16 3v4" />
+      </svg>
+    ),
+  },
 ];
 
 const steps = [
   {
     n: "01",
-    title: "Download your form",
-    body: "Print and fill out the new-patient form before your visit (or arrive 15 minutes early).",
+    title: "Reach out",
+    body: "Call us or request an appointment online — we&rsquo;ll confirm a time that works for you.",
   },
   {
     n: "02",
     title: "Bring the essentials",
-    body: "Photo ID, insurance card (if applicable), and comfortable clothing you can move in.",
+    body: "Photo ID and comfortable clothing you can move in. Plan to arrive 10–15 minutes early.",
   },
   {
     n: "03",

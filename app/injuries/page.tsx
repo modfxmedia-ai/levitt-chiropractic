@@ -5,9 +5,9 @@ import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
   title:
-    "Injury Chiropractor in Saint Louis Park, MN | Auto, Personal & Sports Injuries | Dr. Alan Levitt",
+    "Injury Chiropractor in Saint Louis Park, MN | Personal Injuries | Dr. Alan Levitt",
   description:
-    "Chiropractic treatment for common injuries in Saint Louis Park, MN — auto injuries, personal injuries, and sports injuries. Learn more about each service from Dr. Alan Levitt. Call 952-920-7535.",
+    "Chiropractic treatment for common injuries in Saint Louis Park, MN — personal injury care from Dr. Alan Levitt. Call 952-920-7535.",
   slug: "injuries",
 });
 
@@ -17,7 +17,7 @@ export default function InjuriesPage() {
       <ServiceSchema
         name="Injury Chiropractic Care"
         slug="injuries"
-        description="Chiropractic treatment for auto, personal and sports injuries in Saint Louis Park, MN by Dr. Alan Levitt."
+        description="Chiropractic treatment for personal injuries in Saint Louis Park, MN by Dr. Alan Levitt."
       />
       <InjuriesContent />
     </>

@@ -107,7 +107,7 @@ const services: Service[] = [
   {
     title: "Injuries",
     description:
-      "Recovery from auto, personal, and sports injuries — getting you back to full function as quickly as possible.",
+      "Recovery from personal injuries — getting you back to full function as quickly as possible.",
     href: "/injuries",
     group: "Conditions",
     icon: (

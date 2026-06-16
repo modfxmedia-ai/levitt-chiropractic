@@ -40,9 +40,9 @@ const testimonials: Testimonial[] = [
   {
     author: "Barb W.",
     short:
-      "I&rsquo;ve seen Dr. Levitt multiple times since I was in a serious car accident. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit.",
+      "I&rsquo;ve seen Dr. Levitt many times over the years. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit.",
     full:
-      "I&rsquo;ve seen Dr. Levitt multiple times since I was in a serious car accident. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit. I am much more rested and relieved of discomfort than prior to beginning treatment. Dr. Levitt and his staff have been very flexible with accommodating my schedule, and I appreciate their professionalism very much.",
+      "I&rsquo;ve seen Dr. Levitt many times over the years. He is able to perceive and treat my issues with a variety of methods in a short amount of time each visit. I am much more rested and relieved of discomfort than prior to beginning treatment. Dr. Levitt and his staff have been very flexible with accommodating my schedule, and I appreciate their professionalism very much.",
   },
   {
     author: "Catherine G.",

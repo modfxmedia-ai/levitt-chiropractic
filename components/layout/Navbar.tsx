@@ -15,6 +15,7 @@ import {
   type NavGroup,
 } from "./navData";
 import { MobileMenu } from "./MobileMenu";
+import { HeaderHours } from "./HeaderHours";
 
 const LOGO_SRC = "/images/logo.png";
 
@@ -326,7 +327,11 @@ export function Navbar() {
       {/* Top utility bar (lg+) */}
       <div className="hidden border-b border-white/5 bg-dark/80 text-white/70 lg:block">
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-6 px-6 text-[11px] font-medium uppercase tracking-[0.16em]">
-          <span>Saint Louis Park, MN · Mon–Fri</span>
+          <div className="flex items-center gap-5">
+            <span>Saint Louis Park, MN</span>
+            <span className="h-3 w-px bg-white/15" aria-hidden />
+            <HeaderHours variant="topbar" />
+          </div>
           <div className="flex items-center gap-5">
             <a
               href={siteConfig.phoneHref}
@@ -343,6 +348,13 @@ export function Navbar() {
               6200 Excelsior Blvd
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile/tablet hours strip (below lg) */}
+      <div className="border-b border-white/5 bg-dark/85 text-white/70 lg:hidden">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-center px-4 text-[11px] font-medium uppercase tracking-[0.16em]">
+          <HeaderHours variant="mobile" />
         </div>
       </div>
 
