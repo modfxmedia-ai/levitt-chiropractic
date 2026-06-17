@@ -34,13 +34,6 @@ export const primaryNav: NavEntry[] = [
         href: "/adjustments-and-manipulation",
       },
       {
-        label: "Injuries",
-        href: "/injuries",
-        items: [
-          { label: "Personal Injury", href: "/personal-injury" },
-        ],
-      },
-      {
         label: "Cryotherapy",
         href: "/cryotherapy",
         items: [
