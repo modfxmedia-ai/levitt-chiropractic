@@ -80,7 +80,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
               {" "}
               {neighborsPhrase(city)}. Dr. Alan Levitt has been delivering{" "}
               {service.inlineNoun} to families across the {city.region.toLowerCase()}{" "}
-              for more than 35 years. If you live or work in {city.name},
+              since 1987. If you live or work in {city.name},
               you'll find an evidence-informed, drug-free approach designed
               around your specific case — not a one-size-fits-all protocol.
             </p>

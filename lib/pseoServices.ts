@@ -246,7 +246,7 @@ export const pseoServices: PseoService[] = [
       "Natural, drug-free therapies — chiropractic, nutrition and lifestyle care led by Dr. Alan Levitt.",
     benefits: [
       "Natural, drug-free therapies",
-      "Backed by 35+ years of clinical experience",
+      "Backed by 39 years of clinical experience",
       "Complementary to conventional care",
       "Whole-person, individualized approach",
     ],

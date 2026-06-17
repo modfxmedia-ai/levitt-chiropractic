@@ -273,7 +273,7 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: "35+", label: "Years in Practice" },
+  { value: "39", label: "Years in Practice" },
   { value: "11", label: "Specialized Services" },
   { value: "1999", label: "Saint Louis Park" },
 ];

@@ -88,7 +88,7 @@ export default function AboutContent() {
     <>
       <ServiceHero
         title="About Us"
-        subtitle="A welcoming chiropractic practice serving Saint Louis Park and the greater Twin Cities for 35+ years."
+        subtitle="A welcoming chiropractic practice serving Saint Louis Park and the greater Twin Cities since 1987."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "About Us" },

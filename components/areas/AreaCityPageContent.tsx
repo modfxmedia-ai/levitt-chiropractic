@@ -63,7 +63,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
             />
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               {distanceCopy} Dr. Alan Levitt has cared for patients across the{" "}
-              {city.region.toLowerCase()} for more than 35 years — including
+              {city.region.toLowerCase()} since 1987 — including
               {" "}
               {city.name} families near {city.landmark} and the surrounding{" "}
               {neighborsPhrase(city)} neighborhoods. Whether you're managing

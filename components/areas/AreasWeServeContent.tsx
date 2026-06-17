@@ -110,7 +110,7 @@ export default function AreasWeServeContent() {
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               Levitt Chiropractic Center has cared for patients across Hennepin,
               Ramsey, Anoka, Carver, Dakota, Scott, Washington and surrounding
-              counties for more than 35 years. From our office in
+              counties since 1987. From our office in
               {" "}
               {siteConfig.address.city}, we welcome patients from every corner
               of the Twin Cities metro.

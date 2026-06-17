@@ -8,7 +8,7 @@ import { CtaCard } from "@/components/services/CtaCard";
 import { LocationStrip } from "@/components/services/LocationStrip";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
-const techniques = ["Acupuncture", "Chiropractic Care", "Naturopathy"];
+const techniques = ["Acupuncture", "Chiropractic Care", "Functional Medicine"];
 
 const conditions = [
   "Back pain",

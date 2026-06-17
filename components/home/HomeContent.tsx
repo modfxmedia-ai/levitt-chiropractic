@@ -72,9 +72,9 @@ const valueProps = [
     ),
   },
   {
-    title: "35+ Years Experience",
+    title: "39 Years Experience",
     description:
-      "Decades of training as a chiropractor and naturopathic doctor — for cases simple to complex.",
+      "Decades of training as a chiropractor — for cases simple to complex.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <circle cx="12" cy="12" r="9" />
@@ -210,7 +210,7 @@ export default function HomeContent() {
           "✓ Serving Saint Louis Park Since 1999",
           "✓ Cold Laser Therapy",
           "✓ Functional Medicine",
-          "✓ 35+ Years Experience",
+          "✓ 39 Years Experience",
         ]}
       />
 
@@ -226,7 +226,7 @@ export default function HomeContent() {
         />
         <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 sm:gap-8 sm:px-6 sm:grid-cols-4">
           {[
-            { value: 35, suffix: "+", label: "Years of Experience" },
+            { value: 39, suffix: "", label: "Years of Experience" },
             { value: 1999, prefix: "", suffix: "", label: "Serving Since" },
             { value: 6, suffix: "+", label: "Specialty Techniques" },
             { value: 5, suffix: "★", label: "Patient Trusted" },
@@ -291,9 +291,8 @@ export default function HomeContent() {
               </p>
               <p>
                 Dr. Levitt opened his practice doors to the local community in
-                1999. Still, he has been a chiropractor and naturopathic doctor
-                for over 35 years — bringing a wealth of experience and
-                knowledge to every appointment.
+                1999. Still, he has been a chiropractor since 1987 — bringing a
+                wealth of experience and knowledge to every appointment.
               </p>
               <p>
                 Our patient care doesn&rsquo;t only focus on symptoms. Instead,
@@ -374,7 +373,7 @@ export default function HomeContent() {
               }}
               className="absolute -left-6 top-12 hidden rounded-2xl bg-white p-5 shadow-2xl shadow-black/15 ring-1 ring-slate-200/50 sm:block"
             >
-              <p className="font-heading text-3xl font-bold text-dark">35+</p>
+              <p className="font-heading text-3xl font-bold text-dark">39</p>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Years of care
               </p>

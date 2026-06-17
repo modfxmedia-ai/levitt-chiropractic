@@ -303,7 +303,7 @@ export function HeroSection({
             >
               <div>
                 <p className="font-heading text-2xl font-bold text-white sm:text-3xl">
-                  35+
+                  39
                 </p>
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/60">
                   Years experience
@@ -560,7 +560,7 @@ function SpineGraphic({
               Dr. Alan Levitt, D.C.
             </p>
             <p className="truncate text-[10px] uppercase tracking-[0.18em] text-white/60">
-              Saint Louis Park · 35+ yrs
+              Saint Louis Park · Since 1987
             </p>
           </div>
           <svg

@@ -10,7 +10,7 @@ import { LocationStrip } from "@/components/services/LocationStrip";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
 const stats = [
-  { value: "35+", label: "Years in private practice" },
+  { value: "39", label: "Years in private practice" },
   { value: "1986", label: "Graduated Northwestern College of Chiropractic" },
   { value: "1981", label: "Began studies at the University of Minnesota" },
 ];
@@ -102,7 +102,7 @@ export default function MeetTheDoctorContent() {
     <>
       <ServiceHero
         title="Meet Dr. Alan G. Levitt, DC"
-        subtitle="Born and raised in Saint Louis Park — combining 35+ years of training with a comprehensive, nervous-system-first approach to care."
+        subtitle="Born and raised in Saint Louis Park — combining 39 years of training with a comprehensive, nervous-system-first approach to care."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "About Us", href: "/about" },
@@ -186,7 +186,7 @@ export default function MeetTheDoctorContent() {
                 Chiropractic in Bloomington, Minnesota.
               </p>
               <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-                Dr. Levitt has been in private practice for 35+ years in the
+                Dr. Levitt has been in private practice since 1987 in the
                 St. Louis Park area. He still loves going to work daily to
                 help improve the quality of life of his patients and is
                 always looking to help others on their health journey.
@@ -463,7 +463,7 @@ export default function MeetTheDoctorContent() {
               <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
                 One of Dr. Levitt&rsquo;s greatest strengths is his ability
                 to work with difficult cases and patients who have not had
-                satisfactory results with previous treatments. With over 35
+                satisfactory results with previous treatments. With 39
                 years of experience and training, Dr. Levitt has developed
                 a keen understanding of the human body and its intricacies —
                 using that knowledge to identify and treat even the most

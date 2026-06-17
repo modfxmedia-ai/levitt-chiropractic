@@ -178,7 +178,7 @@ export default function TestimonialsContent() {
             className="grid gap-6 sm:grid-cols-3"
           >
             {[
-              { value: "35+", label: "Years in practice" },
+              { value: "39", label: "Years in practice" },
               { value: "5★", label: "Average patient rating" },
               { value: "16", label: "Years of return visits (and counting)" },
             ].map((s) => (
