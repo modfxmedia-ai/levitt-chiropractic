@@ -28,14 +28,14 @@ export default function ContactContent() {
     <>
       <ServiceHero
         title="Contact Us"
-        subtitle="We&rsquo;re always happy to hear from you — call, message, or stop by the office."
+        subtitle="We&rsquo;re always happy to hear from you call, message, or stop by the office."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO + CONTACT FORM */}
+      {/* SECTION 2 WHITE: INTRO + CONTACT FORM */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
@@ -60,7 +60,7 @@ export default function ContactContent() {
                 We encourage you to contact us via phone or email. Fill out
                 the form to send us a message. For directions to the office,
                 click the map below. If you have any questions or comments,
-                please feel free to get in touch — we&rsquo;re always happy
+                please feel free to get in touch we&rsquo;re always happy
                 to hear from you!
               </p>
 
@@ -272,7 +272,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: MAP + DIRECTIONS */}
+      {/* SECTION 3 DARK NAVY: MAP + DIRECTIONS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -333,7 +333,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: APPT CTA */}
+      {/* SECTION 4 WHITE: APPT CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -348,7 +348,7 @@ export default function ContactContent() {
                 Ready to Schedule?
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-                Skip the message — request an appointment
+                Skip the message request an appointment
               </h2>
               <span
                 aria-hidden

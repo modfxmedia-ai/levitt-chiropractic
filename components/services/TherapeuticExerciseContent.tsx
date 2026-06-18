@@ -91,7 +91,7 @@ export default function TherapeuticExerciseContent() {
     <>
       <ServiceHero
         title="Therapeutic Exercise"
-        subtitle="Specific exercises to correct specific problems — built to restore flexibility, strength, and endurance."
+        subtitle="Specific exercises to correct specific problems built to restore flexibility, strength, and endurance."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -99,7 +99,7 @@ export default function TherapeuticExerciseContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -135,7 +135,7 @@ export default function TherapeuticExerciseContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: OBJECTIVES */}
+      {/* SECTION 3 DARK NAVY: OBJECTIVES */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -201,7 +201,7 @@ export default function TherapeuticExerciseContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: 3 CATEGORIES */}
+      {/* SECTION 4 WHITE: 3 CATEGORIES */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -270,14 +270,14 @@ export default function TherapeuticExerciseContent() {
           >
             No matter what type of exercise is prescribed to remedy a
             patient’s specific condition, the final goal of rehabilitation is
-            to acquire a maximum level of physical fitness — without the use
+            to acquire a maximum level of physical fitness without the use
             of more invasive methods. Therapeutic exercise can be performed at
             home, and gives you the power to improve your quality of life.
           </motion.p>
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CTA */}
+      {/* SECTION 5 DARK NAVY: CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden

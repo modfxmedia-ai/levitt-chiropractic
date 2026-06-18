@@ -54,7 +54,7 @@ export function BlogIndexContent({ posts }: BlogIndexContentProps) {
       <PageHero
         eyebrow="Insights"
         title="Chiropractic Insights & Guides"
-        subtitle="Plain-language articles on spinal health, recovery, and how to get the most out of chiropractic care — written by Dr. Alan Levitt."
+        subtitle="Plain-language articles on spinal health, recovery, and how to get the most out of chiropractic care written by Dr. Alan Levitt."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Blog" },
@@ -137,7 +137,7 @@ export function BlogIndexContent({ posts }: BlogIndexContentProps) {
                 Care that meets you where you are.
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80">
-                Articles are a great place to learn — but the best plan is one
+                Articles are a great place to learn but the best plan is one
                 built around your case. Reach out and we&rsquo;ll walk through
                 it with you.
               </p>

@@ -13,7 +13,7 @@ const services = [
     title: "Personal Injury",
     href: "/personal-injury",
     eyebrow: "Any Accident or Mishap",
-    body: "Uncover and treat the underlying issues that come from accidents — bike, construction, OSHA, malpractice and more.",
+    body: "Uncover and treat the underlying issues that come from accidents bike, construction, OSHA, malpractice and more.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export default function InjuriesContent() {
     <>
       <ServiceHero
         title="Injuries"
-        subtitle="A variety of chiropractic services to evaluate and treat common injuries — explore each type of care below."
+        subtitle="A variety of chiropractic services to evaluate and treat common injuries explore each type of care below."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -54,7 +54,7 @@ export default function InjuriesContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -84,13 +84,13 @@ export default function InjuriesContent() {
               >
                 contact us
               </Link>
-              {" "}— we&rsquo;re always happy to hear from you!
+              {" "} we&rsquo;re always happy to hear from you!
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: SERVICE CARDS GRID */}
+      {/* SECTION 3 DARK NAVY: SERVICE CARDS GRID */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -195,7 +195,7 @@ export default function InjuriesContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CONTACT PROMPT + CTA */}
+      {/* SECTION 4 WHITE: CONTACT PROMPT + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -210,7 +210,7 @@ export default function InjuriesContent() {
                 Not Sure Where to Start?
               </p>
               <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-                Tell us what happened — we&rsquo;ll guide you
+                Tell us what happened we&rsquo;ll guide you
               </h2>
               <span
                 aria-hidden

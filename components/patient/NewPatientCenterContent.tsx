@@ -20,7 +20,7 @@ const cards: Card[] = [
   {
     title: "What to Expect",
     description:
-      "A friendly walkthrough of your first appointment — paperwork, exam, goals, and your personalized care plan.",
+      "A friendly walkthrough of your first appointment paperwork, exam, goals, and your personalized care plan.",
     href: "/new-patient-center/what-to-expect",
     cta: "Read the Walkthrough",
     icon: (
@@ -42,7 +42,7 @@ const cards: Card[] = [
   {
     title: "Request an Appointment",
     description:
-      "Reach out and our team will follow up to confirm a time. New patients are welcome — call us with any questions.",
+      "Reach out and our team will follow up to confirm a time. New patients are welcome call us with any questions.",
     href: "/contact/appointment-request",
     cta: "Request a Visit",
     icon: (
@@ -67,7 +67,7 @@ const steps = [
   {
     n: "01",
     title: "Reach out",
-    body: "Call us or request an appointment online — we&rsquo;ll confirm a time that works for you.",
+    body: "Call us or request an appointment online we&rsquo;ll confirm a time that works for you.",
   },
   {
     n: "02",
@@ -95,14 +95,14 @@ export default function NewPatientCenterContent() {
     <>
       <ServiceHero
         title="New Patient Center"
-        subtitle="Everything you need to start care with Dr. Levitt — paperwork, expectations, and a warm welcome."
+        subtitle="Everything you need to start care with Dr. Levitt paperwork, expectations, and a warm welcome."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "New Patient Center" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -122,7 +122,7 @@ export default function NewPatientCenterContent() {
               className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              If chiropractic care is new to you, don&rsquo;t worry — we walk
+              If chiropractic care is new to you, don&rsquo;t worry we walk
               you through every step. Download your forms in advance, see
               what to expect on your first visit, and call us with any
               questions. We can&rsquo;t wait to meet you.
@@ -131,7 +131,7 @@ export default function NewPatientCenterContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 2 BIG CARDS */}
+      {/* SECTION 3 DARK NAVY: 2 BIG CARDS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -219,7 +219,7 @@ export default function NewPatientCenterContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: 3-STEP CHECKLIST */}
+      {/* SECTION 4 WHITE: 3-STEP CHECKLIST */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -280,7 +280,7 @@ export default function NewPatientCenterContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — WHITE: CTA */}
+      {/* SECTION 5 WHITE: CTA */}
       <section className="relative bg-white pb-20 sm:pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

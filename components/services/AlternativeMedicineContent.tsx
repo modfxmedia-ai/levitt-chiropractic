@@ -23,7 +23,7 @@ const conditions = [
 const benefits = [
   {
     title: "Care for Many Different Issues",
-    body: "Alternative medicine can treat various symptoms and conditions — from back and neck pain to migraines, pinched nerves, herniated discs, digestive issues, and much more.",
+    body: "Alternative medicine can treat various symptoms and conditions from back and neck pain to migraines, pinched nerves, herniated discs, digestive issues, and much more.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ const benefits = [
   },
   {
     title: "It’s Personalized",
-    body: "Care is customized to the individual. Two people experiencing the same issue rarely got there the same way — your plan reflects that.",
+    body: "Care is customized to the individual. Two people experiencing the same issue rarely got there the same way your plan reflects that.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ export default function AlternativeMedicineContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: WHAT IS / WHY VISIT */}
+      {/* SECTION 2 WHITE: WHAT IS / WHY VISIT */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-12">
@@ -175,20 +175,20 @@ export default function AlternativeMedicineContent() {
                 </p>
                 <p className="relative mt-4 text-sm leading-relaxed text-white/80">
                   Standard care tends to focus on relieving your symptoms.
-                  That isn’t the issue — the issue is that the symptoms are
+                  That isn’t the issue the issue is that the symptoms are
                   the main, and usually only, focus. This leaves the root
                   cause free to bring those symptoms back.
                 </p>
                 <p className="relative mt-3 text-sm leading-relaxed text-white/80">
                   The two main methods for treating symptoms are medication
                   and surgery. Sometimes these are necessary, but not as
-                  often as they are prescribed — and they can leave patients
+                  often as they are prescribed and they can leave patients
                   relying on substances or living with the aftereffects of
                   procedures.
                 </p>
                 <p className="relative mt-3 text-sm font-semibold leading-relaxed text-orange-200">
                   Alternative medicine is much different. It focuses on
-                  healing from the root cause — using methods that enable the
+                  healing from the root cause using methods that enable the
                   body to heal itself.
                 </p>
               </div>
@@ -197,7 +197,7 @@ export default function AlternativeMedicineContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: BENEFITS */}
+      {/* SECTION 3 DARK NAVY: BENEFITS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -301,7 +301,7 @@ export default function AlternativeMedicineContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CLOSING + CTA */}
+      {/* SECTION 4 WHITE: CLOSING + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

@@ -17,7 +17,7 @@ const fadeUp = {
 
 type Item = { title: string; body: React.ReactNode };
 
-// SECTION A — How we may use or disclose your health information
+// SECTION A How we may use or disclose your health information
 const useDisclosureItems: Item[] = [
   {
     title: "Treatment",
@@ -52,7 +52,7 @@ const useDisclosureItems: Item[] = [
     body: (
       <>
         We may use and disclose medical information about you to operate this
-        medical practice — to review and improve the quality of care, evaluate
+        medical practice to review and improve the quality of care, evaluate
         the competence of our staff, obtain authorizations from your health
         plan, conduct medical reviews, and perform legal services and audits
         (including fraud detection, compliance programs, and business
@@ -281,7 +281,7 @@ const useDisclosureItems: Item[] = [
   },
 ];
 
-// SECTION C — Your Health Information Rights
+// SECTION C Your Health Information Rights
 const rightsItems: Item[] = [
   {
     title: "Right to Request Special Privacy Protections",
@@ -362,14 +362,14 @@ export default function HipaaPolicyContent() {
     <>
       <ServiceHero
         title="Notice of Privacy Practices"
-        subtitle="HIPAA Notice — describing how medical information about you may be used and disclosed, and how you can access this information."
+        subtitle="HIPAA Notice describing how medical information about you may be used and disclosed, and how you can access this information."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "HIPAA Policy" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO BANNER */}
+      {/* SECTION 2 WHITE: INTRO BANNER */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -431,7 +431,7 @@ export default function HipaaPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — SLATE: SECTION A — Use & Disclosure */}
+      {/* SECTION 3 SLATE: SECTION A Use & Disclosure */}
       <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
@@ -489,7 +489,7 @@ export default function HipaaPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — DARK NAVY: SECTION B */}
+      {/* SECTION 4 DARK NAVY: SECTION B */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -525,7 +525,7 @@ export default function HipaaPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — WHITE: SECTION C — Rights */}
+      {/* SECTION 5 WHITE: SECTION C Rights */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
@@ -593,7 +593,7 @@ export default function HipaaPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — SLATE: SECTIONS D + E */}
+      {/* SECTION 6 SLATE: SECTIONS D + E */}
       <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl space-y-10 px-6">
           <motion.div

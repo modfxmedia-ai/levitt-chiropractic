@@ -152,7 +152,7 @@ export const sitemapSections: SitemapSection[] = [
   },
   {
     title: "Areas We Serve",
-    description: `Drug-free chiropractic care for ${servedCities.length}+ Twin Cities communities — see the full directory below.`,
+    description: `Drug-free chiropractic care for ${servedCities.length}+ Twin Cities communities see the full directory below.`,
     links: [
       { label: "All Areas We Serve", href: "/areas-we-serve" },
     ],

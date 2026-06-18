@@ -176,7 +176,7 @@ export default function TermsOfUseContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -204,7 +204,7 @@ export default function TermsOfUseContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — SLATE: NUMBERED CARDS */}
+      {/* SECTION 3 SLATE: NUMBERED CARDS */}
       <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="space-y-8">
@@ -235,7 +235,7 @@ export default function TermsOfUseContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — DARK NAVY: CONTACT CTA */}
+      {/* SECTION 4 DARK NAVY: CONTACT CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden

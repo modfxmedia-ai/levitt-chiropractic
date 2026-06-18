@@ -24,7 +24,7 @@ const conditions = [
 const advantages = [
   {
     title: "No surgery",
-    body: "Non-invasive — the device sits over the skin without any incision.",
+    body: "Non-invasive the device sits over the skin without any incision.",
   },
   {
     title: "No drugs",
@@ -50,7 +50,7 @@ export default function ColdLaserTherapyContent() {
 
   return (
     <>
-      {/* SECTION 1 — NARROW DARK NAVY HERO (45vh) */}
+      {/* SECTION 1 NARROW DARK NAVY HERO (45vh) */}
       <section
         className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
       >
@@ -115,13 +115,13 @@ export default function ColdLaserTherapyContent() {
             transition={{ duration: 0.6, delay: 0.32 }}
             className="mt-5 max-w-2xl text-base text-white/70 sm:text-lg"
           >
-            Low-level laser therapy for drug-free pain relief — no surgery, no
+            Low-level laser therapy for drug-free pain relief no surgery, no
             medication, just focused light that accelerates healing.
           </motion.p>
         </div>
       </section>
 
-      {/* SECTION 2 — WHITE: SPLIT — visual badge + intro paragraph */}
+      {/* SECTION 2 WHITE: SPLIT visual badge + intro paragraph */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -210,7 +210,7 @@ export default function ColdLaserTherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: CONDITIONS GRID (stagger) */}
+      {/* SECTION 3 DARK NAVY: CONDITIONS GRID (stagger) */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -295,7 +295,7 @@ export default function ColdLaserTherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: HOW IT WORKS + ADVANTAGE CARDS */}
+      {/* SECTION 4 WHITE: HOW IT WORKS + ADVANTAGE CARDS */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
@@ -382,7 +382,7 @@ export default function ColdLaserTherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CLOSING + FLOATING CTA */}
+      {/* SECTION 5 DARK NAVY: CLOSING + FLOATING CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -412,7 +412,7 @@ export default function ColdLaserTherapyContent() {
                 If you’re dealing with stubborn pain, an old injury, or a
                 chronic condition, cold laser therapy may be the next step in
                 your care. Ask Dr. Levitt whether cold laser therapy fits into
-                your treatment plan — call{" "}
+                your treatment plan call{" "}
                 <a
                   href={siteConfig.phoneHref}
                   className="font-semibold text-orange-300 transition-colors hover:text-orange-200"
@@ -480,7 +480,7 @@ export default function ColdLaserTherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — WHITE: LOCATION STRIP */}
+      {/* SECTION 6 WHITE: LOCATION STRIP */}
       <LocationStrip />
     </>
   );

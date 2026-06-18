@@ -20,7 +20,7 @@ const resources: Resource[] = [
   {
     title: "About Chiropractic",
     description:
-      "What chiropractic actually is and how it works — a natural, systemic approach to healing.",
+      "What chiropractic actually is and how it works a natural, systemic approach to healing.",
     href: "/resources/about-chiropractic",
     group: "Learn",
     icon: (
@@ -42,7 +42,7 @@ const resources: Resource[] = [
   {
     title: "Q & A",
     description:
-      "Common questions about adjustments, subluxations, and what to expect — answered in plain language.",
+      "Common questions about adjustments, subluxations, and what to expect answered in plain language.",
     href: "/resources/qa",
     group: "Learn",
     icon: (
@@ -86,7 +86,7 @@ const resources: Resource[] = [
   {
     title: "Spinal Wellness Tips",
     description:
-      "Practical daily habits — posture, lifting, sleep, hydration — that protect your spine for life.",
+      "Practical daily habits posture, lifting, sleep, hydration that protect your spine for life.",
     href: "/resources/wellness-tips",
     group: "Wellness",
     icon: (
@@ -122,14 +122,14 @@ export default function ResourcesHubContent() {
     <>
       <ServiceHero
         title="Resources"
-        subtitle="Learn more about your spine, your health, and your care — articles, tools, and trusted resources."
+        subtitle="Learn more about your spine, your health, and your care articles, tools, and trusted resources."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Resources" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -165,7 +165,7 @@ export default function ResourcesHubContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: GROUPED RESOURCE CARDS */}
+      {/* SECTION 3 DARK NAVY: GROUPED RESOURCE CARDS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -285,7 +285,7 @@ export default function ResourcesHubContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CTA */}
+      {/* SECTION 4 WHITE: CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -321,7 +321,7 @@ export default function ResourcesHubContent() {
                 >
                   send us a message
                 </Link>{" "}
-                — every question gets a real answer.
+ every question gets a real answer.
               </p>
             </motion.div>
 

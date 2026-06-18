@@ -43,7 +43,7 @@ export type BlogPost = {
   readingMinutes: number;
   /** Article body, rendered top-to-bottom. */
   blocks: BlogBlock[];
-  /** Optional FAQs — power FAQPage JSON-LD when present. */
+  /** Optional FAQs power FAQPage JSON-LD when present. */
   faqs?: BlogFaq[];
   /** Optional related-post slugs. If empty, related posts are picked
    *  by category overlap. */

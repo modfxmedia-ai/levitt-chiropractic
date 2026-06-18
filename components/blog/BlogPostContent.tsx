@@ -99,7 +99,7 @@ function renderBlock(block: BlogBlock, index: number) {
           <p>“{block.text}”</p>
           {block.cite && (
             <cite className="mt-3 block text-xs font-semibold uppercase not-italic tracking-[0.22em] text-slate-500">
-              — {block.cite}
+ {block.cite}
             </cite>
           )}
         </blockquote>

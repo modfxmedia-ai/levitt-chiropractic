@@ -8,7 +8,7 @@ import { formatPostDate, type BlogPost } from "@/lib/blog";
 
 type BlogCardProps = {
   post: BlogPost;
-  /** Index in a grid — used for staggered animation delay. */
+  /** Index in a grid used for staggered animation delay. */
   index?: number;
   /** When true, renders a more prominent, wider card (used as the lead post). */
   feature?: boolean;

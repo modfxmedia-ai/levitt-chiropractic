@@ -23,7 +23,7 @@ const reasons = [
   },
   {
     title: "Flexible scheduling",
-    body: "Tell us your preferred days and times — we&rsquo;ll do our best to match.",
+    body: "Tell us your preferred days and times we&rsquo;ll do our best to match.",
   },
   {
     title: "First-visit friendly",
@@ -36,7 +36,7 @@ export default function AppointmentRequestContent() {
     <>
       <ServiceHero
         title="Appointment Request"
-        subtitle="Fill out the form and our staff will be in touch shortly — let&rsquo;s get you on the schedule."
+        subtitle="Fill out the form and our staff will be in touch shortly let&rsquo;s get you on the schedule."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Contact", href: "/contact" },
@@ -44,7 +44,7 @@ export default function AppointmentRequestContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO + FORM */}
+      {/* SECTION 2 WHITE: INTRO + FORM */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
@@ -209,7 +209,7 @@ export default function AppointmentRequestContent() {
                       id="a-message"
                       name="message"
                       rows={5}
-                      placeholder="Brief description — please don&rsquo;t include sensitive health details."
+                      placeholder="Brief description please don&rsquo;t include sensitive health details."
                       className="rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
                     />
                   </div>

@@ -86,7 +86,7 @@ const facts = [
   },
   {
     title: "It Creates Lasting Results",
-    body: "Functional medicine focuses on addressing underlying issues that cause your symptoms. In doing so, it provides a path to optimal healing — benefits you can reap for years, or decades, to come.",
+    body: "Functional medicine focuses on addressing underlying issues that cause your symptoms. In doing so, it provides a path to optimal healing benefits you can reap for years, or decades, to come.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -118,7 +118,7 @@ export default function FunctionalMedicineContent() {
     <>
       <ServiceHero
         title="Functional Medicine"
-        subtitle="From chronic pain to chronic illness — Dr. Alan Levitt provides functional medicine to help you achieve optimal relief."
+        subtitle="From chronic pain to chronic illness Dr. Alan Levitt provides functional medicine to help you achieve optimal relief."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -126,7 +126,7 @@ export default function FunctionalMedicineContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -155,7 +155,7 @@ export default function FunctionalMedicineContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 5 FACTS */}
+      {/* SECTION 3 DARK NAVY: 5 FACTS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -232,7 +232,7 @@ export default function FunctionalMedicineContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CLOSING + CTA */}
+      {/* SECTION 4 WHITE: CLOSING + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

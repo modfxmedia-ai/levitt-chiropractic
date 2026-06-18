@@ -19,9 +19,9 @@ const testimonials: Testimonial[] = [
   {
     author: "Richard B.",
     short:
-      "Dr. Levitt has provided continued excellent care in treating my condition — ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned.",
+      "Dr. Levitt has provided continued excellent care in treating my condition ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned.",
     full:
-      "Dr. Levitt has provided continued excellent care in treating my condition — ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned. His consistent expertise is very much appreciated as is his extensive professional manner. Highly recommended.",
+      "Dr. Levitt has provided continued excellent care in treating my condition ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned. His consistent expertise is very much appreciated as is his extensive professional manner. Highly recommended.",
   },
   {
     author: "Barbara N.",
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
   {
     author: "Sanoma62",
     short:
-      "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt — within a month I was running again, pain free!",
+      "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt within a month I was running again, pain free!",
     full:
       "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt. I had never been to a chiropractor and was a bit skeptical. Within a month I was running again, pain free! I would highly recommend Dr. Levitt. I have now been going to him for 16 years!!! He has helped me with headaches, back and knee pain. I bring my children to him too. Thank you Dr. Levitt!!!!",
   },
@@ -63,7 +63,7 @@ const testimonials: Testimonial[] = [
     short:
       "Dr. Levitt is not the conventional in-and-out chiropractor. He actually listens to what you say and runs tests against your own body to find the root cause of a problem.",
     full:
-      "Dr. Levitt is not the conventional in-and-out chiropractor. He actually listens to what you say and runs tests against your own body to find the root cause of a problem. It&rsquo;s remarkable, truly, to think how many lives this humble man has changed including mine. I highly recommend Dr. Levitt to anyone looking for a down-to-earth, personable, kind, reliable chiropractor — a hidden gem for sure!",
+      "Dr. Levitt is not the conventional in-and-out chiropractor. He actually listens to what you say and runs tests against your own body to find the root cause of a problem. It&rsquo;s remarkable, truly, to think how many lives this humble man has changed including mine. I highly recommend Dr. Levitt to anyone looking for a down-to-earth, personable, kind, reliable chiropractor a hidden gem for sure!",
   },
 ];
 
@@ -132,7 +132,7 @@ function TestimonialCard({ t, i }: { t: Testimonial; i: number }) {
 
       <div className="mt-5 flex items-center justify-between">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0F172A]">
-          — {t.author}
+ {t.author}
         </p>
         {isLong && (
           <button
@@ -167,7 +167,7 @@ export default function TestimonialsContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: STATS BAR */}
+      {/* SECTION 2 WHITE: STATS BAR */}
       <section className="relative bg-white py-12">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -198,7 +198,7 @@ export default function TestimonialsContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: TESTIMONIAL GRID */}
+      {/* SECTION 3 DARK NAVY: TESTIMONIAL GRID */}
       <section className="relative overflow-hidden bg-[#0F172A] py-12 sm:py-20 md:py-24">
         <div
           aria-hidden
@@ -246,7 +246,7 @@ export default function TestimonialsContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CLOSING + CTA */}
+      {/* SECTION 4 WHITE: CLOSING + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

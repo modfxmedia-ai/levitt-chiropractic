@@ -9,7 +9,7 @@ import { LocationStrip } from "@/components/services/LocationStrip";
 import { ServiceHero } from "@/components/services/ServiceHero";
 
 const causes = [
-  "Natural aging — tears in the tougher outer layer",
+  "Natural aging tears in the tougher outer layer",
   "Loss of disc fluid (smaller, less flexible)",
   "Obesity",
   "Smoking",
@@ -38,7 +38,7 @@ const symptoms = [
   },
   {
     title: "Radiating Pain",
-    body: "Caused by compressed nerves — pain travels to the buttocks, arms, and legs.",
+    body: "Caused by compressed nerves pain travels to the buttocks, arms, and legs.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ const symptoms = [
   },
   {
     title: "Variable Severity",
-    body: "Pain can range from mild to severe and debilitating — every patient is different.",
+    body: "Pain can range from mild to severe and debilitating every patient is different.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ export default function DegenerativeDiscDiseaseContent() {
     <>
       <ServiceHero
         title="Degenerative Disc Disease"
-        subtitle="A name for the changes that happen to the spine as we age — not as much a disease as a process you can manage."
+        subtitle="A name for the changes that happen to the spine as we age not as much a disease as a process you can manage."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -119,7 +119,7 @@ export default function DegenerativeDiscDiseaseContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: WHAT IS IT */}
+      {/* SECTION 2 WHITE: WHAT IS IT */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -146,7 +146,7 @@ export default function DegenerativeDiscDiseaseContent() {
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/80">
                     Discs sit between the vertebrae and act as shock
-                    absorbers — a tough, rubbery exterior with a soft
+                    absorbers a tough, rubbery exterior with a soft
                     interior. As we age, they begin to degenerate.
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function DegenerativeDiscDiseaseContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: SYMPTOMS GRID */}
+      {/* SECTION 3 DARK NAVY: SYMPTOMS GRID */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -216,8 +216,7 @@ export default function DegenerativeDiscDiseaseContent() {
               className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
-              The degeneration of spinal discs may cause no symptoms at all —
-              and symptoms depend on each patient and the severity of their
+              The degeneration of spinal discs may cause no symptoms at all               and symptoms depend on each patient and the severity of their
               case.
             </p>
           </motion.div>
@@ -268,7 +267,7 @@ export default function DegenerativeDiscDiseaseContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CAUSES + TREATMENT SPLIT */}
+      {/* SECTION 4 WHITE: CAUSES + TREATMENT SPLIT */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-12">
@@ -359,7 +358,7 @@ export default function DegenerativeDiscDiseaseContent() {
                   cold packs and an anti-inflammatory medication. When disc
                   degeneration causes problems like herniated or bulging
                   discs, spinal stenosis, or osteoarthritis, other forms of
-                  treatment may be beneficial — including physical therapy,
+                  treatment may be beneficial including physical therapy,
                   stretching, and in some cases, surgery.
                 </p>
                 <p className="relative mt-3 text-sm font-semibold leading-relaxed text-orange-200">
@@ -375,7 +374,7 @@ export default function DegenerativeDiscDiseaseContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CTA */}
+      {/* SECTION 5 DARK NAVY: CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden

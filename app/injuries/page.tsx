@@ -7,7 +7,7 @@ export const metadata: Metadata = generateMeta({
   title:
     "Injury Chiropractor in Saint Louis Park, MN | Personal Injuries | Dr. Alan Levitt",
   description:
-    "Chiropractic treatment for common injuries in Saint Louis Park, MN — personal injury care from Dr. Alan Levitt. Call 952-920-7535.",
+    "Chiropractic treatment for common injuries in Saint Louis Park, MN personal injury care from Dr. Alan Levitt. Call 952-920-7535.",
   slug: "injuries",
 });
 

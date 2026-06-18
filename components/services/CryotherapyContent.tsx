@@ -13,7 +13,7 @@ const services = [
     title: "Ice Pack Cryotherapy",
     href: "/ice-pack-cryotherapy",
     eyebrow: "Targeted Cold Therapy",
-    body: "Localized cold therapy used to reduce swelling, calm acute pain, and support healing — applied directly to the affected area.",
+    body: "Localized cold therapy used to reduce swelling, calm acute pain, and support healing applied directly to the affected area.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ export default function CryotherapyContent() {
     <>
       <ServiceHero
         title="Cryotherapy"
-        subtitle="A variety of cryotherapy services to reduce pain, swelling, and inflammation — explore each option below."
+        subtitle="A variety of cryotherapy services to reduce pain, swelling, and inflammation explore each option below."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -85,7 +85,7 @@ export default function CryotherapyContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -168,7 +168,7 @@ export default function CryotherapyContent() {
                 >
                   contact us
                 </Link>
-                {" "}— we&rsquo;re always happy to hear from you!
+                {" "} we&rsquo;re always happy to hear from you!
               </p>
 
               <ul className="mt-7 grid gap-2 sm:grid-cols-2">
@@ -203,7 +203,7 @@ export default function CryotherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: SERVICE CARDS */}
+      {/* SECTION 3 DARK NAVY: SERVICE CARDS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -308,7 +308,7 @@ export default function CryotherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CONTACT + CTA */}
+      {/* SECTION 4 WHITE: CONTACT + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

@@ -16,7 +16,7 @@ export function TestimonialCard({ quote, author, location }: Props) {
       <figcaption className="mt-4 text-sm font-medium text-slate-900">
         {author}
         {location && (
-          <span className="ml-2 font-normal text-slate-500">— {location}</span>
+          <span className="ml-2 font-normal text-slate-500"> {location}</span>
         )}
       </figcaption>
     </figure>

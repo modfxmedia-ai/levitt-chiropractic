@@ -217,7 +217,7 @@ export function HeroSection({
 
       {/* Main grid */}
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-5 pt-10 pb-14 sm:px-6 sm:pt-16 sm:pb-20 lg:grid-cols-12 lg:gap-12 lg:py-32">
-        {/* LEFT — Content */}
+        {/* LEFT Content */}
         <motion.div
           style={
             reduce ? undefined : { y: contentY, opacity: contentOpacity }
@@ -331,7 +331,7 @@ export function HeroSection({
           </motion.div>
         </motion.div>
 
-        {/* RIGHT — 3D Animated Spine Illustration */}
+        {/* RIGHT 3D Animated Spine Illustration */}
         <motion.div
           style={reduce ? undefined : { y: spineY }}
           className="relative hidden lg:col-span-5 lg:block"
@@ -373,7 +373,7 @@ export function HeroSection({
         </motion.div>
       )}
 
-      {/* Slide indicator dots — only visible when rotating */}
+      {/* Slide indicator dots only visible when rotating */}
       {slides.length > 1 && (
         <div
           role="tablist"
@@ -460,7 +460,7 @@ function SpineGraphic({
         />
       )}
 
-      {/* MAIN — Hero image card */}
+      {/* MAIN Hero image card */}
       <motion.div
         initial={reduce ? undefined : { opacity: 0, y: 30, scale: 0.96 }}
         animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
@@ -579,7 +579,7 @@ function SpineGraphic({
         </motion.div>
       </motion.div>
 
-      {/* FLOATING — Rating card (top right) */}
+      {/* FLOATING Rating card (top right) */}
       <motion.div
         initial={reduce ? undefined : { opacity: 0, x: 30, y: -10 }}
         animate={reduce ? undefined : { opacity: 1, x: 0, y: 0 }}
@@ -613,7 +613,7 @@ function SpineGraphic({
         </motion.div>
       </motion.div>
 
-      {/* FLOATING — Treatment chip (bottom left) */}
+      {/* FLOATING Treatment chip (bottom left) */}
       <motion.div
         initial={reduce ? undefined : { opacity: 0, x: -30, y: 10 }}
         animate={reduce ? undefined : { opacity: 1, x: 0, y: 0 }}

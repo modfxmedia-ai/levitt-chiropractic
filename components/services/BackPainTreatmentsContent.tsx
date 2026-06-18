@@ -18,7 +18,7 @@ const techniques = [
 const benefits = [
   {
     title: "Personalized Care Through Various Techniques",
-    body: "No two patients are just alike — and neither is their pain. Dr. Levitt takes a highly customized approach to back pain relief. After fully assessing the patient, he chooses from a variety of techniques to achieve optimal results.",
+    body: "No two patients are just alike and neither is their pain. Dr. Levitt takes a highly customized approach to back pain relief. After fully assessing the patient, he chooses from a variety of techniques to achieve optimal results.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ export default function BackPainTreatmentsContent() {
     <>
       <ServiceHero
         title="Back Pain Treatments"
-        subtitle="Highly personalized and effective back pain relief — without addictive medications or surgery."
+        subtitle="Highly personalized and effective back pain relief without addictive medications or surgery."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
@@ -97,7 +97,7 @@ export default function BackPainTreatmentsContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -121,8 +121,7 @@ export default function BackPainTreatmentsContent() {
                     3
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/80">
-                    Three core benefits of chiropractic back pain treatment —
-                    personalized care, natural lasting relief, and stronger
+                    Three core benefits of chiropractic back pain treatment                     personalized care, natural lasting relief, and stronger
                     overall health.
                   </p>
                 </div>
@@ -148,7 +147,7 @@ export default function BackPainTreatmentsContent() {
               />
               <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
                 When back pain is interfering with your life, you want relief
-                — and you want it now. However, you don’t want to rely on
+ and you want it now. However, you don’t want to rely on
                 addictive medications or resort to surgical procedures to
                 make it happen. Chiropractic back pain treatments can help
                 you gain the relief you want, in the way you want it.
@@ -186,7 +185,7 @@ export default function BackPainTreatmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 3 BENEFITS */}
+      {/* SECTION 3 DARK NAVY: 3 BENEFITS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -263,7 +262,7 @@ export default function BackPainTreatmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CLOSING + CTA */}
+      {/* SECTION 4 WHITE: CLOSING + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

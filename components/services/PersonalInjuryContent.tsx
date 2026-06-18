@@ -128,7 +128,7 @@ export default function PersonalInjuryContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: DEFINITION */}
+      {/* SECTION 2 WHITE: DEFINITION */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -155,7 +155,7 @@ export default function PersonalInjuryContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: ACCIDENT TYPES GRID */}
+      {/* SECTION 3 DARK NAVY: ACCIDENT TYPES GRID */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -231,7 +231,7 @@ export default function PersonalInjuryContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: HOW WE HELP */}
+      {/* SECTION 4 WHITE: HOW WE HELP */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -310,7 +310,7 @@ export default function PersonalInjuryContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CLOSING + CTA */}
+      {/* SECTION 5 DARK NAVY: CLOSING + CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden

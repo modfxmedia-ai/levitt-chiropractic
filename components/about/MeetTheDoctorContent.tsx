@@ -34,7 +34,7 @@ const techniques = [
 const pillars = [
   {
     title: "Chemical",
-    body: "Nutrition, supplements, and chemical balance — supporting the body from the inside.",
+    body: "Nutrition, supplements, and chemical balance supporting the body from the inside.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -102,7 +102,7 @@ export default function MeetTheDoctorContent() {
     <>
       <ServiceHero
         title="Meet Dr. Alan G. Levitt, DC"
-        subtitle="Born and raised in Saint Louis Park — combining 39 years of training with a comprehensive, nervous-system-first approach to care."
+        subtitle="Born and raised in Saint Louis Park combining 39 years of training with a comprehensive, nervous-system-first approach to care."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "About Us", href: "/about" },
@@ -110,7 +110,7 @@ export default function MeetTheDoctorContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: BIO SPLIT */}
+      {/* SECTION 2 WHITE: BIO SPLIT */}
       <section
         id="story"
         className="relative scroll-mt-24 bg-white py-12 sm:py-20 md:py-24"
@@ -196,7 +196,7 @@ export default function MeetTheDoctorContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: STATS */}
+      {/* SECTION 3 DARK NAVY: STATS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -264,7 +264,7 @@ export default function MeetTheDoctorContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: UNIQUE APPROACH + TECHNIQUES */}
+      {/* SECTION 4 WHITE: UNIQUE APPROACH + TECHNIQUES */}
       <section
         id="approach"
         className="relative scroll-mt-24 bg-white py-12 sm:py-20 md:py-24"
@@ -348,12 +348,12 @@ export default function MeetTheDoctorContent() {
                 <p className="relative mt-4 text-sm leading-relaxed text-white/80">
                   Dr. Levitt&rsquo;s approach goes beyond just treating the
                   symptoms. Instead, he takes a holistic approach that
-                  addresses the underlying causes of health issues — focusing
+                  addresses the underlying causes of health issues focusing
                   on chemical, nutritional, and structural solutions to
                   improve the patient&rsquo;s overall health and wellness.
                 </p>
                 <p className="relative mt-3 text-sm font-semibold leading-relaxed text-orange-200">
-                  Every patient is unique — each treatment plan is tailored
+                  Every patient is unique each treatment plan is tailored
                   to the individual.
                 </p>
               </div>
@@ -362,7 +362,7 @@ export default function MeetTheDoctorContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: 3 PILLARS */}
+      {/* SECTION 5 DARK NAVY: 3 PILLARS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -439,7 +439,7 @@ export default function MeetTheDoctorContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — WHITE: DIFFICULT CASES + CTA */}
+      {/* SECTION 6 WHITE: DIFFICULT CASES + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -465,14 +465,13 @@ export default function MeetTheDoctorContent() {
                 to work with difficult cases and patients who have not had
                 satisfactory results with previous treatments. With 39
                 years of experience and training, Dr. Levitt has developed
-                a keen understanding of the human body and its intricacies —
-                using that knowledge to identify and treat even the most
+                a keen understanding of the human body and its intricacies                 using that knowledge to identify and treat even the most
                 complex health issues.
               </p>
               <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
                 Dr. Levitt is a highly skilled and compassionate chiropractor
                 dedicated to helping his patients achieve optimal health and
-                wellness — with individualized plans that address underlying
+                wellness with individualized plans that address underlying
                 causes for long-term success.
               </p>
             </motion.div>
@@ -488,7 +487,7 @@ export default function MeetTheDoctorContent() {
         </div>
       </section>
 
-      {/* SECTION 7 — SLATE: PERSONAL */}
+      {/* SECTION 7 SLATE: PERSONAL */}
       <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -509,7 +508,7 @@ export default function MeetTheDoctorContent() {
               className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Dr. Levitt is married with 3 grown children — 2 are in
+              Dr. Levitt is married with 3 grown children 2 are in
               college and 1 lives in Colorado. He really enjoys spending
               time with his wife and children, live music, sporting events,
               travel, and making food.

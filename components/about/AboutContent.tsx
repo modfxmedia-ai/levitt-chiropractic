@@ -11,7 +11,7 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 const policies = [
   {
     title: "Appointments",
-    body: "If you would like to make an appointment, please contact our office by phone or email. To request an appointment online, click ‘Contact Us’ — a member of our staff will follow up with you.",
+    body: "If you would like to make an appointment, please contact our office by phone or email. To request an appointment online, click ‘Contact Us’ a member of our staff will follow up with you.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ export default function AboutContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: WELCOME */}
+      {/* SECTION 2 WHITE: WELCOME */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -116,8 +116,7 @@ export default function AboutContent() {
             />
             <p className="mt-6 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               Welcome to Levitt Chiropractic Center. Below you&rsquo;ll find
-              the practical things you need to know about our practice —
-              appointments, payment, and the conditions we treat. Have
+              the practical things you need to know about our practice               appointments, payment, and the conditions we treat. Have
               questions we don&rsquo;t cover here?{" "}
               <Link
                 href="/contact"
@@ -131,7 +130,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: PRACTICE POLICIES */}
+      {/* SECTION 3 DARK NAVY: PRACTICE POLICIES */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -208,7 +207,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CONDITIONS WE TREAT + CTA */}
+      {/* SECTION 4 WHITE: CONDITIONS WE TREAT + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -285,7 +284,7 @@ export default function AboutContent() {
                 >
                   Don&rsquo;t hesitate to contact us
                 </Link>{" "}
-                — call{" "}
+ call{" "}
                 <a
                   href={siteConfig.phoneHref}
                   className="font-semibold text-[#F97316] underline-offset-4 transition-colors hover:underline"

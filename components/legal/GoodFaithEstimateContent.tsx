@@ -66,14 +66,14 @@ export default function GoodFaithEstimateContent() {
     <>
       <ServiceHero
         title="Good Faith Estimate"
-        subtitle="Your right to know what your care will cost — under the No Surprises Act."
+        subtitle="Your right to know what your care will cost under the No Surprises Act."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Good Faith Estimate" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -105,7 +105,7 @@ export default function GoodFaithEstimateContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 4 KEY RIGHTS */}
+      {/* SECTION 3 DARK NAVY: 4 KEY RIGHTS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -176,7 +176,7 @@ export default function GoodFaithEstimateContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CONTACT / RESOURCE CTA */}
+      {/* SECTION 4 WHITE: CONTACT / RESOURCE CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div

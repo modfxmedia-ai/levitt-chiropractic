@@ -34,10 +34,10 @@ export default function AreaServicePageContent({ city, service }: Props) {
 
   const distanceCopy =
     city.distanceMi === 0
-      ? `Our office is located right here in ${city.name} —`
+      ? `Our office is located right here in ${city.name} `
       : city.distanceMi <= 10
-      ? `Our ${city.name} patients are just ${city.distanceMi} miles from our Saint Louis Park office —`
-      : `${city.name} patients drive about ${city.distanceMi} miles to reach us in Saint Louis Park —`;
+      ? `Our ${city.name} patients are just ${city.distanceMi} miles from our Saint Louis Park office `
+      : `${city.name} patients drive about ${city.distanceMi} miles to reach us in Saint Louis Park `;
 
   const relatedServices = pseoServices
     .filter((s) => s.slug !== service.slug)
@@ -82,7 +82,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
               {service.inlineNoun} to families across the {city.region.toLowerCase()}{" "}
               since 1987. If you live or work in {city.name},
               you'll find an evidence-informed, drug-free approach designed
-              around your specific case — not a one-size-fits-all protocol.
+              around your specific case not a one-size-fits-all protocol.
             </p>
             <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               Common reasons {city.name} patients come to us for{" "}
@@ -115,7 +115,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
               What We Deliver
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-              {service.name} —{" "}
+              {service.name} {" "}
               <span className="text-[#F97316]">built around you</span>
             </h2>
             <span
@@ -252,7 +252,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
           <CtaCard
             eyebrow={`Serving ${city.name}, MN`}
             title={`Book your ${service.name.toLowerCase()} visit`}
-            body={`Call ${siteConfig.phone} or request an appointment online — most ${city.name} patients are seen within the same week.`}
+            body={`Call ${siteConfig.phone} or request an appointment online most ${city.name} patients are seen within the same week.`}
           />
         </div>
       </section>

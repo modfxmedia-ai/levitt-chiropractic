@@ -41,7 +41,7 @@ const services: Service[] = [
   {
     title: "Common Chiropractic Conditions",
     description:
-      "Sciatica, headaches, vertebral subluxation, and more — explained simply with practical care options.",
+      "Sciatica, headaches, vertebral subluxation, and more explained simply with practical care options.",
     href: "/common-chiropractic-conditions",
     group: "Conditions",
     icon: (
@@ -107,7 +107,7 @@ const services: Service[] = [
   {
     title: "Injuries",
     description:
-      "Recovery from personal injuries — getting you back to full function as quickly as possible.",
+      "Recovery from personal injuries getting you back to full function as quickly as possible.",
     href: "/injuries",
     group: "Conditions",
     icon: (
@@ -128,7 +128,7 @@ const services: Service[] = [
   {
     title: "Cold Laser Therapy",
     description:
-      "Low-level laser stimulates cellular healing — for arthritis, tendonitis, fibromyalgia, carpal tunnel, and more.",
+      "Low-level laser stimulates cellular healing for arthritis, tendonitis, fibromyalgia, carpal tunnel, and more.",
     href: "/cold-laser-therapy",
     group: "Therapies",
     icon: (
@@ -214,7 +214,7 @@ const services: Service[] = [
   {
     title: "Functional Medicine",
     description:
-      "A whole-person approach that addresses the root cause of chronic pain and chronic illness — not just symptoms.",
+      "A whole-person approach that addresses the root cause of chronic pain and chronic illness not just symptoms.",
     href: "/functional-medicine",
     group: "Whole-Body Wellness",
     icon: (
@@ -236,7 +236,7 @@ const services: Service[] = [
   {
     title: "Alternative Medicine",
     description:
-      "Natural, non-invasive care that helps the body heal itself — no medications, no surgery, just results.",
+      "Natural, non-invasive care that helps the body heal itself no medications, no surgery, just results.",
     href: "/alternative-medicine",
     group: "Whole-Body Wellness",
     icon: (
@@ -283,14 +283,14 @@ export default function ServicesContent() {
     <>
       <ServiceHero
         title="Our Services"
-        subtitle="Comprehensive chiropractic and integrative care — from routine adjustments to complex injury recovery and whole-body wellness."
+        subtitle="Comprehensive chiropractic and integrative care from routine adjustments to complex injury recovery and whole-body wellness."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO + STATS */}
+      {/* SECTION 2 WHITE: INTRO + STATS */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -325,7 +325,7 @@ export default function ServicesContent() {
                 >
                   {siteConfig.phone}
                 </a>{" "}
-                if you&rsquo;re not sure where to start — we&rsquo;ll guide
+                if you&rsquo;re not sure where to start we&rsquo;ll guide
                 you to the right care.
               </p>
             </motion.div>
@@ -357,7 +357,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: SERVICE GRID GROUPED */}
+      {/* SECTION 3 DARK NAVY: SERVICE GRID GROUPED */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -477,7 +477,7 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CTA */}
+      {/* SECTION 4 WHITE: CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -513,7 +513,7 @@ export default function ServicesContent() {
                 >
                   request a visit
                 </Link>{" "}
-                — we&rsquo;ll match you with the services that fit your goals
+ we&rsquo;ll match you with the services that fit your goals
                 and your life.
               </p>
             </motion.div>

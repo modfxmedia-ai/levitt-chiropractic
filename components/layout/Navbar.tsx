@@ -366,10 +366,10 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:gap-6 xl:gap-10">
-          {/* Left — logo */}
+          {/* Left logo */}
           <Logo />
 
-          {/* Center — primary nav */}
+          {/* Center primary nav */}
           <nav
             className="hidden items-center justify-center lg:flex"
             aria-label="Primary"
@@ -379,7 +379,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right — CTAs */}
+          {/* Right CTAs */}
           <div className="flex items-center justify-end gap-3">
             <a
               href={siteConfig.phoneHref}

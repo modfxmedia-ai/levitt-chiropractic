@@ -17,7 +17,7 @@ type Tip = {
 const tips: Tip[] = [
   {
     title: "Sit smarter at your desk",
-    body: "Keep your feet flat on the floor, hips slightly higher than knees, and the top of your screen at eye level. Stand or stretch every 30–45 minutes — your spine is not designed for all-day sitting.",
+    body: "Keep your feet flat on the floor, hips slightly higher than knees, and the top of your screen at eye level. Stand or stretch every 30–45 minutes your spine is not designed for all-day sitting.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ const tips: Tip[] = [
   },
   {
     title: "Lift with your legs",
-    body: "Squat down to the load, keep it close to your body, and stand up using your legs — not your back. Avoid twisting while carrying weight; pivot with your feet instead.",
+    body: "Squat down to the load, keep it close to your body, and stand up using your legs not your back. Avoid twisting while carrying weight; pivot with your feet instead.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ const tips: Tip[] = [
   },
   {
     title: "Sleep in a spine-friendly position",
-    body: "Side-sleepers: place a pillow between your knees. Back-sleepers: put a small pillow under your knees. Avoid sleeping on your stomach — it forces your neck into a long twist all night.",
+    body: "Side-sleepers: place a pillow between your knees. Back-sleepers: put a small pillow under your knees. Avoid sleeping on your stomach it forces your neck into a long twist all night.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ const tips: Tip[] = [
   },
   {
     title: "Stretch the chain",
-    body: "Tight hamstrings, hips, and chest muscles pull the spine out of alignment. A 5-minute daily stretch — hamstrings, hip flexors, doorway chest opener — pays off enormously.",
+    body: "Tight hamstrings, hips, and chest muscles pull the spine out of alignment. A 5-minute daily stretch hamstrings, hip flexors, doorway chest opener pays off enormously.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ export default function WellnessTipsContent() {
     <>
       <ServiceHero
         title="Spinal Wellness Tips"
-        subtitle="Small daily habits — posture, lifting, sleep, movement — that protect your spine and keep you feeling your best."
+        subtitle="Small daily habits posture, lifting, sleep, movement that protect your spine and keep you feeling your best."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
@@ -189,7 +189,7 @@ export default function WellnessTipsContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -211,14 +211,14 @@ export default function WellnessTipsContent() {
             <p className="mt-6 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               The way you sit, sleep, lift, and move shapes the health of
               your spine more than any single adjustment. These are the
-              habits we recommend most often to our patients — easy to start,
+              habits we recommend most often to our patients easy to start,
               hard to regret.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 8 TIPS GRID */}
+      {/* SECTION 3 DARK NAVY: 8 TIPS GRID */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -295,7 +295,7 @@ export default function WellnessTipsContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CTA */}
+      {/* SECTION 4 WHITE: CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -317,7 +317,7 @@ export default function WellnessTipsContent() {
                 className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
               />
               <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-                Generic tips are a great starting point — but the real
+                Generic tips are a great starting point but the real
                 results come from a plan built around your posture, your
                 history, and your goals. Call{" "}
                 <a

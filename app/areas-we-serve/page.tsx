@@ -7,7 +7,7 @@ import AreasWeServeContent from "@/components/areas/AreasWeServeContent";
 
 export const metadata: Metadata = generateMeta({
   title:
-    "Areas We Serve | Levitt Chiropractic Center — Twin Cities Chiropractor",
+    "Areas We Serve | Levitt Chiropractic Center Twin Cities Chiropractor",
   description: `Drug-free chiropractic care for ${servedCities.length}+ Minnesota communities across the Twin Cities metro. Find your city and explore ${pseoServices.length} specialty services available locally.`,
   slug: "areas-we-serve",
 });

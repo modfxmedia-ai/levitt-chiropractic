@@ -100,7 +100,7 @@ export default function AdjustmentsContent() {
 
   return (
     <>
-      {/* SECTION 1 — NARROW DARK NAVY HERO (45vh) */}
+      {/* SECTION 1 NARROW DARK NAVY HERO (45vh) */}
       <section
         className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
       >
@@ -167,13 +167,13 @@ export default function AdjustmentsContent() {
             transition={{ duration: 0.6, delay: 0.32 }}
             className="mt-5 max-w-2xl text-base text-white/70 sm:text-lg"
           >
-            Precise, holistic spinal care from Dr. Levitt — minimizing pain,
+            Precise, holistic spinal care from Dr. Levitt minimizing pain,
             restoring alignment, and supporting full-body healing.
           </motion.p>
         </div>
       </section>
 
-      {/* SECTION 2 — WHITE: SPLIT IMAGE + INTRO */}
+      {/* SECTION 2 WHITE: SPLIT IMAGE + INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -258,7 +258,7 @@ export default function AdjustmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: WHAT ARE ADJUSTMENTS? + BENEFIT/TREATS LISTS */}
+      {/* SECTION 3 DARK NAVY: WHAT ARE ADJUSTMENTS? + BENEFIT/TREATS LISTS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -361,7 +361,7 @@ export default function AdjustmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: TECHNIQUE CARDS, stagger */}
+      {/* SECTION 4 WHITE: TECHNIQUE CARDS, stagger */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -440,7 +440,7 @@ export default function AdjustmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CLOSING TEXT + FLOATING CTA CARD */}
+      {/* SECTION 5 DARK NAVY: CLOSING TEXT + FLOATING CTA CARD */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -552,7 +552,7 @@ export default function AdjustmentsContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — WHITE: LOCATION STRIP */}
+      {/* SECTION 6 WHITE: LOCATION STRIP */}
       <LocationStrip />
     </>
   );

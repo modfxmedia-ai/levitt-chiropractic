@@ -53,7 +53,7 @@ export default function CustomFootOrthoticsContent() {
 
   return (
     <>
-      {/* SECTION 1 — NARROW DARK NAVY HERO (45vh) */}
+      {/* SECTION 1 NARROW DARK NAVY HERO (45vh) */}
       <section
         className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white min-h-[38vh] sm:min-h-[45vh]"
       >
@@ -118,13 +118,13 @@ export default function CustomFootOrthoticsContent() {
             transition={{ duration: 0.6, delay: 0.32 }}
             className="mt-5 max-w-2xl text-base text-white/70 sm:text-lg"
           >
-            Prescription orthotics built around your feet — easing knee, foot,
+            Prescription orthotics built around your feet easing knee, foot,
             hip, and back pain by realigning the body from the ground up.
           </motion.p>
         </div>
       </section>
 
-      {/* SECTION 2 — WHITE: INTRO + BENEFIT CARDS */}
+      {/* SECTION 2 WHITE: INTRO + BENEFIT CARDS */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -197,7 +197,7 @@ export default function CustomFootOrthoticsContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: HOW DO ORTHOTICS WORK? */}
+      {/* SECTION 3 DARK NAVY: HOW DO ORTHOTICS WORK? */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -242,7 +242,7 @@ export default function CustomFootOrthoticsContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CUSTOM vs OTC COMPARISON */}
+      {/* SECTION 4 WHITE: CUSTOM vs OTC COMPARISON */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -360,7 +360,7 @@ export default function CustomFootOrthoticsContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CLOSING + FLOATING CTA */}
+      {/* SECTION 5 DARK NAVY: CLOSING + FLOATING CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -458,7 +458,7 @@ export default function CustomFootOrthoticsContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — WHITE: LOCATION STRIP */}
+      {/* SECTION 6 WHITE: LOCATION STRIP */}
       <LocationStrip />
     </>
   );

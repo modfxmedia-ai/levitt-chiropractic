@@ -64,7 +64,7 @@ const valueProps = [
   {
     title: "Holistic Approach",
     description:
-      "We address the underlying cause — combining chemical, nutritional, and structural care.",
+      "We address the underlying cause combining chemical, nutritional, and structural care.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" strokeLinecap="round" strokeLinejoin="round" />
@@ -74,7 +74,7 @@ const valueProps = [
   {
     title: "39 Years Experience",
     description:
-      "Decades of training as a chiropractor — for cases simple to complex.",
+      "Decades of training as a chiropractor for cases simple to complex.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <circle cx="12" cy="12" r="9" />
@@ -85,7 +85,7 @@ const valueProps = [
   {
     title: "Personalized Plans",
     description:
-      "No generic protocols — every patient receives a treatment plan built around their needs.",
+      "No generic protocols every patient receives a treatment plan built around their needs.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 4h16v16H4z" strokeLinecap="round" strokeLinejoin="round" />
@@ -116,13 +116,13 @@ const steps = [
     n: "02",
     title: "Customize",
     body:
-      "Your plan blends chiropractic, nutrition, and structural care — calibrated to your body and lifestyle.",
+      "Your plan blends chiropractic, nutrition, and structural care calibrated to your body and lifestyle.",
   },
   {
     n: "03",
     title: "Care",
     body:
-      "Gentle adjustments and modern modalities — cold laser, cryotherapy, therapeutic exercise.",
+      "Gentle adjustments and modern modalities cold laser, cryotherapy, therapeutic exercise.",
   },
   {
     n: "04",
@@ -135,7 +135,7 @@ const steps = [
 const testimonials = [
   {
     quote:
-      "Dr. Levitt has provided continued excellent care in treating my condition — ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned.",
+      "Dr. Levitt has provided continued excellent care in treating my condition ankylosing spondylitis. He has helped me maintain as much movement as possible and keep the rest of my skeletal structure aligned and tuned.",
     author: "Richard B.",
     location: "Patient",
   },
@@ -147,7 +147,7 @@ const testimonials = [
   },
   {
     quote:
-      "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt — within a month I was running again, pain free!",
+      "I hurt my knee after running in a marathon. I went to physical therapy for over a year, with very little relief. I went to see Dr. Levitt within a month I was running again, pain free!",
     author: "Sanoma62",
     location: "Patient",
   },
@@ -190,11 +190,11 @@ export default function HomeContent() {
     <>
       <JsonLd id="ld-localbusiness" data={localBusinessJsonLd()} />
 
-      {/* SECTION 1 — HERO */}
+      {/* SECTION 1 HERO */}
       <HeroSection
         eyebrow="Saint Louis Park, MN"
         title="YOUR SPINE HEALTH SPECIALISTS"
-        subtitle="Superior chiropractic care from Dr. Alan Levitt — combining holistic, traditional, and innovative therapies for every stage of life."
+        subtitle="Superior chiropractic care from Dr. Alan Levitt combining holistic, traditional, and innovative therapies for every stage of life."
         ctaText="REQUEST APPOINTMENT"
         ctaHref="/contact/appointment-request"
         secondaryCtaText="Meet Dr. Levitt"
@@ -202,7 +202,7 @@ export default function HomeContent() {
         backgroundImages={HERO_IMAGES}
       />
 
-      {/* SECTION 2 — TICKER */}
+      {/* SECTION 2 TICKER */}
       <ScrollTicker
         items={[
           "✓ Personalized Chiropractic Care",
@@ -214,7 +214,7 @@ export default function HomeContent() {
         ]}
       />
 
-      {/* SECTION 3 — STATS STRIP */}
+      {/* SECTION 3 STATS STRIP */}
       <section className="relative overflow-hidden bg-dark py-10 text-white sm:py-16">
         <div
           aria-hidden
@@ -255,7 +255,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WELCOME / ABOUT */}
+      {/* SECTION 4 WELCOME / ABOUT */}
       <section
         ref={welcomeRef}
         className="relative overflow-hidden bg-white py-14 sm:py-24 md:py-32"
@@ -291,7 +291,7 @@ export default function HomeContent() {
               </p>
               <p>
                 Dr. Levitt opened his practice doors to the local community in
-                1999. Still, he has been a chiropractor since 1987 — bringing a
+                1999. Still, he has been a chiropractor since 1987 bringing a
                 wealth of experience and knowledge to every appointment.
               </p>
               <p>
@@ -352,7 +352,7 @@ export default function HomeContent() {
             >
               <Image
                 src={WELCOME_IMAGE}
-                alt="Dr. Alan Levitt — Levitt Chiropractic Center"
+                alt="Dr. Alan Levitt Levitt Chiropractic Center"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
@@ -363,7 +363,7 @@ export default function HomeContent() {
               />
             </motion.div>
 
-            {/* Floating badge — Years */}
+            {/* Floating badge Years */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
@@ -379,7 +379,7 @@ export default function HomeContent() {
               </p>
             </motion.div>
 
-            {/* Floating badge — Rating */}
+            {/* Floating badge Rating */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{
@@ -410,7 +410,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — VALUE PROPS / WHY CHOOSE US */}
+      {/* SECTION 5 VALUE PROPS / WHY CHOOSE US */}
       <section className="relative overflow-hidden bg-slate-50 py-14 sm:py-24 md:py-32">
         <div
           aria-hidden
@@ -472,7 +472,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 6 — PROCESS / TIMELINE */}
+      {/* SECTION 6 PROCESS / TIMELINE */}
       <section className="relative overflow-hidden bg-dark py-14 text-white sm:py-24 md:py-32">
         <div
           aria-hidden
@@ -542,7 +542,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 7 — QUICK LINKS / SERVICES */}
+      {/* SECTION 7 QUICK LINKS / SERVICES */}
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-14 sm:py-24 md:py-32">
         <div
           aria-hidden
@@ -591,7 +591,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 9 — TESTIMONIALS MARQUEE */}
+      {/* SECTION 9 TESTIMONIALS MARQUEE */}
       <section className="relative overflow-hidden bg-white py-14 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-2xl text-center">
@@ -646,7 +646,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 10 — LOCATION & HOURS */}
+      {/* SECTION 10 LOCATION & HOURS */}
       <section className="relative overflow-hidden bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div
@@ -761,7 +761,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* SECTION 11 — FINAL CTA */}
+      {/* SECTION 11 FINAL CTA */}
       <section className="relative overflow-hidden bg-dark py-14 text-white sm:py-24 md:py-28">
         <motion.div
           aria-hidden
@@ -806,7 +806,7 @@ export default function HomeContent() {
             >
               952-920-7535
             </a>{" "}
-            or request your appointment online — Dr. Levitt is welcoming new
+            or request your appointment online Dr. Levitt is welcoming new
             patients.
           </motion.p>
           <motion.div

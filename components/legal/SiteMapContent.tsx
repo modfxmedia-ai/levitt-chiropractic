@@ -32,7 +32,7 @@ export default function SiteMapContent() {
     <>
       <ServiceHero
         title="Site Map"
-        subtitle="Every page on the Levitt Chiropractic Center, P.A. website — organized for quick navigation."
+        subtitle="Every page on the Levitt Chiropractic Center, P.A. website organized for quick navigation."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Site Map" },
@@ -134,7 +134,7 @@ export default function SiteMapContent() {
         </div>
       </section>
 
-      {/* Areas We Serve — complete programmatic directory */}
+      {/* Areas We Serve complete programmatic directory */}
       <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -222,7 +222,7 @@ export default function SiteMapContent() {
           <CtaCard
             eyebrow="Can't find what you're looking for?"
             title="We're here to help"
-            body={`Call ${siteConfig.phone} or send us a message — we'll point you to the right resource or schedule your visit.`}
+            body={`Call ${siteConfig.phone} or send us a message we'll point you to the right resource or schedule your visit.`}
           />
         </div>
       </section>

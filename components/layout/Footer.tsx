@@ -104,7 +104,7 @@ export function Footer() {
                 />
               </Link>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-white/65">
-                {siteConfig.tagline} — proudly serving Saint Louis Park and
+                {siteConfig.tagline} proudly serving Saint Louis Park and
                 the Twin Cities since 1999.
               </p>
 

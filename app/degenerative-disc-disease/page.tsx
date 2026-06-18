@@ -17,7 +17,7 @@ export default function DegenerativeDiscDiseasePage() {
       <ServiceSchema
         name="Degenerative Disc Disease Treatment"
         slug="degenerative-disc-disease"
-        description="Chiropractic care for degenerative disc disease in Saint Louis Park, MN — evaluation and treatment for herniated discs, spinal stenosis and related conditions."
+        description="Chiropractic care for degenerative disc disease in Saint Louis Park, MN evaluation and treatment for herniated discs, spinal stenosis and related conditions."
       />
       <DegenerativeDiscDiseaseContent />
     </>

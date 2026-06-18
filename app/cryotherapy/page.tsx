@@ -17,7 +17,7 @@ export default function CryotherapyPage() {
       <ServiceSchema
         name="Cryotherapy"
         slug="cryotherapy"
-        description="Cryotherapy in Saint Louis Park, MN — ice pack and whole-body cold therapy to reduce pain, swelling and inflammation."
+        description="Cryotherapy in Saint Louis Park, MN ice pack and whole-body cold therapy to reduce pain, swelling and inflammation."
       />
       <CryotherapyContent />
     </>

@@ -66,7 +66,7 @@ const benefits = [
   },
   {
     title: "Decreases inflammation",
-    body: "Helpful for those in rehabilitation programs for injuries — or living with chronic pain.",
+    body: "Helpful for those in rehabilitation programs for injuries or living with chronic pain.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ export default function IcePackCryotherapyContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -199,7 +199,7 @@ export default function IcePackCryotherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: TREATMENT & BENEFITS */}
+      {/* SECTION 3 DARK NAVY: TREATMENT & BENEFITS */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -234,7 +234,7 @@ export default function IcePackCryotherapyContent() {
               cooling relief to the affected soft tissues. Commonly used in
               sports medicine, its power to ease pain and decrease
               inflammation can be helpful to those in rehabilitation programs
-              for injuries — or who have chronic pain.
+              for injuries or who have chronic pain.
             </p>
           </motion.div>
 
@@ -284,7 +284,7 @@ export default function IcePackCryotherapyContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: CLOSING + CTA */}
+      {/* SECTION 4 WHITE: CLOSING + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">
@@ -320,7 +320,7 @@ export default function IcePackCryotherapyContent() {
                 >
                   request a visit online
                 </Link>{" "}
-                — Dr. Levitt will help you build a treatment plan that fits
+ Dr. Levitt will help you build a treatment plan that fits
                 your needs.
               </p>
             </motion.div>

@@ -214,7 +214,7 @@ export default function PrivacyPolicyContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -255,7 +255,7 @@ export default function PrivacyPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — WHITE: NUMBERED SECTIONS */}
+      {/* SECTION 3 WHITE: NUMBERED SECTIONS */}
       <section className="relative bg-slate-50 py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <div className="space-y-10">
@@ -286,7 +286,7 @@ export default function PrivacyPolicyContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — DARK NAVY: CONTACT CTA */}
+      {/* SECTION 4 DARK NAVY: CONTACT CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden

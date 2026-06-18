@@ -6,7 +6,7 @@ import AppointmentRequestContent from "@/components/contact/AppointmentRequestCo
 export const metadata: Metadata = generateMeta({
   title: "Appointment Request",
   description:
-    "Request an appointment at Levitt Chiropractic Center, P.A. in Saint Louis Park, MN — our staff will be in touch shortly.",
+    "Request an appointment at Levitt Chiropractic Center, P.A. in Saint Louis Park, MN our staff will be in touch shortly.",
   slug: "contact/appointment-request",
 });
 

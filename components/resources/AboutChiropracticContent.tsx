@@ -11,7 +11,7 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 const principles = [
   {
     title: "The Body Heals Itself",
-    body: "Chiropractic is based on the idea that the body is self-sustaining and self-healing — given the right conditions, it knows what to do.",
+    body: "Chiropractic is based on the idea that the body is self-sustaining and self-healing given the right conditions, it knows what to do.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -30,7 +30,7 @@ const principles = [
   },
   {
     title: "The Nervous System Runs Everything",
-    body: "Your body is controlled by your brain — but the spinal cord and vast network of nerves that carry its messages are just as important.",
+    body: "Your body is controlled by your brain but the spinal cord and vast network of nerves that carry its messages are just as important.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ const principles = [
   },
   {
     title: "No Drugs, No Bandaids",
-    body: "Supplementation and nutrition are part of the bigger picture, but drugs and prescriptions can be bandaids — chiropractic treats the source.",
+    body: "Supplementation and nutrition are part of the bigger picture, but drugs and prescriptions can be bandaids chiropractic treats the source.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ const principles = [
   },
   {
     title: "More Than Back & Neck Pain",
-    body: "Chiropractors treat sciatica, joint pain, and many health issues — including fibromyalgia, allergies, insomnia, and headaches.",
+    body: "Chiropractors treat sciatica, joint pain, and many health issues including fibromyalgia, allergies, insomnia, and headaches.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -109,7 +109,7 @@ export default function AboutChiropracticContent() {
     <>
       <ServiceHero
         title="About Chiropractic"
-        subtitle="A natural, systemic approach to healing — built on the idea that the body, given the right conditions, knows how to heal itself."
+        subtitle="A natural, systemic approach to healing built on the idea that the body, given the right conditions, knows how to heal itself."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
@@ -117,7 +117,7 @@ export default function AboutChiropracticContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: WHAT IS CHIROPRACTIC */}
+      {/* SECTION 2 WHITE: WHAT IS CHIROPRACTIC */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-12">
@@ -143,8 +143,7 @@ export default function AboutChiropracticContent() {
                     heals itself.
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-white/80">
-                    Chiropractic looks at the human body as a whole —
-                    self-sustaining and self-healing when its nervous system
+                    Chiropractic looks at the human body as a whole                     self-sustaining and self-healing when its nervous system
                     is free to function at its peak.
                   </p>
                 </div>
@@ -185,7 +184,7 @@ export default function AboutChiropracticContent() {
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: FOUR PRINCIPLES */}
+      {/* SECTION 3 DARK NAVY: FOUR PRINCIPLES */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -262,7 +261,7 @@ export default function AboutChiropracticContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: COMMONLY TREATED + CTA */}
+      {/* SECTION 4 WHITE: COMMONLY TREATED + CTA */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:items-start">

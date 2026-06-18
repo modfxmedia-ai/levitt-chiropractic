@@ -11,7 +11,7 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 const steps = [
   {
     title: "Paperwork",
-    body: "Appointments at our office typically begin with a bit of paperwork, as you no doubt would expect — we&rsquo;ll review what you bring in and answer any questions you have.",
+    body: "Appointments at our office typically begin with a bit of paperwork, as you no doubt would expect we&rsquo;ll review what you bring in and answer any questions you have.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const steps = [
   },
   {
     title: "Discuss Your Goals",
-    body: "We&rsquo;ll discuss your current condition and your goals — what you want from treatment, and how chiropractic care can fit into your life.",
+    body: "We&rsquo;ll discuss your current condition and your goals what you want from treatment, and how chiropractic care can fit into your life.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ const steps = [
   },
   {
     title: "Build Your Plan",
-    body: "We&rsquo;ll come up with a plan of action specifically for you — type of treatment, preparation, expected results, and lifestyle changes that may help.",
+    body: "We&rsquo;ll come up with a plan of action specifically for you type of treatment, preparation, expected results, and lifestyle changes that may help.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ export default function WhatToExpectContent() {
     <>
       <ServiceHero
         title="What Can I Expect?"
-        subtitle="A welcoming first visit — getting to know you, your history, and the goals we&rsquo;re working toward together."
+        subtitle="A welcoming first visit getting to know you, your history, and the goals we&rsquo;re working toward together."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "New Patient Center", href: "/new-patient-center" },
@@ -114,7 +114,7 @@ export default function WhatToExpectContent() {
         ]}
       />
 
-      {/* SECTION 2 — WHITE: INTRO */}
+      {/* SECTION 2 WHITE: INTRO */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <motion.div
@@ -127,7 +127,7 @@ export default function WhatToExpectContent() {
               First Visit
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              Don&rsquo;t worry — we&rsquo;ve got you
+              Don&rsquo;t worry we&rsquo;ve got you
             </h2>
             <span
               aria-hidden
@@ -142,13 +142,13 @@ export default function WhatToExpectContent() {
             </p>
             <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               Your first visit to our practice will be about getting to know
-              your chiropractor — and a chance for us to get to know you!
+              your chiropractor and a chance for us to get to know you!
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 3 — DARK NAVY: 4-STEP WALKTHROUGH */}
+      {/* SECTION 3 DARK NAVY: 4-STEP WALKTHROUGH */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -226,7 +226,7 @@ export default function WhatToExpectContent() {
         </div>
       </section>
 
-      {/* SECTION 4 — WHITE: PARTNER + CHECKLIST */}
+      {/* SECTION 4 WHITE: PARTNER + CHECKLIST */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-12">
@@ -327,7 +327,7 @@ export default function WhatToExpectContent() {
         </div>
       </section>
 
-      {/* SECTION 5 — DARK NAVY: CTA */}
+      {/* SECTION 5 DARK NAVY: CTA */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
@@ -367,7 +367,7 @@ export default function WhatToExpectContent() {
                 >
                   request a visit online
                 </Link>{" "}
-                — we look forward to meeting you.
+ we look forward to meeting you.
               </p>
             </motion.div>
 

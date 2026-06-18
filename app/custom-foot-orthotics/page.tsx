@@ -17,7 +17,7 @@ export default function CustomFootOrthoticsPage() {
       <ServiceSchema
         name="Custom Foot Orthotics"
         slug="custom-foot-orthotics"
-        description="Prescription custom foot orthotics for knee, foot, hip and back pain in Saint Louis Park, MN. Precision-fit, lasting 1+ year — far better than over-the-counter inserts."
+        description="Prescription custom foot orthotics for knee, foot, hip and back pain in Saint Louis Park, MN. Precision-fit, lasting 1+ year far better than over-the-counter inserts."
       />
       <CustomFootOrthoticsContent />
     </>

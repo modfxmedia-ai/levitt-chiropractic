@@ -6,7 +6,7 @@ import WellnessTipsContent from "@/components/resources/WellnessTipsContent";
 export const metadata: Metadata = generateMeta({
   title: "Spinal Wellness Tips | Resources",
   description:
-    "Practical daily habits to protect your spine — posture, lifting, sleep, hydration, and stretching tips from Dr. Levitt.",
+    "Practical daily habits to protect your spine posture, lifting, sleep, hydration, and stretching tips from Dr. Levitt.",
   slug: "resources/wellness-tips",
 });
 

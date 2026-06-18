@@ -63,7 +63,7 @@ export default function AreasWeServeContent() {
     <>
       <ServiceHero
         title="Areas We Serve"
-        subtitle={`Drug-free chiropractic care for the entire Twin Cities metro — ${servedCities.length} communities, ${totalServices} specialty services, one trusted clinic.`}
+        subtitle={`Drug-free chiropractic care for the entire Twin Cities metro ${servedCities.length} communities, ${totalServices} specialty services, one trusted clinic.`}
         crumbs={[{ label: "Home", href: "/" }, { label: "Areas We Serve" }]}
       />
 
@@ -117,7 +117,7 @@ export default function AreasWeServeContent() {
             </p>
             <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               Find your city below for a complete view of the chiropractic
-              services available locally — adjustments, cold laser, cryotherapy,
+              services available locally adjustments, cold laser, cryotherapy,
               custom orthotics, injury care, and more.
             </p>
           </motion.div>
@@ -288,7 +288,7 @@ export default function AreasWeServeContent() {
         </div>
       </section>
 
-      {/* Complete directory — every city × every service */}
+      {/* Complete directory every city × every service */}
       <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
@@ -309,7 +309,7 @@ export default function AreasWeServeContent() {
               className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Browse all {totalPages.toLocaleString()} local service pages — grouped by community.
+              Browse all {totalPages.toLocaleString()} local service pages grouped by community.
               Click any city to expand the {totalServices} services available there.
             </p>
           </motion.div>

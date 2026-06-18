@@ -34,7 +34,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
     <>
       <ServiceHero
         title={`Chiropractor in ${city.name}, MN`}
-        subtitle={`Drug-free chiropractic care for ${city.name} families — adjustments, cold laser, cryotherapy, custom orthotics and more.`}
+        subtitle={`Drug-free chiropractic care for ${city.name} families adjustments, cold laser, cryotherapy, custom orthotics and more.`}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -63,7 +63,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
             />
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
               {distanceCopy} Dr. Alan Levitt has cared for patients across the{" "}
-              {city.region.toLowerCase()} since 1987 — including
+              {city.region.toLowerCase()} since 1987 including
               {" "}
               {city.name} families near {city.landmark} and the surrounding{" "}
               {neighborsPhrase(city)} neighborhoods. Whether you're managing

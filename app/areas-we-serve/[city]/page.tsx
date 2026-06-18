@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!city) return {};
 
   const title = `Chiropractor in ${city.name}, MN | Levitt Chiropractic Center`;
-  const description = `Drug-free chiropractic care for ${city.name}, Minnesota — adjustments, cold laser, cryotherapy, custom orthotics and more. Call ${siteConfig.phone}.`;
+  const description = `Drug-free chiropractic care for ${city.name}, Minnesota adjustments, cold laser, cryotherapy, custom orthotics and more. Call ${siteConfig.phone}.`;
 
   return generateMeta({
     title,
