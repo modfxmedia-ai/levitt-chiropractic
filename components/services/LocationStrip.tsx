@@ -53,7 +53,7 @@ export function LocationStrip() {
               Address
             </p>
             <p className="mt-1 text-sm leading-relaxed text-[#0F172A]">
-              6200 Excelsior Blvd #201
+              6200 Excelsior Blvd, Suite 201
               <br />
               Saint Louis Park, MN 55416
             </p>

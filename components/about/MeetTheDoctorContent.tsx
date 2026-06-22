@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
@@ -132,14 +131,15 @@ export default function MeetTheDoctorContent() {
                 />
                 <div className="relative overflow-hidden rounded-3xl border-t-4 border-[#F97316] bg-[#0F172A] text-white shadow-2xl ring-1 ring-white/10">
                   <div className="relative aspect-[4/5] overflow-hidden bg-[#0F172A]">
-                    <Image
-                      src="/images/dr-alan-g-levitt-dc.png"
-                      alt="Dr. Alan G. Levitt, DC"
-                      fill
-                      sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 90vw"
-                      className="object-cover"
-                      priority
-                    />
+                    {/* Photo placeholder update with Dr. Levitt's image later */}
+                    <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#0F172A] via-[#1E3A5F] to-[#0F172A] text-white">
+                      <span className="grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-[#F97316] to-orange-600 font-heading text-2xl font-black shadow-lg shadow-orange-500/30">
+                        AL
+                      </span>
+                      <p className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+                        Photo coming soon
+                      </p>
+                    </div>
                     <div
                       aria-hidden
                       className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/10 to-transparent"

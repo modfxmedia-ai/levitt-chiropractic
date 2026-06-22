@@ -345,7 +345,7 @@ export function Navbar() {
               href="/contact"
               className="transition-colors hover:text-primary"
             >
-              6200 Excelsior Blvd
+              6200 Excelsior Blvd, Suite 201
             </Link>
           </div>
         </div>

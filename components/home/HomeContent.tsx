@@ -21,7 +21,6 @@ const HERO_IMAGES = [
   "/images/chronic-lower-back-pain.jpg",
   "/images/3d-spine-simulator.jpg",
 ];
-const WELCOME_IMAGE = "/images/dr-alan-g-levitt-dc.png";
 
 const quickLinks = [
   {
@@ -350,13 +349,18 @@ export default function HomeContent() {
               style={{ y: welcomeImageY, rotate: welcomeImageRotate }}
               className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-black/20"
             >
-              <Image
-                src={WELCOME_IMAGE}
-                alt="Dr. Alan Levitt Levitt Chiropractic Center"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-              />
+              {/* Photo placeholder update with Dr. Levitt's image later */}
+              <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-dark via-navy to-dark text-white">
+                <span className="grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-primary to-orange-600 font-heading text-2xl font-black shadow-lg shadow-primary/30">
+                  AL
+                </span>
+                <p className="mt-4 font-heading text-lg font-bold">
+                  Dr. Alan Levitt, DC
+                </p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+                  Photo coming soon
+                </p>
+              </div>
               <div
                 aria-hidden
                 className="absolute inset-0 bg-gradient-to-t from-dark/30 via-transparent to-transparent"
@@ -715,7 +719,7 @@ export default function HomeContent() {
                         Address
                       </p>
                       <p className="mt-1.5 leading-snug text-white/85">
-                        6200 Excelsior Blvd #201
+                        6200 Excelsior Blvd, Suite 201
                         <br />
                         St Louis Park, MN 55416
                       </p>

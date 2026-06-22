@@ -560,7 +560,7 @@ function SpineGraphic({
               Dr. Alan Levitt, D.C.
             </p>
             <p className="truncate text-[10px] uppercase tracking-[0.18em] text-white/60">
-              Saint Louis Park · Since 1987
+              Saint Louis Park · Since 1999
             </p>
           </div>
           <svg

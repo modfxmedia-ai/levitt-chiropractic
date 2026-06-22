@@ -10,11 +10,11 @@ export const siteConfig = {
   phoneHref: "tel:9529207535",
   email: "",
   address: {
-    street: "6200 Excelsior Blvd #201",
+    street: "6200 Excelsior Blvd, Suite 201",
     city: "Saint Louis Park",
     state: "MN",
     zip: "55416",
-    full: "6200 Excelsior Blvd #201, Saint Louis Park, MN 55416",
+    full: "6200 Excelsior Blvd, Suite 201, Saint Louis Park, MN 55416",
   },
   hours: [
     { day: "Monday", hours: "8:30–11:30am & 2:30–5:30pm" },
