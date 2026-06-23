@@ -349,54 +349,17 @@ export default function HomeContent() {
               style={{ y: welcomeImageY, rotate: welcomeImageRotate }}
               className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-black/20"
             >
-              {/* Photo placeholder update with Dr. Levitt's image later */}
-              <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-dark via-navy to-dark text-white">
-                <span className="grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-primary to-orange-600 font-heading text-2xl font-black shadow-lg shadow-primary/30">
-                  AL
-                </span>
-                <p className="mt-4 font-heading text-lg font-bold">
-                  Dr. Alan Levitt, DC
-                </p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
-                  Photo coming soon
-                </p>
-              </div>
+              <Image
+                src="/images/3d-spine-simulator.jpg"
+                alt="3D spine simulator"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
               <div
                 aria-hidden
                 className="absolute inset-0 bg-gradient-to-t from-dark/30 via-transparent to-transparent"
               />
-            </motion.div>
-
-            {/* Floating badge Years */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute -left-6 top-12 hidden rounded-2xl bg-white p-5 shadow-2xl shadow-black/15 ring-1 ring-slate-200/50 sm:block"
-            >
-              <p className="font-heading text-3xl font-bold text-dark">39</p>
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Years of care
-              </p>
-            </motion.div>
-
-            {/* Floating badge Rating */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute -right-4 bottom-12 hidden rounded-2xl bg-primary p-5 text-white shadow-2xl shadow-orange-500/30 sm:block"
-            >
-              <p className="font-heading text-2xl font-bold">★★★★★</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/90">
-                Patient trusted
-              </p>
             </motion.div>
 
             {/* Decorative ring */}

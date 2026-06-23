@@ -115,57 +115,12 @@ export default function MeetTheDoctorContent() {
         className="relative scroll-mt-24 bg-white py-12 sm:py-20 md:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-start gap-12 lg:grid-cols-12">
-            {/* Portrait card */}
+          <div className="grid items-start gap-12">
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
-              className="lg:col-span-5"
-            >
-              <div className="relative mx-auto max-w-sm">
-                <div
-                  aria-hidden
-                  className="absolute -inset-4 -z-10 rounded-3xl bg-[#F97316]/15 blur-2xl"
-                />
-                <div className="relative overflow-hidden rounded-3xl border-t-4 border-[#F97316] bg-[#0F172A] text-white shadow-2xl ring-1 ring-white/10">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-[#0F172A]">
-                    {/* Photo placeholder update with Dr. Levitt's image later */}
-                    <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#0F172A] via-[#1E3A5F] to-[#0F172A] text-white">
-                      <span className="grid h-20 w-20 place-items-center rounded-2xl bg-gradient-to-br from-[#F97316] to-orange-600 font-heading text-2xl font-black shadow-lg shadow-orange-500/30">
-                        AL
-                      </span>
-                      <p className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-white/50">
-                        Photo coming soon
-                      </p>
-                    </div>
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/10 to-transparent"
-                    />
-                  </div>
-                  <div className="px-7 py-6">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-300">
-                      Your Chiropractor
-                    </p>
-                    <p className="mt-1 font-heading text-xl font-bold text-white">
-                      Dr. Alan G. Levitt, DC
-                    </p>
-                    <p className="mt-1 text-sm text-white/70">
-                      Saint Louis Park, MN
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
-              className="lg:col-span-7"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
                 His Story
