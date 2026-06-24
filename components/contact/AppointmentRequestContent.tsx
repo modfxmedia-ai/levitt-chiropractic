@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import { motion } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
@@ -134,124 +135,34 @@ export default function AppointmentRequestContent() {
                   Tell us about you
                 </h3>
 
-                <form
-                  className="mt-6 grid gap-5"
-                  method="post"
-                  action="/api/appointment"
-                >
-                  <div className="grid gap-1.5">
-                    <label
-                      htmlFor="a-name"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                    >
-                      Full Name <span className="text-[#F97316]">*</span>
-                    </label>
-                    <input
-                      id="a-name"
-                      name="name"
-                      required
-                      className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                    />
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-                    <div className="grid gap-1.5">
-                      <label
-                        htmlFor="a-email"
-                        className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                      >
-                        Email <span className="text-[#F97316]">*</span>
-                      </label>
-                      <input
-                        id="a-email"
-                        name="email"
-                        type="email"
-                        required
-                        className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                      />
-                    </div>
-                    <div className="grid gap-1.5">
-                      <label
-                        htmlFor="a-phone"
-                        className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                      >
-                        Phone
-                      </label>
-                      <input
-                        id="a-phone"
-                        name="phone"
-                        type="tel"
-                        className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid gap-1.5">
-                    <label
-                      htmlFor="a-preferred"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                    >
-                      Preferred Day / Time
-                    </label>
-                    <input
-                      id="a-preferred"
-                      name="preferred"
-                      placeholder="e.g. Tuesday mornings"
-                      className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                    />
-                  </div>
-                  <div className="grid gap-1.5">
-                    <label
-                      htmlFor="a-message"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                    >
-                      Reason for Visit
-                    </label>
-                    <textarea
-                      id="a-message"
-                      name="message"
-                      rows={5}
-                      placeholder="Brief description please don&rsquo;t include sensitive health details."
-                      className="rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                    />
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 320, damping: 20 }}
-                  >
-                    <button
-                      type="submit"
-                      className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F97316] px-6 text-sm font-bold text-white shadow-md shadow-orange-500/30 transition-colors hover:bg-orange-600"
-                    >
-                      Submit Request
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4"
-                        aria-hidden
-                      >
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </motion.div>
-
-                  <p className="text-xs text-slate-500">
-                    This form is for appointment requests only. Please do
-                    not send protected health information (PHI). For urgent
-                    medical needs, call{" "}
-                    <a
-                      href={siteConfig.phoneHref}
-                      className="font-semibold text-[#F97316] hover:underline"
-                    >
-                      {siteConfig.phone}
-                    </a>
-                    .
-                  </p>
-                </form>
+                <div className="mt-6 h-[720px] w-full">
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/JKf5DJnpikVe68RzfV0T"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: "8px",
+                    }}
+                    id="inline-JKf5DJnpikVe68RzfV0T"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="\uD83D\uDD35 Website Form (REQUEST APPMT) "
+                    data-height="534"
+                    data-layout-iframe-id="inline-JKf5DJnpikVe68RzfV0T"
+                    data-form-id="JKf5DJnpikVe68RzfV0T"
+                    title="Website Appointment Request Form"
+                  />
+                </div>
+                <Script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  strategy="lazyOnload"
+                />
 
                 <p className="mt-6 text-xs text-slate-500">
                   New to the practice?{" "}

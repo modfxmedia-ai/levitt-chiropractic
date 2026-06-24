@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import { motion } from "framer-motion";
 
 import { siteConfig } from "@/lib/siteConfig";
@@ -167,105 +168,34 @@ export default function ContactContent() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-600">
                   Send a Message
                 </p>
-                <h3 className="mt-2 font-heading text-2xl font-bold text-[#0F172A]">
-                  Drop us a note
-                </h3>
-                <form
-                  className="mt-6 grid gap-5"
-                  method="post"
-                  action="/api/contact"
-                >
-                  <div className="grid gap-1.5">
-                    <label
-                      htmlFor="c-name"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                    >
-                      Name
-                    </label>
-                    <input
-                      id="c-name"
-                      name="name"
-                      required
-                      className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                    />
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-                    <div className="grid gap-1.5">
-                      <label
-                        htmlFor="c-email"
-                        className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="c-email"
-                        name="email"
-                        type="email"
-                        required
-                        className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                      />
-                    </div>
-                    <div className="grid gap-1.5">
-                      <label
-                        htmlFor="c-phone"
-                        className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                      >
-                        Phone
-                      </label>
-                      <input
-                        id="c-phone"
-                        name="phone"
-                        type="tel"
-                        className="h-12 rounded-lg border border-slate-300 px-4 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid gap-1.5">
-                    <label
-                      htmlFor="c-message"
-                      className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="c-message"
-                      name="message"
-                      rows={5}
-                      required
-                      className="rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition-colors focus:border-[#F97316] focus:ring-2 focus:ring-[#F97316]/20"
-                    />
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 320, damping: 20 }}
-                  >
-                    <button
-                      type="submit"
-                      className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F97316] px-6 text-sm font-bold text-white shadow-md shadow-orange-500/30 transition-colors hover:bg-orange-600"
-                    >
-                      Send Message
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4"
-                        aria-hidden
-                      >
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </motion.div>
-
-                  <p className="text-xs text-slate-500">
-                    Please do not include protected health information (PHI)
-                    in this form.
-                  </p>
-                </form>
+                <div className="mt-6 h-[640px] w-full">
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/gOVyxQpZhEh5JDPGljU0"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: "8px",
+                    }}
+                    id="inline-gOVyxQpZhEh5JDPGljU0"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="\uD83D\uDD35 Website Form (CONTACT US) 18-06-26"
+                    data-height="441"
+                    data-layout-iframe-id="inline-gOVyxQpZhEh5JDPGljU0"
+                    data-form-id="gOVyxQpZhEh5JDPGljU0"
+                    title="Website Contact Form"
+                  />
+                </div>
+                <Script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  strategy="lazyOnload"
+                />
               </div>
             </motion.div>
           </div>
