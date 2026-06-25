@@ -4,10 +4,9 @@ import DegenerativeDiscDiseaseContent from "@/components/services/DegenerativeDi
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Degenerative Disc Disease Treatment in Saint Louis Park, MN | Dr. Alan Levitt",
+  title: "Degenerative Disc Disease Treatment in Saint Louis Park, MN",
   description:
-    "Chiropractic care for degenerative disc disease in Saint Louis Park, MN. Dr. Levitt evaluates symptoms, causes and treatment options for herniated discs, spinal stenosis and more. Call 952-920-7535.",
+    "Chiropractic care for degenerative disc disease in Saint Louis Park, MN. Dr. Levitt explains symptoms, causes and options for discs and spinal stenosis.",
   slug: "degenerative-disc-disease",
 });
 

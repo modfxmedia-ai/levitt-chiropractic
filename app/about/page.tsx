@@ -3,10 +3,9 @@ import { generateMeta } from "@/lib/metadata";
 import AboutContent from "@/components/about/AboutContent";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "About Levitt Chiropractic Center in Saint Louis Park, MN | Dr. Alan Levitt",
+  title: "About Our Practice in Saint Louis Park, MN",
   description:
-    "About Levitt Chiropractic Center in Saint Louis Park, MN practice policies, payment options, and conditions Dr. Levitt treats including personal injuries, subluxations and headaches. Call 952-920-7535.",
+    "Inside Levitt Chiropractic Center in Saint Louis Park, MN our approach, payment options, and the conditions Dr. Alan Levitt treats every day.",
   slug: "about",
 });
 

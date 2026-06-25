@@ -22,7 +22,7 @@ export const primaryNav: NavEntry[] = [
     href: "/about",
     groups: [
       { label: "Meet the Doctor", href: "/meet-the-doctor" },
-      { label: "Testimonials", href: "/testimonials/page" },
+      { label: "Testimonials", href: "/testimonials" },
     ],
   },
   {

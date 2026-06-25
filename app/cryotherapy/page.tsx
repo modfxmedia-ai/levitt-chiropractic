@@ -4,10 +4,9 @@ import CryotherapyContent from "@/components/services/CryotherapyContent";
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Cryotherapy in Saint Louis Park, MN | Ice Pack & Whole Body Cold Therapy | Dr. Alan Levitt",
+  title: "Cryotherapy in Saint Louis Park, MN",
   description:
-    "Cryotherapy services in Saint Louis Park, MN. Dr. Levitt offers ice pack cryotherapy and whole body cryotherapy to reduce pain, swelling and inflammation. Call 952-920-7535.",
+    "Ice pack and whole-body cryotherapy services in Saint Louis Park, MN from Dr. Alan Levitt drug-free relief from pain, swelling, and inflammation.",
   slug: "cryotherapy",
 });
 

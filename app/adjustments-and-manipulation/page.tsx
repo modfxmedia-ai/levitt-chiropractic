@@ -4,10 +4,9 @@ import AdjustmentsContent from "@/components/services/AdjustmentsContent";
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Adjustments and Manipulation in Saint Louis Park, MN | Spinal Care by Dr. Levitt",
+  title: "Chiropractic Adjustments & Spinal Manipulation in Saint Louis Park, MN",
   description:
-    "Chiropractic adjustments & spinal manipulation in Saint Louis Park, MN. Dr. Alan Levitt uses Diversified Technique, Zone Therapy and Torque Release Technique to relieve pain, restore alignment and support whole-body healing. Call 952-920-7535.",
+    "Chiropractic adjustments and spinal manipulation in Saint Louis Park, MN from Dr. Alan Levitt Diversified, Zone, and Torque Release techniques.",
   slug: "adjustments-and-manipulation",
   image: "/images/adjustment-1.jpg",
 });

@@ -4,10 +4,9 @@ import TherapeuticExerciseContent from "@/components/services/TherapeuticExercis
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Therapeutic Exercise in Saint Louis Park, MN | Endurance, Resistance & Flexibility | Dr. Alan Levitt",
+  title: "Therapeutic Exercise in Saint Louis Park, MN",
   description:
-    "Therapeutic exercise programs from Dr. Alan Levitt in Saint Louis Park, MN endurance, resistance and flexibility training to restore mobility, strength and quality of life. Call 952-920-7535.",
+    "Therapeutic exercise from Dr. Alan Levitt in Saint Louis Park, MN endurance, resistance, and flexibility training to restore mobility and strength.",
   slug: "therapeutic-exercise",
 });
 

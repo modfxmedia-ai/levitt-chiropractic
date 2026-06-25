@@ -4,10 +4,9 @@ import FunctionalMedicineContent from "@/components/services/FunctionalMedicineC
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Functional Medicine in Saint Louis Park, MN | Root-Cause Chiropractic | Dr. Alan Levitt",
+  title: "Functional Medicine in Saint Louis Park, MN",
   description:
-    "Functional medicine in Saint Louis Park, MN. Dr. Levitt uses a personalized, whole-person approach to address chronic pain and chronic illness at the root. Call 952-920-7535.",
+    "Functional medicine in Saint Louis Park, MN. Dr. Alan Levitt uses a personalized, whole-person approach to address chronic pain and illness at the root.",
   slug: "functional-medicine",
 });
 

@@ -5,10 +5,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Cold Laser Therapy in Saint Louis Park, MN | Levitt Chiropractic Center",
+  title: "Cold Laser Therapy in Saint Louis Park, MN",
   description:
-    "Dr. Levitt offers cold laser therapy (low level laser therapy) for back pain, arthritis, carpal tunnel, tendonitis, fibromyalgia & more in Saint Louis Park, MN. Drug-free pain relief. Call 952-920-7535.",
+    "Cold laser therapy (low level laser) for back pain, arthritis, carpal tunnel, tendonitis and fibromyalgia in Saint Louis Park, MN. Drug-free pain relief.",
   slug: "cold-laser-therapy",
 });
 

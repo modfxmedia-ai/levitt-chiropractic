@@ -23,7 +23,7 @@ export const sitemapEntries: SitemapEntry[] = [
   // About
   { path: "/about", priority: 0.9, changefreq: "monthly" },
   { path: "/meet-the-doctor", priority: 0.8, changefreq: "monthly" },
-  { path: "/testimonials/page", priority: 0.7, changefreq: "monthly" },
+  { path: "/testimonials", priority: 0.7, changefreq: "monthly" },
 
   // Services
   { path: "/services", priority: 0.9, changefreq: "monthly" },
@@ -94,7 +94,7 @@ export const sitemapSections: SitemapSection[] = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Meet the Doctor", href: "/meet-the-doctor" },
-      { label: "Testimonials", href: "/testimonials/page" },
+      { label: "Testimonials", href: "/testimonials" },
     ],
   },
   {

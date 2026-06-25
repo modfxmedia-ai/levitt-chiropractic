@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { siteConfig } from "./siteConfig";
 
-const SITE_NAME = "Levitt Chiropractic Center, P.A.";
-const SITE_URL = "https://levittchiro.com";
+const SITE_NAME = siteConfig.name;
+const SITE_URL = siteConfig.url;
 const OG_DEFAULT = "/images/og-default.jpg";
 
 type GenerateMetaInput = {
+  /** Page title WITHOUT the brand suffix the root layout template appends it. */
   title: string;
   description: string;
+  /** Path slug without leading/trailing slashes. Use "" for the homepage. */
   slug: string;
   image?: string;
   noindex?: boolean;
@@ -25,20 +28,11 @@ export function generateMeta({
   noindex = false,
 }: GenerateMetaInput): Metadata {
   const url = buildUrl(slug);
-  const fullTitle = `${title} | ${SITE_NAME}`;
 
   return {
-    title: fullTitle,
+    title,
     description,
-    metadataBase: new URL(SITE_URL),
     alternates: { canonical: url },
-    icons: {
-      icon: [
-        { url: "/images/fevicon.png", type: "image/png" },
-      ],
-      shortcut: "/images/fevicon.png",
-      apple: "/images/fevicon.png",
-    },
     openGraph: {
       title,
       description,
@@ -62,7 +56,7 @@ export function generateMeta({
       images: [image],
     },
     robots: noindex
-      ? { index: false, follow: false }
+      ? { index: false, follow: true }
       : {
           index: true,
           follow: true,

@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
+import { physicianJsonLd } from "@/lib/jsonLd";
+import { JsonLd } from "@/components/seo/JsonLd";
 import MeetTheDoctorContent from "@/components/about/MeetTheDoctorContent";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Meet Dr. Alan G. Levitt, DC | Saint Louis Park Chiropractor Since 1987",
+  title: "Meet Dr. Alan G. Levitt, DC",
   description:
-    "Meet Dr. Alan G. Levitt, DC born and raised in Saint Louis Park, MN. Learn about his nervous-system-first approach (Applied Kinesiology, Koren, Torque Release & more) and 39 years of experience. Call 952-920-7535.",
+    "Meet Dr. Alan G. Levitt, DC born and raised in Saint Louis Park, MN with 39 years of nervous-system-first chiropractic experience since 1987.",
   slug: "meet-the-doctor",
 });
 
 export default function Page() {
-  return <MeetTheDoctorContent />;
+  return (
+    <>
+      <JsonLd id="ld-physician" data={physicianJsonLd()} />
+      <MeetTheDoctorContent />
+    </>
+  );
 }

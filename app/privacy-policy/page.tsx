@@ -6,7 +6,7 @@ import PrivacyPolicyContent from "@/components/legal/PrivacyPolicyContent";
 export const metadata: Metadata = generateMeta({
   title: "Privacy Policy",
   description:
-    "How Levitt Chiropractic Center, P.A. collects, uses, and protects information you share through this website.",
+    "How Levitt Chiropractic Center, P.A. collects, uses, stores, and protects the information you share through this website and our online forms.",
   slug: "privacy-policy",
 });
 

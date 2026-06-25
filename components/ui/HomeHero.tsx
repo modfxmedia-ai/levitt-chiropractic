@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import {
   AnimatePresence,
@@ -125,9 +126,17 @@ export function HeroSection({
                 scale: { duration: rotateInterval / 1000 + 1.5, ease: "linear" },
                 opacity: { duration: 0.6, ease: "easeOut" },
               }}
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slides[slideIndex]})` }}
-            />
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[slideIndex]}
+                alt=""
+                fill
+                priority={slideTick === 0}
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </motion.div>
           </AnimatePresence>
         </motion.div>
       )}
@@ -480,15 +489,23 @@ function SpineGraphic({
               opacity: { duration: 0.45, ease: "easeOut" },
               scale: { duration: 6, ease: "linear" },
             }}
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0"
             style={{
-              backgroundImage: `url(${activeSrc})`,
               transformStyle: "preserve-3d",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transformOrigin: "center center",
             }}
-          />
+          >
+            <Image
+              src={activeSrc}
+              alt=""
+              fill
+              priority={slideTick === 0}
+              sizes="(min-width: 1024px) 28rem, 100vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
         </AnimatePresence>
 
         {/* Shine sweep that fires on every slide change */}

@@ -6,7 +6,7 @@ import GoodFaithEstimateContent from "@/components/legal/GoodFaithEstimateConten
 export const metadata: Metadata = generateMeta({
   title: "Good Faith Estimate",
   description:
-    "Your right to a Good Faith Estimate under the No Surprises Act what to expect from Levitt Chiropractic Center, P.A.",
+    "Your right to a Good Faith Estimate under the No Surprises Act and what to expect when planning chiropractic visits at Levitt Chiropractic Center, P.A.",
   slug: "good-faith-estimate",
 });
 

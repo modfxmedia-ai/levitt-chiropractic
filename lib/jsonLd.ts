@@ -257,3 +257,53 @@ export function breadcrumbJsonLd(input: {
     })),
   };
 }
+
+/** Per-city LocalBusiness/Chiropractor schema used on /areas-we-serve/[city]. */
+export function cityChiropractorJsonLd(input: {
+  citySlug: string;
+  cityName: string;
+}) {
+  const url = `${siteConfig.url}/areas-we-serve/${input.citySlug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Chiropractor",
+    "@id": `${url}#chiropractor`,
+    name: `${siteConfig.name} serving ${input.cityName}, MN`,
+    image: `${siteConfig.url}/images/og-default.jpg`,
+    url,
+    telephone: siteConfig.phone,
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      postalCode: siteConfig.address.zip,
+      addressCountry: "US",
+    },
+    areaServed: { "@type": "City", name: input.cityName },
+  };
+}
+
+/** Physician/Person schema for Dr. Alan Levitt used on /meet-the-doctor. */
+export function physicianJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": `${siteConfig.url}/meet-the-doctor#physician`,
+    name: "Dr. Alan G. Levitt, DC",
+    medicalSpecialty: "Chiropractic",
+    image: `${siteConfig.url}/images/dr-leviit.png`,
+    url: `${siteConfig.url}/meet-the-doctor`,
+    telephone: siteConfig.phone,
+    worksFor: { "@id": `${siteConfig.url}/#chiropractor` },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      postalCode: siteConfig.address.zip,
+      addressCountry: "US",
+    },
+  };
+}

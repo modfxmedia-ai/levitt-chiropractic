@@ -4,10 +4,9 @@ import CustomFootOrthoticsContent from "@/components/services/CustomFootOrthotic
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Custom Foot Orthotics in Saint Louis Park, MN | Levitt Chiropractic Center",
+  title: "Custom Foot Orthotics in Saint Louis Park, MN",
   description:
-    "Dr. Levitt provides prescription custom foot orthotics for knee, foot, hip, and back pain in Saint Louis Park, MN. Precision-fit, lasts 1+ year. Far better than OTC inserts. Call 952-920-7535.",
+    "Prescription custom foot orthotics from Dr. Alan Levitt for knee, foot, hip, and back pain in Saint Louis Park, MN. Precision-fit, lasts over a year.",
   slug: "custom-foot-orthotics",
 });
 

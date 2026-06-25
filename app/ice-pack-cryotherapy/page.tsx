@@ -4,10 +4,9 @@ import IcePackCryotherapyContent from "@/components/services/IcePackCryotherapyC
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Ice Pack Cryotherapy in Saint Louis Park, MN | Levitt Chiropractic",
+  title: "Ice Pack Cryotherapy in Saint Louis Park, MN",
   description:
-    "Ice pack cryotherapy reduces pain, swelling, and inflammation. Used in sports medicine and chiropractic rehab at Levitt Chiropractic Center. Call 952-920-7535.",
+    "Ice pack cryotherapy at Levitt Chiropractic in Saint Louis Park, MN drug-free relief from pain, swelling, and inflammation used in sports rehab.",
   slug: "ice-pack-cryotherapy",
 });
 

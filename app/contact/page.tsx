@@ -4,9 +4,9 @@ import { generateMeta } from "@/lib/metadata";
 import ContactContent from "@/components/contact/ContactContent";
 
 export const metadata: Metadata = generateMeta({
-  title: "Contact",
+  title: "Contact Us",
   description:
-    "Contact Levitt Chiropractic Center, P.A. in Saint Louis Park, MN phone, address, office hours, and directions.",
+    "Reach Levitt Chiropractic Center in Saint Louis Park, MN phone, address, office hours, directions, and a quick online appointment request form.",
   slug: "contact",
 });
 

@@ -4,10 +4,9 @@ import CommonChiropracticConditionsContent from "@/components/services/CommonChi
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Common Chiropractic Conditions Treated in Saint Louis Park, MN | Dr. Alan Levitt",
+  title: "Common Chiropractic Conditions We Treat",
   description:
-    "Chiropractic care for allergies, headaches, sciatica, whiplash, carpal tunnel, fibromyalgia, joint dysfunction and more from Dr. Alan Levitt in Saint Louis Park, MN. Call 952-920-7535.",
+    "Chiropractic care for headaches, sciatica, whiplash, carpal tunnel, fibromyalgia, joint pain and more from Dr. Alan Levitt in Saint Louis Park, MN.",
   slug: "common-chiropractic-conditions",
 });
 

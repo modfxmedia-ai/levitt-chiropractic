@@ -4,10 +4,9 @@ import AlternativeMedicineContent from "@/components/services/AlternativeMedicin
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Alternative Medicine Doctor in Saint Louis Park, MN | Natural Healing | Dr. Alan Levitt",
+  title: "Alternative Medicine Doctor in Saint Louis Park, MN",
   description:
-    "Alternative medicine in Saint Louis Park, MN. Dr. Levitt offers natural, root-cause care including chiropractic and soft-tissue therapies for back pain, headaches, herniated discs and more. Call 952-920-7535.",
+    "Natural, root-cause alternative medicine in Saint Louis Park, MN from Dr. Alan Levitt chiropractic and soft-tissue therapies for pain and headaches.",
   slug: "alternative-medicine",
 });
 

@@ -4,9 +4,9 @@ import { generateMeta } from "@/lib/metadata";
 import ServicesContent from "@/components/services/ServicesContent";
 
 export const metadata: Metadata = generateMeta({
-  title: "Chiropractic Services in Saint Louis Park, MN | Levitt Chiropractic",
+  title: "Chiropractic Services in Saint Louis Park, MN",
   description:
-    "Explore Dr. Alan Levitt's full range of chiropractic and integrative services spinal adjustments, cold laser therapy, cryotherapy, custom orthotics, functional medicine, and more in Saint Louis Park, MN.",
+    "Dr. Alan Levitt's full chiropractic services in Saint Louis Park, MN spinal adjustments, cold laser, cryotherapy, orthotics, and functional medicine.",
   slug: "services",
 });
 

@@ -4,10 +4,9 @@ import BackPainTreatmentsContent from "@/components/services/BackPainTreatmentsC
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
 
 export const metadata: Metadata = generateMeta({
-  title:
-    "Back Pain Treatments in Saint Louis Park, MN | Drug-Free Chiropractic Relief | Dr. Alan Levitt",
+  title: "Back Pain Treatments in Saint Louis Park, MN",
   description:
-    "Personalized chiropractic back pain treatments in Saint Louis Park, MN spinal adjustments, cold laser therapy, therapeutic exercise and soft-tissue techniques. Drug-free, non-invasive. Call 952-920-7535.",
+    "Drug-free chiropractic back pain treatments in Saint Louis Park, MN spinal adjustments, cold laser, therapeutic exercise, and soft-tissue care.",
   slug: "back-pain-treatments",
 });
 

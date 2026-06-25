@@ -8,7 +8,6 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
-import { generateMeta } from "@/lib/metadata";
 import { localBusinessJsonLd, websiteJsonLd } from "@/lib/jsonLd";
 
 const inter = Inter({
@@ -24,11 +23,45 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata: Metadata = generateMeta({
-  title: siteConfig.name,
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.shortName}`,
+  },
   description: siteConfig.description,
-  slug: "",
-});
+  applicationName: siteConfig.name,
+  alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/images/fevicon.png", type: "image/png" }],
+    shortcut: "/images/fevicon.png",
+    apple: "/images/fevicon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    images: [
+      { url: "/images/og-default.jpg", width: 1200, height: 630, alt: siteConfig.name },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/og-default.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: siteConfig.colors.primary,

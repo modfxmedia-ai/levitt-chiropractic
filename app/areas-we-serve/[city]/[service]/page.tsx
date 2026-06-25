@@ -10,6 +10,8 @@ import AreaServicePageContent from "@/components/areas/AreaServicePageContent";
 
 type Params = { city: string; service: string };
 
+export const dynamicParams = false;
+
 export function generateStaticParams(): Params[] {
   const out: Params[] = [];
   for (const c of servedCities) {
@@ -30,7 +32,7 @@ export async function generateMetadata({
   const service = getServiceBySlug(serviceSlug);
   if (!city || !service) return {};
 
-  const title = `${service.name} in ${city.name}, MN | Dr. Alan Levitt`;
+  const title = `${service.name} in ${city.name}, MN`;
   const description = `${service.name} for ${city.name}, Minnesota residents at Levitt Chiropractic Center. ${service.tagline} Call ${siteConfig.phone}.`;
 
   return generateMeta({
