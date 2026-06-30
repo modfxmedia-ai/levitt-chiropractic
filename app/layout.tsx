@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import Script from "next/script";
 import { Suspense } from "react";
 import "./globals.css";
 
@@ -80,6 +81,20 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${montserrat.variable}`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VSMZZ4S2JN"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VSMZZ4S2JN');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-slate-900 antialiased font-sans">
         <Suspense fallback={null}>
           <ScrollToTop />
