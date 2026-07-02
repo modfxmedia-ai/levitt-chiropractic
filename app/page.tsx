@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import HomeContent from "@/components/home/HomeContent";
+import { StickyBookNowBanner } from "@/components/layout/StickyBookNowBanner";
 
 export const metadata: Metadata = generateMeta({
   title: "Chiropractor in Saint Louis Park, MN",
@@ -10,5 +11,10 @@ export const metadata: Metadata = generateMeta({
 });
 
 export default function Page() {
-  return <HomeContent />;
+  return (
+    <>
+      <HomeContent />
+      <StickyBookNowBanner />
+    </>
+  );
 }

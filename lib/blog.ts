@@ -13,7 +13,13 @@ export type BlogBlock =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "quote"; text: string; cite?: string }
-  | { type: "callout"; title?: string; text: string };
+  | { type: "callout"; title?: string; text: string }
+  | {
+      type: "cta";
+      title: string;
+      /** Ordered segments; each is either a plain text run or a link. */
+      segments: Array<{ text: string; href?: string; external?: boolean }>;
+    };
 
 export type BlogFaq = { q: string; a: string };
 

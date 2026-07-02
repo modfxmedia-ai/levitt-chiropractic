@@ -157,6 +157,17 @@ function MobileEntry({
                   </Link>
                 );
               })}
+
+              {entry.href !== siteConfig.appointmentUrl && (
+                <Link
+                  href={siteConfig.appointmentUrl}
+                  onClick={onClose}
+                  className="mt-1.5 flex items-center justify-between gap-2 rounded-md bg-primary/15 px-3 py-2 text-sm font-semibold text-primary ring-1 ring-primary/30 hover:bg-primary hover:text-white"
+                >
+                  <span>Book Appointment</span>
+                  <span aria-hidden>→</span>
+                </Link>
+              )}
             </div>
           </motion.div>
         )}

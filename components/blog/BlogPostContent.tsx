@@ -120,6 +120,51 @@ function renderBlock(block: BlogBlock, index: number) {
           </p>
         </aside>
       );
+    case "cta":
+      return (
+        <aside
+          key={index}
+          className="mt-12 rounded-2xl border border-[#F97316]/30 bg-gradient-to-br from-[#F97316]/10 via-white to-white p-6 sm:p-8"
+        >
+          <h2 className="font-heading text-xl font-bold tracking-tight text-[#0F172A] sm:text-2xl">
+            {block.title}
+          </h2>
+          <p className="mt-4 text-base leading-[1.75] text-slate-700 sm:text-[1.0625rem]">
+            {block.segments.map((seg, i) => {
+              if (!seg.href) return <span key={i}>{seg.text}</span>;
+              const isExternal =
+                seg.external ??
+                (/^https?:\/\//.test(seg.href) &&
+                  !seg.href.startsWith(siteConfig.url));
+              if (isExternal) {
+                return (
+                  <a
+                    key={i}
+                    href={seg.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[#F97316] underline decoration-[#F97316]/40 underline-offset-4 transition-colors hover:decoration-[#F97316]"
+                  >
+                    {seg.text}
+                  </a>
+                );
+              }
+              const internalHref = seg.href
+                .replace(siteConfig.url, "")
+                .replace(/^https?:\/\/[^/]+/, "") || "/";
+              return (
+                <Link
+                  key={i}
+                  href={internalHref}
+                  className="font-semibold text-[#F97316] underline decoration-[#F97316]/40 underline-offset-4 transition-colors hover:decoration-[#F97316]"
+                >
+                  {seg.text}
+                </Link>
+              );
+            })}
+          </p>
+        </aside>
+      );
     default:
       return null;
   }
@@ -128,6 +173,13 @@ function renderBlock(block: BlogBlock, index: number) {
 function wordCountFromBlocks(blocks: BlogBlock[]): number {
   let total = 0;
   for (const b of blocks) {
+    if (b.type === "cta") {
+      total += b.title.trim().split(/\s+/).length;
+      for (const seg of b.segments) {
+        total += seg.text.trim().split(/\s+/).length;
+      }
+      continue;
+    }
     if ("text" in b && typeof b.text === "string") {
       total += b.text.trim().split(/\s+/).length;
     }

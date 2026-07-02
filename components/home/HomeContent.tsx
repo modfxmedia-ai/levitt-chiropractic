@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -646,6 +647,137 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* SECTION 9.5 QUESTION / CONTACT FORM */}
+      <section className="relative bg-white py-14 sm:py-20 md:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-32 top-16 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-[120px]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-[120px]"
+        />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="grid items-start gap-10 lg:grid-cols-12"
+          >
+            <div className="lg:col-span-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
+                Ask A Question
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+                Have a question? Send us a message.
+              </h2>
+              <span
+                aria-hidden
+                className="mt-4 block h-1 w-16 rounded-full bg-primary"
+              />
+              <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                Wondering if chiropractic care is right for you, curious about
+                a treatment, or need help scheduling? Fill out the form and
+                we&rsquo;ll get back to you shortly no appointment needed
+                to reach out.
+              </p>
+
+              <ul className="mt-8 space-y-4 text-sm text-slate-700">
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg bg-primary/10 text-primary ring-1 ring-primary/20">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Prefer to call?
+                    </p>
+                    <a
+                      href={siteConfig.phoneHref}
+                      className="mt-0.5 block font-semibold text-[#0F172A] transition-colors hover:text-primary"
+                    >
+                      {siteConfig.phone}
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg bg-primary/10 text-primary ring-1 ring-primary/20">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Office
+                    </p>
+                    <p className="mt-0.5 font-semibold text-[#0F172A]">
+                      {siteConfig.address.full}
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="relative overflow-hidden rounded-2xl border-t-4 border-primary bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-7">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-orange-600">
+                  Send a Message
+                </p>
+                <div className="mt-5 h-[600px] w-full sm:h-[640px]">
+                  <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/gOVyxQpZhEh5JDPGljU0"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: "8px",
+                    }}
+                    id="inline-gOVyxQpZhEh5JDPGljU0-home"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Website Form (CONTACT US)"
+                    data-height="441"
+                    data-layout-iframe-id="inline-gOVyxQpZhEh5JDPGljU0-home"
+                    data-form-id="gOVyxQpZhEh5JDPGljU0"
+                    title="Ask a question form"
+                  />
+                </div>
+                <Script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  strategy="lazyOnload"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* SECTION 10 LOCATION & HOURS */}
       <section className="relative overflow-hidden bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
@@ -755,6 +887,27 @@ export default function HomeContent() {
                   className="absolute inset-0 h-full w-full border-0"
                   allowFullScreen
                 />
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#0F172A] shadow-lg shadow-black/30 ring-1 ring-black/10 transition hover:bg-primary hover:text-white sm:text-[13px]"
+                  aria-label="Get directions to Levitt Chiropractic Center"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                    aria-hidden
+                  >
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                  </svg>
+                  Get Directions
+                </a>
               </div>
             </div>
           </motion.div>

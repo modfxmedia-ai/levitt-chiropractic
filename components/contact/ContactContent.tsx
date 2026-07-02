@@ -243,12 +243,7 @@ export default function ContactContent() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12"
           >
-            <a
-              href={MAP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block overflow-hidden rounded-2xl border-t-4 border-[#F97316] ring-1 ring-white/10 transition-transform hover:scale-[1.01]"
-            >
+            <div className="relative overflow-hidden rounded-2xl border-t-4 border-[#F97316] ring-1 ring-white/10">
               <iframe
                 src={MAP_EMBED}
                 title="Map to Levitt Chiropractic Center"
@@ -258,7 +253,28 @@ export default function ContactContent() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="block h-[280px] w-full border-0 sm:h-[360px] lg:h-[420px]"
               />
-            </a>
+              <a
+                href={MAP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#0F172A] shadow-lg shadow-black/30 ring-1 ring-black/10 transition hover:bg-[#F97316] hover:text-white sm:text-[13px]"
+                aria-label="Get directions to Levitt Chiropractic Center"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden
+                >
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+                Get Directions
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

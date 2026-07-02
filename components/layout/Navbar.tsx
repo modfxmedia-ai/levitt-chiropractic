@@ -201,6 +201,23 @@ function Dropdown({ entry, pathname }: DropdownProps) {
                   </Link>
                 );
               })}
+
+              {entry.href !== siteConfig.appointmentUrl && (
+                <>
+                  <div
+                    aria-hidden
+                    className="my-1.5 h-px bg-white/10"
+                  />
+                  <Link
+                    href={siteConfig.appointmentUrl}
+                    role="menuitem"
+                    className="flex items-center justify-between gap-2 rounded-lg bg-primary/15 px-3 py-2 text-sm font-semibold text-primary ring-1 ring-primary/30 transition-colors hover:bg-primary hover:text-white"
+                  >
+                    <span>Book Appointment</span>
+                    <span aria-hidden>→</span>
+                  </Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}
