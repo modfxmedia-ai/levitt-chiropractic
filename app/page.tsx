@@ -6,8 +6,9 @@ import { StickyBookNowBanner } from "@/components/layout/StickyBookNowBanner";
 export const metadata: Metadata = generateMeta({
   title: "Chiropractor in Saint Louis Park, MN",
   description:
-    "Dr. Alan Levitt offers drug-free, personalized chiropractic care in Saint Louis Park, MN back pain, injuries, cold laser, cryotherapy & orthotics.",
+    "Dr. Alan Levitt offers drug-free, personalized chiropractic care in Saint Louis Park, MN. Back pain, injuries, cold laser, cryotherapy, and custom orthotics.",
   slug: "",
+  absoluteTitle: true,
 });
 
 export default function Page() {

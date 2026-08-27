@@ -6,6 +6,7 @@ type ServiceSchemaProps = {
   slug: string;
   description: string;
   serviceType?: string;
+  areaServed?: string;
 };
 
 export function ServiceSchema(props: ServiceSchemaProps) {

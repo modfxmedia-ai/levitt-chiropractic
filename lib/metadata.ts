@@ -13,6 +13,11 @@ type GenerateMetaInput = {
   slug: string;
   image?: string;
   noindex?: boolean;
+  /**
+   * Skip the root layout `%s | Brand` template. Use on the homepage so the
+   * SERP title is exactly what we set (keyword + brand).
+   */
+  absoluteTitle?: boolean;
 };
 
 function buildUrl(slug: string): string {
@@ -26,15 +31,19 @@ export function generateMeta({
   slug,
   image = OG_DEFAULT,
   noindex = false,
+  absoluteTitle = false,
 }: GenerateMetaInput): Metadata {
   const url = buildUrl(slug);
+  const fullTitle = absoluteTitle
+    ? `${title} | ${siteConfig.shortName}`
+    : title;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: fullTitle } : title,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url,
       siteName: SITE_NAME,
@@ -51,7 +60,7 @@ export function generateMeta({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [image],
     },

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/siteConfig";
 import { sitemapEntries, type SitemapEntry } from "@/lib/sitemapEntries";
-import { servedCities } from "@/lib/areasData";
+import { servedCities, isCityIndexed } from "@/lib/areasData";
 import { pseoServices } from "@/lib/pseoServices";
 import { getAllPosts } from "@/lib/blog";
 
@@ -11,17 +11,19 @@ export async function GET() {
   const lastmod = new Date().toISOString();
 
   // Programmatic /areas-we-serve URLs (hub + city + city/service)
+  const indexedCities = servedCities.filter(isCityIndexed);
+
   const pseoEntries: SitemapEntry[] = [
     { path: "/areas-we-serve", priority: 0.8, changefreq: "monthly" },
-    ...servedCities.map<SitemapEntry>((c) => ({
+    ...indexedCities.map<SitemapEntry>((c) => ({
       path: `/areas-we-serve/${c.slug}`,
-      priority: 0.6,
+      priority: c.slug === "saint-louis-park" ? 0.8 : 0.6,
       changefreq: "monthly",
     })),
-    ...servedCities.flatMap<SitemapEntry>((c) =>
+    ...indexedCities.flatMap<SitemapEntry>((c) =>
       pseoServices.map<SitemapEntry>((s) => ({
         path: `/areas-we-serve/${c.slug}/${s.slug}`,
-        priority: 0.5,
+        priority: c.slug === "saint-louis-park" ? 0.6 : 0.5,
         changefreq: "monthly",
       })),
     ),

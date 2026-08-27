@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 
 type Crumb = {
   label: string;
@@ -21,6 +22,7 @@ export function ServiceHero({ title, subtitle, crumbs }: ServiceHeroProps) {
     <section
       className="relative isolate flex items-center overflow-hidden bg-[#0F172A] text-white sm:min-h-[45vh]"
     >
+      <BreadcrumbJsonLd crumbs={crumbs} />
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-[0.05]"

@@ -9,7 +9,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { BlogCard } from "@/components/blog/BlogCard";
 import {
   blogPostingJsonLd,
-  breadcrumbJsonLd,
   faqPageJsonLd,
 } from "@/lib/jsonLd";
 import { formatPostDate, type BlogBlock, type BlogPost } from "@/lib/blog";
@@ -212,16 +211,6 @@ export function BlogPostContent({ post, related }: BlogPostContentProps) {
           keywords: post.tags,
           articleSection: post.category,
           wordCount,
-        })}
-      />
-      <JsonLd
-        id={`ld-blog-breadcrumb-${post.slug}`}
-        data={breadcrumbJsonLd({
-          items: [
-            { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-            { name: post.title, url: `/blog/${post.slug}` },
-          ],
         })}
       />
       {post.faqs && post.faqs.length > 0 && (

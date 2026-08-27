@@ -1,6 +1,24 @@
 import { siteConfig } from "./siteConfig";
 
-const GEO = { latitude: 44.9305, longitude: -93.3673 };
+function absUrl(path: string): string {
+  if (path.startsWith("http")) return path;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+const BUSINESS_ID = `${siteConfig.url}/#chiropractor`;
+const WEBSITE_ID = `${siteConfig.url}/#website`;
+const PHYSICIAN_ID = `${siteConfig.url}/meet-the-doctor#physician`;
+
+function postalAddress() {
+  return {
+    "@type": "PostalAddress" as const,
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.zip,
+    addressCountry: "US",
+  };
+}
 
 function buildHoursSpecification() {
   const dayMap: Record<string, string> = {
@@ -33,7 +51,6 @@ function buildHoursSpecification() {
       });
       continue;
     }
-    // Best-effort range parse: "8:30am–11:30am" or "8:30–11:30am & 2:30–5:30pm"
     const ranges = h.hours.split("&").map((s) => s.trim());
     for (const range of ranges) {
       const m = range.match(
@@ -63,35 +80,95 @@ function to24h(h: string, m: string | undefined, ampm: string | undefined) {
   return `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`;
 }
 
+const PRIMARY_SERVICES = [
+  {
+    name: "Chiropractic Adjustments & Manipulation",
+    url: "/adjustments-and-manipulation",
+  },
+  { name: "Back Pain Treatment", url: "/back-pain-treatments" },
+  { name: "Cold Laser Therapy", url: "/cold-laser-therapy" },
+  { name: "Cryotherapy", url: "/cryotherapy" },
+  { name: "Custom Foot Orthotics", url: "/custom-foot-orthotics" },
+  { name: "Therapeutic Exercise", url: "/therapeutic-exercise" },
+];
+
 export function localBusinessJsonLd() {
+  const logo = absUrl("/images/logo.png");
+  const photo = absUrl("/images/og-default.jpg");
+  const doctorPhoto = absUrl(siteConfig.physician.image);
+
   return {
     "@context": "https://schema.org",
     "@type": "Chiropractor",
-    "@id": `${siteConfig.url}/#chiropractor`,
+    "@id": BUSINESS_ID,
     name: siteConfig.name,
-    image: `${siteConfig.url}/images/og-default.jpg`,
+    alternateName: [
+      siteConfig.shortName,
+      siteConfig.physician.name,
+      siteConfig.physician.shortName,
+    ],
+    description: siteConfig.description,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.zip,
-      addressCountry: "US",
+    image: [photo, doctorPhoto, logo],
+    logo: {
+      "@type": "ImageObject",
+      url: logo,
     },
+    telephone: siteConfig.phoneE164,
+    priceRange: "$$",
+    currenciesAccepted: "USD",
+    foundingDate: siteConfig.foundingDate,
+    medicalSpecialty: "Chiropractic",
+    isAcceptingNewPatients: true,
+    address: postalAddress(),
     geo: {
       "@type": "GeoCoordinates",
-      latitude: GEO.latitude,
-      longitude: GEO.longitude,
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
     },
+    hasMap: siteConfig.mapsUrl,
     openingHoursSpecification: buildHoursSpecification(),
     areaServed: [
       { "@type": "City", name: "Saint Louis Park" },
       { "@type": "City", name: "Minneapolis" },
-      { "@type": "AdministrativeArea", name: "Minnesota" },
+      { "@type": "City", name: "Edina" },
+      { "@type": "City", name: "Hopkins" },
+      { "@type": "City", name: "Minnetonka" },
+      { "@type": "City", name: "Golden Valley" },
     ],
+    sameAs: [siteConfig.mapsUrl, siteConfig.healthgradesUrl],
+    employee: {
+      "@type": "Physician",
+      "@id": PHYSICIAN_ID,
+      name: siteConfig.physician.name,
+      url: `${siteConfig.url}/meet-the-doctor`,
+      jobTitle: siteConfig.physician.jobTitle,
+    },
+    founder: { "@id": PHYSICIAN_ID },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: String(siteConfig.googleRating.value),
+      reviewCount: String(siteConfig.googleRating.count),
+      bestRating: String(siteConfig.googleRating.best),
+      worstRating: "1",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Chiropractic services",
+      itemListElement: PRIMARY_SERVICES.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "MedicalTherapy",
+          name: s.name,
+          url: absUrl(s.url),
+        },
+      })),
+    },
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: absUrl(siteConfig.appointmentUrl),
+      name: "Request an appointment",
+    },
   };
 }
 
@@ -99,10 +176,11 @@ export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${siteConfig.url}/#website`,
+    "@id": WEBSITE_ID,
     url: siteConfig.url,
     name: siteConfig.name,
     inLanguage: "en-US",
+    publisher: { "@id": BUSINESS_ID },
   };
 }
 
@@ -111,19 +189,21 @@ export function serviceJsonLd(input: {
   slug: string;
   description: string;
   serviceType?: string;
+  areaServed?: string;
 }) {
-  const url = `${siteConfig.url}/${input.slug.replace(/^\/+/, "")}`;
+  const url = absUrl(input.slug.replace(/^\/+/, ""));
   return {
     "@context": "https://schema.org",
     "@type": "MedicalTherapy",
     name: input.name,
     description: input.description,
     url,
-    areaServed: [
-      { "@type": "City", name: "Saint Louis Park" },
-      { "@type": "City", name: "Minneapolis" },
-      { "@type": "AdministrativeArea", name: "Minnesota" },
-    ],
+    serviceType: input.serviceType ?? input.name,
+    provider: { "@id": BUSINESS_ID },
+    areaServed: {
+      "@type": "City",
+      name: input.areaServed ?? "Saint Louis Park",
+    },
   };
 }
 
@@ -141,14 +221,8 @@ export function blogPostingJsonLd(input: {
   wordCount?: number;
 }) {
   const url = `${siteConfig.url}/blog/${input.slug.replace(/^\/+/, "")}`;
-  const image = input.image.startsWith("http")
-    ? input.image
-    : `${siteConfig.url}${input.image.startsWith("/") ? input.image : `/${input.image}`}`;
-  const authorUrl = input.authorUrl
-    ? input.authorUrl.startsWith("http")
-      ? input.authorUrl
-      : `${siteConfig.url}${input.authorUrl.startsWith("/") ? input.authorUrl : `/${input.authorUrl}`}`
-    : undefined;
+  const image = absUrl(input.image);
+  const authorUrl = input.authorUrl ? absUrl(input.authorUrl) : undefined;
 
   return {
     "@context": "https://schema.org",
@@ -169,11 +243,11 @@ export function blogPostingJsonLd(input: {
     },
     publisher: {
       "@type": "Organization",
-      "@id": `${siteConfig.url}/#chiropractor`,
+      "@id": BUSINESS_ID,
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/images/og-default.jpg`,
+        url: absUrl("/images/og-default.jpg"),
       },
     },
     ...(input.articleSection ? { articleSection: input.articleSection } : {}),
@@ -206,14 +280,11 @@ export function blogIndexJsonLd(input: {
       "Articles on chiropractic care, recovery, and spinal health from Dr. Alan Levitt.",
     publisher: {
       "@type": "Organization",
-      "@id": `${siteConfig.url}/#chiropractor`,
+      "@id": BUSINESS_ID,
       name: siteConfig.name,
     },
     blogPost: input.posts.map((p) => {
       const postUrl = `${siteConfig.url}/blog/${p.slug}`;
-      const image = p.image.startsWith("http")
-        ? p.image
-        : `${siteConfig.url}${p.image.startsWith("/") ? p.image : `/${p.image}`}`;
       return {
         "@type": "BlogPosting",
         "@id": `${postUrl}#article`,
@@ -222,7 +293,7 @@ export function blogIndexJsonLd(input: {
         url: postUrl,
         datePublished: p.publishedAt,
         dateModified: p.updatedAt ?? p.publishedAt,
-        image,
+        image: absUrl(p.image),
         author: { "@type": "Person", name: p.authorName },
       };
     }),
@@ -251,59 +322,46 @@ export function breadcrumbJsonLd(input: {
       "@type": "ListItem",
       position: idx + 1,
       name: item.name,
-      item: item.url.startsWith("http")
-        ? item.url
-        : `${siteConfig.url}${item.url.startsWith("/") ? item.url : `/${item.url}`}`,
+      item: absUrl(item.url),
     })),
   };
 }
 
-/** Per-city LocalBusiness/Chiropractor schema used on /areas-we-serve/[city]. */
-export function cityChiropractorJsonLd(input: {
+/** City landing page: a WebPage about the real Saint Louis Park clinic, not a second location. */
+export function cityServiceAreaJsonLd(input: {
   citySlug: string;
   cityName: string;
+  description: string;
 }) {
   const url = `${siteConfig.url}/areas-we-serve/${input.citySlug}`;
   return {
     "@context": "https://schema.org",
-    "@type": "Chiropractor",
-    "@id": `${url}#chiropractor`,
-    name: `${siteConfig.name} serving ${input.cityName}, MN`,
-    image: `${siteConfig.url}/images/og-default.jpg`,
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
     url,
-    telephone: siteConfig.phone,
-    priceRange: "$$",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.zip,
-      addressCountry: "US",
-    },
-    areaServed: { "@type": "City", name: input.cityName },
+    name: `Chiropractor in ${input.cityName}, MN`,
+    description: input.description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": BUSINESS_ID },
+    primaryImageOfPage: absUrl("/images/og-default.jpg"),
+    inLanguage: "en-US",
   };
 }
 
-/** Physician/Person schema for Dr. Alan Levitt used on /meet-the-doctor. */
 export function physicianJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Physician",
-    "@id": `${siteConfig.url}/meet-the-doctor#physician`,
-    name: "Dr. Alan G. Levitt, DC",
+    "@id": PHYSICIAN_ID,
+    name: siteConfig.physician.name,
+    honorificPrefix: "Dr.",
+    jobTitle: siteConfig.physician.jobTitle,
     medicalSpecialty: "Chiropractic",
-    image: `${siteConfig.url}/images/dr-leviit.png`,
+    image: absUrl(siteConfig.physician.image),
     url: `${siteConfig.url}/meet-the-doctor`,
-    telephone: siteConfig.phone,
-    worksFor: { "@id": `${siteConfig.url}/#chiropractor` },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.zip,
-      addressCountry: "US",
-    },
+    telephone: siteConfig.phoneE164,
+    worksFor: { "@id": BUSINESS_ID },
+    address: postalAddress(),
+    sameAs: [siteConfig.healthgradesUrl],
   };
 }

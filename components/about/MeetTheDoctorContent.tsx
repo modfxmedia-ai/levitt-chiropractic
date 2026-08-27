@@ -177,8 +177,8 @@ export default function MeetTheDoctorContent() {
                 className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
               />
               <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-                Dr. Levitt was born and raised in St Louis Park, Minnesota.
-                He attended local public schools including St Louis Park
+                Dr. Levitt was born and raised in Saint Louis Park, Minnesota.
+                He attended local public schools including Saint Louis Park
                 High School. In 1981 he attended the University of Minnesota
                 fulfilling his requirements to attend Chiropractic School.
                 In December 1986 he graduated from Northwestern College of
@@ -186,7 +186,7 @@ export default function MeetTheDoctorContent() {
               </p>
               <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
                 Dr. Levitt has been in private practice since 1987 in the
-                St. Louis Park area. He still loves going to work daily to
+                Saint Louis Park area. He still loves going to work daily to
                 help improve the quality of life of his patients and is
                 always looking to help others on their health journey.
               </p>

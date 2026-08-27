@@ -10,9 +10,12 @@ import {
   useTransform,
 } from "framer-motion";
 import { Button } from "./Button";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Props = {
   title: string;
+  /** Rendered in the brand color after `title` — e.g. the city name. */
+  titleAccent?: string;
   subtitle?: string;
   eyebrow?: string;
   ctaText?: string;
@@ -23,6 +26,8 @@ type Props = {
   backgroundImage?: string;
   /** Multiple background images that cross-fade on an interval. */
   backgroundImages?: string[];
+  /** Alt text aligned with `backgroundImages` / `backgroundImage`. */
+  backgroundImageAlts?: string[];
   /** Cross-fade interval in ms. Defaults to 6000. */
   rotateInterval?: number;
 };
@@ -55,6 +60,7 @@ const wordVariants = {
 
 export function HeroSection({
   title,
+  titleAccent,
   subtitle,
   eyebrow,
   ctaText = "Request Appointment",
@@ -63,6 +69,7 @@ export function HeroSection({
   secondaryCtaHref,
   backgroundImage,
   backgroundImages,
+  backgroundImageAlts,
   rotateInterval = 3500,
 }: Props) {
   const reduce = useReducedMotion();
@@ -130,7 +137,7 @@ export function HeroSection({
             >
               <Image
                 src={slides[slideIndex]}
-                alt=""
+                alt={backgroundImageAlts?.[slideIndex] ?? ""}
                 fill
                 priority={slideTick === 0}
                 sizes="100vw"
@@ -268,6 +275,21 @@ export function HeroSection({
                   {i < words.length - 1 ? " " : ""}
                 </motion.span>
               ))}
+              {titleAccent ? (
+                <>
+                  {" "}
+                  {titleAccent.split(" ").map((word, i, arr) => (
+                    <motion.span
+                      key={`accent-${word}-${i}`}
+                      variants={reduce ? undefined : wordVariants}
+                      className="inline-block whitespace-pre text-primary"
+                    >
+                      {word}
+                      {i < arr.length - 1 ? " " : ""}
+                    </motion.span>
+                  ))}
+                </>
+              ) : null}
             </h1>
 
             {/* Animated underline accent */}
@@ -350,6 +372,7 @@ export function HeroSection({
             slides={slides}
             slideIndex={slideIndex}
             slideTick={slideTick}
+            alts={backgroundImageAlts}
           />
         </motion.div>
       </div>
@@ -426,11 +449,13 @@ function SpineGraphic({
   slides,
   slideIndex,
   slideTick,
+  alts,
 }: {
   reduce: boolean;
   slides: string[];
   slideIndex: number;
   slideTick: number;
+  alts?: string[];
 }) {
   const cardSlides = slides.length > 0 ? slides : ["/images/adjustment-1.jpg"];
   const activeSrc = cardSlides[slideIndex % cardSlides.length];
@@ -499,7 +524,7 @@ function SpineGraphic({
           >
             <Image
               src={activeSrc}
-              alt=""
+              alt={alts?.[slideIndex] ?? "Chiropractic care at Levitt Chiropractic Center in Saint Louis Park"}
               fill
               priority={slideTick === 0}
               sizes="(min-width: 1024px) 28rem, 100vw"
@@ -603,31 +628,39 @@ function SpineGraphic({
         transition={{ duration: 0.8, delay: 1.3, ease: "easeOut" }}
         className="absolute -right-4 top-10 hidden sm:block"
       >
-        <motion.div
-          animate={reduce ? undefined : { y: [0, -6, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="rounded-2xl bg-white p-4 shadow-2xl shadow-black/30 ring-1 ring-black/5"
-        >
-          <div className="flex items-center gap-1">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <svg
-                key={i}
-                viewBox="0 0 24 24"
-                fill="#F97316"
-                className="h-4 w-4"
-                aria-hidden
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z" />
-              </svg>
-            ))}
-          </div>
-          <p className="mt-2 font-heading text-2xl font-black leading-none text-dark">
-            5.0
-          </p>
-          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-            Patient Reviews
-          </p>
-        </motion.div>
+          <motion.div
+            animate={reduce ? undefined : { y: [0, -6, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="rounded-2xl bg-white p-4 shadow-2xl shadow-black/30 ring-1 ring-black/5"
+          >
+            <a
+              href={siteConfig.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+              aria-label={`${siteConfig.googleRating.value.toFixed(1)} stars from ${siteConfig.googleRating.count} Google reviews`}
+            >
+              <div className="flex items-center gap-1">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg
+                    key={i}
+                    viewBox="0 0 24 24"
+                    fill="#F97316"
+                    className="h-4 w-4"
+                    aria-hidden
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="mt-2 font-heading text-2xl font-black leading-none text-dark">
+                {siteConfig.googleRating.value.toFixed(1)}
+              </p>
+              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                {siteConfig.googleRating.count} Google reviews
+              </p>
+            </a>
+          </motion.div>
       </motion.div>
 
       {/* FLOATING Treatment chip (bottom left) */}

@@ -34,7 +34,7 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
     <>
       <ServiceHero
         title={`Chiropractor in ${city.name}, MN`}
-        subtitle={`Drug-free chiropractic care for ${city.name} families adjustments, cold laser, cryotherapy, custom orthotics and more.`}
+        subtitle={`Drug-free chiropractic care for ${city.name} families — adjustments, cold laser, cryotherapy, custom orthotics and more.`}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Areas We Serve", href: "/areas-we-serve" },

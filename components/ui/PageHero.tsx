@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { BreadcrumbJsonLd, type BreadcrumbCrumb } from "@/components/seo/BreadcrumbJsonLd";
 
-export type Crumb = { label: string; href?: string };
+export type Crumb = BreadcrumbCrumb;
 
 type PageHeroProps = {
   title: string;
@@ -31,6 +32,7 @@ export function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden bg-dark text-white">
+      <BreadcrumbJsonLd crumbs={crumbs} />
       {/* Diagonal split background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-dark via-navy/60 to-dark" />

@@ -115,6 +115,33 @@ export const servedCities: ServedCity[] = [
   { slug: "forest-lake", name: "Forest Lake", county: "Washington", distanceMi: 26, population: 21000, zips: ["55025"], neighbors: ["Hugo", "Wyoming", "Lino Lakes"], landmark: "Forest Lake itself", region: "East Metro" },
 ];
 
+/**
+ * Cities Google should index. These are the real West Metro catchment
+ * around the Saint Louis Park office. Farther Twin Cities pages stay
+ * live for visitors but are noindexed so they do not look like extra
+ * clinic locations.
+ */
+export const indexedCitySlugs = new Set<string>([
+  "saint-louis-park",
+  "minneapolis",
+  "edina",
+  "hopkins",
+  "minnetonka",
+  "golden-valley",
+  "richfield",
+  "crystal",
+  "robbinsdale",
+  "plymouth",
+  "new-hope",
+  "wayzata",
+  "eden-prairie",
+  "bloomington",
+]);
+
+export function isCityIndexed(city: Pick<ServedCity, "slug">): boolean {
+  return indexedCitySlugs.has(city.slug);
+}
+
 /** Reverse-lookup helper. */
 export function getCityBySlug(slug: string): ServedCity | undefined {
   return servedCities.find((c) => c.slug === slug);

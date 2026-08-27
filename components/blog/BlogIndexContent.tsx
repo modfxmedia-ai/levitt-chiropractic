@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { blogIndexJsonLd, breadcrumbJsonLd } from "@/lib/jsonLd";
+import { blogIndexJsonLd } from "@/lib/jsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 import type { BlogPost } from "@/lib/blog";
 
@@ -41,16 +41,6 @@ export function BlogIndexContent({ posts }: BlogIndexContentProps) {
           })),
         })}
       />
-      <JsonLd
-        id="ld-blog-breadcrumb"
-        data={breadcrumbJsonLd({
-          items: [
-            { name: "Home", url: "/" },
-            { name: "Blog", url: "/blog" },
-          ],
-        })}
-      />
-
       <PageHero
         eyebrow="Insights"
         title="Chiropractic Insights & Guides"

@@ -12,7 +12,7 @@ import { QuickLinkCard } from "@/components/ui/QuickLinkCard";
 import { Button } from "@/components/ui/Button";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { localBusinessJsonLd } from "@/lib/jsonLd";
+import { faqPageJsonLd } from "@/lib/jsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
 const HERO_IMAGES = [
@@ -21,6 +21,33 @@ const HERO_IMAGES = [
   "/images/therapeutic-exercise.jpg",
   "/images/chronic-lower-back-pain.jpg",
   "/images/3d-spine-simulator.jpg",
+];
+
+const HERO_IMAGE_ALTS = [
+  "Dr. Alan Levitt performing a chiropractic adjustment in Saint Louis Park, MN",
+  "Patient receiving care for back and neck pain at Levitt Chiropractic Center",
+  "Therapeutic exercise and rehab at Levitt Chiropractic in Saint Louis Park",
+  "Chiropractic treatment for chronic lower back pain",
+  "Spine education and assessment at Levitt Chiropractic Center",
+];
+
+const homeFaqs = [
+  {
+    q: "Is Levitt Chiropractic accepting new patients in Saint Louis Park?",
+    a: "Yes. Dr. Alan Levitt is accepting new patients at 6200 Excelsior Blvd, Suite 201 in Saint Louis Park. Request an appointment online or call 952-920-7535.",
+  },
+  {
+    q: "Where is the clinic located?",
+    a: "Levitt Chiropractic Center is at 6200 Excelsior Blvd, Suite 201, Saint Louis Park, MN 55416 — near the West End, with patients also coming from Minneapolis, Edina, Hopkins, and Minnetonka.",
+  },
+  {
+    q: "What happens on a first visit?",
+    a: "Dr. Levitt listens first, then evaluates history, posture, and the nervous system. You leave with a clear plan — not a one-size-fits-all protocol — and we only recommend imaging when it would change your care.",
+  },
+  {
+    q: "Do you treat back pain without drugs or surgery?",
+    a: "Yes. Care is drug-free and non-surgical: chiropractic adjustments, cold laser, cryotherapy, therapeutic exercise, and custom orthotics when they help the underlying cause.",
+  },
 ];
 
 const quickLinks = [
@@ -188,18 +215,20 @@ export default function HomeContent() {
 
   return (
     <>
-      <JsonLd id="ld-localbusiness" data={localBusinessJsonLd()} />
+      <JsonLd id="ld-home-faq" data={faqPageJsonLd({ faqs: homeFaqs })} />
 
       {/* SECTION 1 HERO */}
       <HeroSection
         eyebrow="Saint Louis Park, MN"
-        title="YOUR SPINE HEALTH SPECIALISTS"
-        subtitle="Superior chiropractic care from Dr. Alan Levitt combining holistic, traditional, and innovative therapies for every stage of life."
+        title="Chiropractor in"
+        titleAccent="Saint Louis Park"
+        subtitle="Your spine health specialists. Drug-free, personalized care from Dr. Alan Levitt — adjustments, cold laser, cryotherapy, and custom orthotics."
         ctaText="REQUEST APPOINTMENT"
         ctaHref="/contact/appointment-request"
         secondaryCtaText="Meet Dr. Levitt"
         secondaryCtaHref="/meet-the-doctor"
         backgroundImages={HERO_IMAGES}
+        backgroundImageAlts={HERO_IMAGE_ALTS}
       />
 
       {/* SECTION 2 TICKER */}
@@ -229,7 +258,11 @@ export default function HomeContent() {
             { value: 39, suffix: "", label: "Years of Experience" },
             { value: 1999, prefix: "", suffix: "", label: "Serving Since" },
             { value: 6, suffix: "+", label: "Specialty Techniques" },
-            { value: 5, suffix: "★", label: "Patient Trusted" },
+            {
+              value: siteConfig.googleRating.value,
+              suffix: ".0",
+              label: "Google Rating",
+            },
           ].map((s, i) => (
             <motion.div
               key={s.label}
@@ -390,9 +423,11 @@ export default function HomeContent() {
               }}
               className="absolute -right-4 bottom-12 hidden rounded-2xl bg-primary p-5 text-white shadow-2xl shadow-orange-500/30 sm:block"
             >
-              <p className="font-heading text-2xl font-bold">★★★★★</p>
+              <p className="font-heading text-2xl font-bold">
+                {siteConfig.googleRating.value.toFixed(1)}
+              </p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/90">
-                Patient trusted
+                {siteConfig.googleRating.count} Google reviews
               </p>
             </motion.div>
 
@@ -602,6 +637,19 @@ export default function HomeContent() {
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-5xl">
               Real stories. <span className="text-primary">Real relief.</span>
             </h2>
+            <p className="mt-4 text-base text-slate-600">
+              {siteConfig.googleRating.value.toFixed(1)} from{" "}
+              {siteConfig.googleRating.count} Google reviews, plus the notes
+              patients leave after care.{" "}
+              <a
+                href={siteConfig.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                Read reviews on Google
+              </a>
+            </p>
           </div>
         </div>
 
@@ -644,6 +692,45 @@ export default function HomeContent() {
               </article>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ — visible answers that match the FAQPage schema */}
+      <section className="relative bg-slate-50 py-14 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              New patients
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-dark sm:text-4xl">
+              Questions we hear in Saint Louis Park
+            </h2>
+          </motion.div>
+          <dl className="mt-10 space-y-4">
+            {homeFaqs.map((f) => (
+              <motion.div
+                key={f.q}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="rounded-2xl bg-white p-6 ring-1 ring-slate-200"
+              >
+                <dt className="font-heading text-lg font-bold text-dark">
+                  {f.q}
+                </dt>
+                <dd className="mt-2 text-base leading-relaxed text-slate-600">
+                  {f.a}
+                </dd>
+              </motion.div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -849,7 +936,7 @@ export default function HomeContent() {
                       <p className="mt-1.5 leading-snug text-white/85">
                         6200 Excelsior Blvd, Suite 201
                         <br />
-                        St Louis Park, MN 55416
+                        Saint Louis Park, MN 55416
                       </p>
                     </div>
                     <div>
@@ -881,14 +968,14 @@ export default function HomeContent() {
               <div className="relative min-h-[300px] lg:col-span-3 lg:min-h-0">
                 <iframe
                   title="Levitt Chiropractic Center map"
-                  src="https://www.google.com/maps?q=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416&output=embed"
+                  src={siteConfig.mapsEmbedUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0 h-full w-full border-0"
                   allowFullScreen
                 />
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=6200+Excelsior+Blvd+%23201,+Saint+Louis+Park,+MN+55416"
+                  href={siteConfig.mapsDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#0F172A] shadow-lg shadow-black/30 ring-1 ring-black/10 transition hover:bg-primary hover:text-white sm:text-[13px]"

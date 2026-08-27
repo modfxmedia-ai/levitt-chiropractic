@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { generateMeta } from "@/lib/metadata";
-import { servedCities, getCityBySlug } from "@/lib/areasData";
+import { servedCities, getCityBySlug, isCityIndexed } from "@/lib/areasData";
 import { siteConfig } from "@/lib/siteConfig";
-import { cityChiropractorJsonLd } from "@/lib/jsonLd";
+import { cityServiceAreaJsonLd } from "@/lib/jsonLd";
 import { JsonLd } from "@/components/seo/JsonLd";
 import AreaCityPageContent from "@/components/areas/AreaCityPageContent";
 
@@ -26,12 +26,13 @@ export async function generateMetadata({
   if (!city) return {};
 
   const title = `Chiropractor in ${city.name}, MN`;
-  const description = `Drug-free chiropractic care for ${city.name}, Minnesota adjustments, cold laser, cryotherapy, custom orthotics and more. Call ${siteConfig.phone}.`;
+  const description = `Drug-free chiropractic care for ${city.name}, Minnesota — adjustments, cold laser, cryotherapy, custom orthotics and more at our Saint Louis Park office. Call ${siteConfig.phone}.`;
 
   return generateMeta({
     title,
     description,
     slug: `areas-we-serve/${city.slug}`,
+    noindex: !isCityIndexed(city),
   });
 }
 
@@ -48,7 +49,11 @@ export default async function Page({
     <>
       <JsonLd
         id={`ld-city-${city.slug}`}
-        data={cityChiropractorJsonLd({ citySlug: city.slug, cityName: city.name })}
+        data={cityServiceAreaJsonLd({
+          citySlug: city.slug,
+          cityName: city.name,
+          description: `Chiropractic care for ${city.name}, MN from Levitt Chiropractic Center in Saint Louis Park.`,
+        })}
       />
       <AreaCityPageContent city={city} />
     </>
