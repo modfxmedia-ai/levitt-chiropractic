@@ -116,30 +116,14 @@ export const servedCities: ServedCity[] = [
 ];
 
 /**
- * Cities Google should index. These are the real West Metro catchment
- * around the Saint Louis Park office. Farther Twin Cities pages stay
- * live for visitors but are noindexed so they do not look like extra
- * clinic locations.
+ * Sitemap priority helper. Closer cities rank higher in the sitemap;
+ * every city URL is still indexed.
  */
-export const indexedCitySlugs = new Set<string>([
-  "saint-louis-park",
-  "minneapolis",
-  "edina",
-  "hopkins",
-  "minnetonka",
-  "golden-valley",
-  "richfield",
-  "crystal",
-  "robbinsdale",
-  "plymouth",
-  "new-hope",
-  "wayzata",
-  "eden-prairie",
-  "bloomington",
-]);
-
-export function isCityIndexed(city: Pick<ServedCity, "slug">): boolean {
-  return indexedCitySlugs.has(city.slug);
+export function citySitemapPriority(city: Pick<ServedCity, "slug" | "distanceMi">): number {
+  if (city.slug === "saint-louis-park") return 0.8;
+  if (city.distanceMi <= 10) return 0.6;
+  if (city.distanceMi <= 16) return 0.55;
+  return 0.5;
 }
 
 /** Reverse-lookup helper. */

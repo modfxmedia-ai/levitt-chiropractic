@@ -7,6 +7,14 @@ import { siteConfig } from "@/lib/siteConfig";
 import type { ServedCity } from "@/lib/areasData";
 import { servedCities } from "@/lib/areasData";
 import { pseoServices } from "@/lib/pseoServices";
+import {
+  cityFaqs,
+  cityIntro,
+  cityWhyPoints,
+  driveLabel,
+  visitFacts,
+  zipPhrase,
+} from "@/lib/areaPageCopy";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { LocationStrip } from "@/components/services/LocationStrip";
 import { CtaCard } from "@/components/services/CtaCard";
@@ -24,17 +32,20 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
   const sameRegionCities = servedCities
     .filter((c) => c.region === city.region && c.slug !== city.slug)
     .slice(0, 8);
-
-  const distanceCopy =
-    city.distanceMi === 0
-      ? `Our office is in ${city.name} itself.`
-      : `${city.name} is about ${city.distanceMi} ${city.distanceMi === 1 ? "mile" : "miles"} from our Saint Louis Park office.`;
+  const copy = cityIntro(city);
+  const why = cityWhyPoints(city);
+  const faqs = cityFaqs(city);
+  const facts = visitFacts(city);
 
   return (
     <>
       <ServiceHero
         title={`Chiropractor in ${city.name}, MN`}
-        subtitle={`Drug-free chiropractic care for ${city.name} families — adjustments, cold laser, cryotherapy, custom orthotics and more.`}
+        subtitle={
+          city.distanceMi === 0
+            ? `Drug-free chiropractic care in ${city.name} — adjustments, cold laser, cryotherapy, and custom orthotics at ${siteConfig.address.street}.`
+            : `${city.name} patients are seen in Saint Louis Park, about ${driveLabel(city).toLowerCase()} from ${city.landmark}.`
+        }
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -42,7 +53,6 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
         ]}
       />
 
-      {/* Intro */}
       <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
@@ -52,45 +62,92 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
-              {city.region} · {city.county} County
+              {city.region} · {city.county} County · ZIP {zipPhrase(city)}
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              Serving {city.name}, Minnesota
+              {city.distanceMi === 0
+                ? `Chiropractic care in ${city.name}`
+                : `${city.name} patients, one Saint Louis Park clinic`}
             </h2>
             <span
               aria-hidden
               className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              {distanceCopy} Dr. Alan Levitt has cared for patients across the{" "}
-              {city.region.toLowerCase()} since 1987 including
-              {" "}
-              {city.name} families near {city.landmark} and the surrounding{" "}
-              {neighborsPhrase(city)} neighborhoods. Whether you're managing
-              chronic back pain, recovering from a recent injury, or chasing
-              better performance for an active lifestyle, our care is built
-              around you, not a template.
+              {copy.lead}
             </p>
-            <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Below is the full list of chiropractic services available to
-              {" "}
-              {city.name} residents. Click any service for the full overview.
+            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+              {copy.support}
             </p>
           </motion.div>
+
+          <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map((f) => (
+              <div
+                key={f.label}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4"
+              >
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-600">
+                  {f.label}
+                </dt>
+                <dd className="mt-2 text-sm font-semibold leading-snug text-[#0F172A]">
+                  {f.label === "Phone" ? (
+                    <a href={siteConfig.phoneHref} className="hover:text-[#F97316]">
+                      {f.value}
+                    </a>
+                  ) : (
+                    f.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* All services grid */}
+      <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
+              Why patients from {city.name} come here
+            </p>
+            <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight text-[#0F172A] sm:text-3xl">
+              What {city.name} patients should know
+            </h2>
+          </motion.div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {why.map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="rounded-2xl border-t-4 border-[#F97316] bg-white p-6 shadow-sm ring-1 ring-slate-200"
+              >
+                <h3 className="font-heading text-lg font-bold text-[#0F172A]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  {item.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
         <div
           aria-hidden
           className="pointer-events-none absolute -left-32 top-20 -z-10 h-96 w-96 rounded-full bg-[#F97316]/10 blur-[140px]"
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-96 w-96 rounded-full bg-[#1E3A5F]/60 blur-[140px]"
-        />
-
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -103,13 +160,9 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
               Services for {city.name}
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-              All chiropractic care available to{" "}
+              Care available to{" "}
               <span className="text-[#F97316]">{city.name} residents</span>
             </h2>
-            <span
-              aria-hidden
-              className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
-            />
           </motion.div>
 
           <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -120,11 +173,10 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ delay: idx * 0.03 }}
               >
                 <Link
                   href={`/areas-we-serve/${city.slug}/${s.slug}`}
-                  className="group block h-full rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F]/60 p-6 shadow-xl ring-1 ring-white/10 backdrop-blur-sm transition hover:bg-[#1E3A5F]/80 hover:ring-white/20"
+                  className="group block h-full rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F]/60 p-6 ring-1 ring-white/10 transition hover:bg-[#1E3A5F]/80 hover:ring-white/20"
                 >
                   <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
                     {String(idx + 1).padStart(2, "0")}
@@ -135,14 +187,8 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
                   <p className="mt-2 text-sm leading-relaxed text-white/70">
                     {s.tagline}
                   </p>
-                  <p className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#F97316]">
-                    Explore in {city.name}
-                    <span
-                      aria-hidden
-                      className="transition-transform group-hover:translate-x-0.5"
-                    >
-                      →
-                    </span>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#F97316]">
+                    {s.name} in {city.name} →
                   </p>
                 </Link>
               </motion.div>
@@ -151,47 +197,69 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
         </div>
       </section>
 
-      {/* Nearby cities */}
+      <section className="relative bg-white py-12 sm:py-20 md:py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
+              {city.name} questions
+            </p>
+            <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              Getting here and getting started
+            </h2>
+          </motion.div>
+          <div className="mt-10 space-y-4">
+            {faqs.map((f) => (
+              <div
+                key={f.q}
+                className="rounded-2xl border-l-4 border-[#F97316] bg-slate-50 p-6"
+              >
+                <p className="font-heading text-lg font-bold text-[#0F172A]">
+                  {f.q}
+                </p>
+                <p className="mt-2 text-base leading-relaxed text-slate-700">
+                  {f.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {sameRegionCities.length > 0 && (
         <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              className="mx-auto max-w-2xl text-center"
-            >
+            <div className="mx-auto max-w-2xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
-                Nearby Areas We Serve
+                Nearby areas
               </p>
               <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight text-[#0F172A] sm:text-3xl">
-                Other communities near {city.name}
+                Other {city.region} communities we serve
               </h2>
-              <span
-                aria-hidden
-                className="mx-auto mt-4 block h-1 w-12 rounded-full bg-[#F97316]"
-              />
-            </motion.div>
-
+            </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {sameRegionCities.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/areas-we-serve/${c.slug}`}
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-[#0F172A] shadow-sm transition hover:border-[#F97316] hover:shadow-md"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-[#0F172A] transition hover:border-[#F97316]"
                 >
-                  <span>{c.name}</span>
-                  <span
-                    aria-hidden
-                    className="text-[#F97316] transition-transform group-hover:translate-x-0.5"
-                  >
+                  <span>
+                    {c.name}
+                    <span className="mt-0.5 block text-xs font-normal text-slate-500">
+                      {c.distanceMi === 0 ? "Our office" : `${c.distanceMi} mi`}
+                    </span>
+                  </span>
+                  <span aria-hidden className="text-[#F97316]">
                     →
                   </span>
                 </Link>
               ))}
             </div>
-
             <div className="mt-8 text-center">
               <Link
                 href="/areas-we-serve"
@@ -205,7 +273,6 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
         </section>
       )}
 
-      {/* CTA */}
       <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
@@ -219,12 +286,4 @@ export default function AreaCityPageContent({ city }: { city: ServedCity }) {
       <LocationStrip />
     </>
   );
-}
-
-function neighborsPhrase(city: ServedCity): string {
-  const n = city.neighbors;
-  if (n.length === 0) return "surrounding";
-  if (n.length === 1) return n[0];
-  if (n.length === 2) return `${n[0]} and ${n[1]}`;
-  return `${n.slice(0, -1).join(", ")} and ${n[n.length - 1]}`;
 }

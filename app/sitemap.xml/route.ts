@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/siteConfig";
 import { sitemapEntries, type SitemapEntry } from "@/lib/sitemapEntries";
-import { servedCities, isCityIndexed } from "@/lib/areasData";
+import { servedCities, citySitemapPriority } from "@/lib/areasData";
 import { pseoServices } from "@/lib/pseoServices";
 import { getAllPosts } from "@/lib/blog";
 
@@ -11,19 +11,17 @@ export async function GET() {
   const lastmod = new Date().toISOString();
 
   // Programmatic /areas-we-serve URLs (hub + city + city/service)
-  const indexedCities = servedCities.filter(isCityIndexed);
-
   const pseoEntries: SitemapEntry[] = [
     { path: "/areas-we-serve", priority: 0.8, changefreq: "monthly" },
-    ...indexedCities.map<SitemapEntry>((c) => ({
+    ...servedCities.map<SitemapEntry>((c) => ({
       path: `/areas-we-serve/${c.slug}`,
-      priority: c.slug === "saint-louis-park" ? 0.8 : 0.6,
+      priority: citySitemapPriority(c),
       changefreq: "monthly",
     })),
-    ...indexedCities.flatMap<SitemapEntry>((c) =>
+    ...servedCities.flatMap<SitemapEntry>((c) =>
       pseoServices.map<SitemapEntry>((s) => ({
         path: `/areas-we-serve/${c.slug}/${s.slug}`,
-        priority: c.slug === "saint-louis-park" ? 0.6 : 0.5,
+        priority: Math.max(0.4, citySitemapPriority(c) - 0.15),
         changefreq: "monthly",
       })),
     ),

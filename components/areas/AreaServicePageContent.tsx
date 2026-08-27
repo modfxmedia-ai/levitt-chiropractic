@@ -7,6 +7,12 @@ import { siteConfig } from "@/lib/siteConfig";
 import type { ServedCity } from "@/lib/areasData";
 import type { PseoService } from "@/lib/pseoServices";
 import { pseoServices } from "@/lib/pseoServices";
+import {
+  cityServiceFaqs,
+  cityServiceIntro,
+  driveLabel,
+  visitFacts,
+} from "@/lib/areaPageCopy";
 import { ServiceHero } from "@/components/services/ServiceHero";
 import { LocationStrip } from "@/components/services/LocationStrip";
 import { CtaCard } from "@/components/services/CtaCard";
@@ -26,19 +32,9 @@ type Props = {
 };
 
 export default function AreaServicePageContent({ city, service }: Props) {
-  const conditionsList = service.conditions
-    .map((c, i, arr) =>
-      i === arr.length - 1 && arr.length > 1 ? `and ${c}` : c,
-    )
-    .join(arr2(service.conditions));
-
-  const distanceCopy =
-    city.distanceMi === 0
-      ? `Our office is located right here in ${city.name} `
-      : city.distanceMi <= 10
-      ? `Our ${city.name} patients are just ${city.distanceMi} miles from our Saint Louis Park office `
-      : `${city.name} patients drive about ${city.distanceMi} miles to reach us in Saint Louis Park `;
-
+  const copy = cityServiceIntro(city, service);
+  const faqs = cityServiceFaqs(city, service);
+  const facts = visitFacts(city);
   const relatedServices = pseoServices
     .filter((s) => s.slug !== service.slug)
     .slice(0, 6);
@@ -47,7 +43,11 @@ export default function AreaServicePageContent({ city, service }: Props) {
     <>
       <ServiceHero
         title={`${service.name} in ${city.name}, MN`}
-        subtitle={service.tagline}
+        subtitle={
+          city.distanceMi === 0
+            ? `${service.tagline} Available at our ${city.name} office.`
+            : `${service.tagline} ${city.name} patients drive about ${driveLabel(city).toLowerCase()} to Saint Louis Park.`
+        }
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Areas We Serve", href: "/areas-we-serve" },
@@ -56,7 +56,6 @@ export default function AreaServicePageContent({ city, service }: Props) {
         ]}
       />
 
-      {/* Intro */}
       <section className="relative bg-white py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
@@ -76,33 +75,42 @@ export default function AreaServicePageContent({ city, service }: Props) {
               className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
             />
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              {distanceCopy} a short drive past {landmarkPhrase(city)} from
-              {" "}
-              {neighborsPhrase(city)}. Dr. Alan Levitt has been delivering{" "}
-              {service.inlineNoun} to families across the {city.region.toLowerCase()}{" "}
-              since 1987. If you live or work in {city.name},
-              you'll find an evidence-informed, drug-free approach designed
-              around your specific case not a one-size-fits-all protocol.
+              {copy.lead}
             </p>
             <p className="mt-4 border-l-4 border-[#F97316] pl-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Common reasons {city.name} patients come to us for{" "}
-              {service.inlineNoun}: {conditionsList}.
+              {copy.support}
             </p>
           </motion.div>
+
+          <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map((f) => (
+              <div
+                key={f.label}
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4"
+              >
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-600">
+                  {f.label}
+                </dt>
+                <dd className="mt-2 text-sm font-semibold leading-snug text-[#0F172A]">
+                  {f.label === "Phone" ? (
+                    <a href={siteConfig.phoneHref} className="hover:text-[#F97316]">
+                      {f.value}
+                    </a>
+                  ) : (
+                    f.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* Benefits */}
       <section className="relative overflow-hidden bg-[#0F172A] py-20 text-white sm:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-32 top-20 -z-10 h-96 w-96 rounded-full bg-[#F97316]/10 blur-[140px]"
-        />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 bottom-10 -z-10 h-96 w-96 rounded-full bg-[#1E3A5F]/60 blur-[140px]"
         />
-
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             variants={fadeUp}
@@ -112,16 +120,12 @@ export default function AreaServicePageContent({ city, service }: Props) {
             className="mx-auto max-w-2xl text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-400">
-              What We Deliver
+              What we deliver
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-              {service.name} {" "}
-              <span className="text-[#F97316]">built around you</span>
+              {service.name}{" "}
+              <span className="text-[#F97316]">built around your case</span>
             </h2>
-            <span
-              aria-hidden
-              className="mx-auto mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
-            />
           </motion.div>
 
           <div className="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -132,8 +136,7 @@ export default function AreaServicePageContent({ city, service }: Props) {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: idx * 0.04 }}
-                className="rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F]/60 p-6 shadow-xl ring-1 ring-white/10 backdrop-blur-sm"
+                className="rounded-2xl border-t-4 border-[#F97316] bg-[#1E3A5F]/60 p-6 ring-1 ring-white/10"
               >
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
                   Benefit {String(idx + 1).padStart(2, "0")}
@@ -147,7 +150,6 @@ export default function AreaServicePageContent({ city, service }: Props) {
         </div>
       </section>
 
-      {/* FAQs */}
       <section className="relative bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           <motion.div
@@ -157,27 +159,18 @@ export default function AreaServicePageContent({ city, service }: Props) {
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
-              {city.name} Patient Questions
+              {city.name} patient questions
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
               Frequently asked
             </h2>
-            <span
-              aria-hidden
-              className="mt-4 block h-1 w-16 rounded-full bg-[#F97316]"
-            />
           </motion.div>
 
           <div className="mt-10 space-y-4">
-            {service.faqs.map((f, idx) => (
-              <motion.div
+            {faqs.map((f) => (
+              <div
                 key={f.q}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: idx * 0.05 }}
-                className="rounded-2xl border-l-4 border-[#F97316] bg-slate-50 p-6 shadow-sm"
+                className="rounded-2xl border-l-4 border-[#F97316] bg-slate-50 p-6"
               >
                 <p className="font-heading text-lg font-bold text-[#0F172A]">
                   {f.q}
@@ -185,49 +178,35 @@ export default function AreaServicePageContent({ city, service }: Props) {
                 <p className="mt-2 text-base leading-relaxed text-slate-700">
                   {f.a}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Related services */}
       <section className="bg-slate-50 py-10 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="mx-auto max-w-2xl text-center"
-          >
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-600">
-              Other Services in {city.name}
+              Other services in {city.name}
             </p>
             <h2 className="mt-3 font-heading text-2xl font-bold tracking-tight text-[#0F172A] sm:text-3xl">
               Browse related care
             </h2>
-            <span
-              aria-hidden
-              className="mx-auto mt-4 block h-1 w-12 rounded-full bg-[#F97316]"
-            />
-          </motion.div>
+          </div>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {relatedServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/areas-we-serve/${city.slug}/${s.slug}`}
-                className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-[#0F172A] shadow-sm transition hover:border-[#F97316] hover:shadow-md"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-[#0F172A] transition hover:border-[#F97316]"
               >
                 <span>
                   {s.name}{" "}
                   <span className="text-slate-500">in {city.name}</span>
                 </span>
-                <span
-                  aria-hidden
-                  className="text-[#F97316] transition-transform group-hover:translate-x-0.5"
-                >
+                <span aria-hidden className="text-[#F97316]">
                   →
                 </span>
               </Link>
@@ -246,13 +225,12 @@ export default function AreaServicePageContent({ city, service }: Props) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-white py-12 sm:py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
           <CtaCard
             eyebrow={`Serving ${city.name}, MN`}
             title={`Book your ${service.name.toLowerCase()} visit`}
-            body={`Call ${siteConfig.phone} or request an appointment online most ${city.name} patients are seen within the same week.`}
+            body={`Call ${siteConfig.phone} or request an appointment online. Most ${city.name} patients are seen within the same week.`}
           />
         </div>
       </section>
@@ -260,21 +238,4 @@ export default function AreaServicePageContent({ city, service }: Props) {
       <LocationStrip />
     </>
   );
-}
-
-/** Oxford-style joiner: ["a","b","c"] → ", " (then `and c` is added by caller) */
-function arr2(items: string[]): string {
-  return items.length > 2 ? ", " : " ";
-}
-
-function neighborsPhrase(city: { neighbors: string[] }): string {
-  const n = city.neighbors;
-  if (n.length === 0) return "the surrounding area";
-  if (n.length === 1) return n[0];
-  if (n.length === 2) return `${n[0]} and ${n[1]}`;
-  return `${n.slice(0, -1).join(", ")} and ${n[n.length - 1]}`;
-}
-
-function landmarkPhrase(city: { landmark: string }): string {
-  return city.landmark;
 }

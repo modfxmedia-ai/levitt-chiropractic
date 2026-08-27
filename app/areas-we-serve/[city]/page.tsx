@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { generateMeta } from "@/lib/metadata";
-import { servedCities, getCityBySlug, isCityIndexed } from "@/lib/areasData";
+import { servedCities, getCityBySlug } from "@/lib/areasData";
 import { siteConfig } from "@/lib/siteConfig";
-import { cityServiceAreaJsonLd } from "@/lib/jsonLd";
+import { cityServiceAreaJsonLd, faqPageJsonLd } from "@/lib/jsonLd";
+import { cityFaqs } from "@/lib/areaPageCopy";
 import { JsonLd } from "@/components/seo/JsonLd";
 import AreaCityPageContent from "@/components/areas/AreaCityPageContent";
 
@@ -32,7 +33,6 @@ export async function generateMetadata({
     title,
     description,
     slug: `areas-we-serve/${city.slug}`,
-    noindex: !isCityIndexed(city),
   });
 }
 
@@ -54,6 +54,10 @@ export default async function Page({
           cityName: city.name,
           description: `Chiropractic care for ${city.name}, MN from Levitt Chiropractic Center in Saint Louis Park.`,
         })}
+      />
+      <JsonLd
+        id={`ld-city-faq-${city.slug}`}
+        data={faqPageJsonLd({ faqs: cityFaqs(city) })}
       />
       <AreaCityPageContent city={city} />
     </>

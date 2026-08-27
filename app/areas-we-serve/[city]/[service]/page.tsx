@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { generateMeta } from "@/lib/metadata";
-import { servedCities, getCityBySlug, isCityIndexed } from "@/lib/areasData";
+import { servedCities, getCityBySlug } from "@/lib/areasData";
 import { pseoServices, getServiceBySlug } from "@/lib/pseoServices";
 import { siteConfig } from "@/lib/siteConfig";
 import { ServiceSchema } from "@/components/seo/ServiceSchema";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqPageJsonLd } from "@/lib/jsonLd";
+import { cityServiceFaqs } from "@/lib/areaPageCopy";
 import AreaServicePageContent from "@/components/areas/AreaServicePageContent";
 
 type Params = { city: string; service: string };
@@ -39,7 +42,6 @@ export async function generateMetadata({
     title,
     description,
     slug: `areas-we-serve/${city.slug}/${service.slug}`,
-    noindex: !isCityIndexed(city),
   });
 }
 
@@ -61,6 +63,10 @@ export default async function Page({
         description={`${service.name} for ${city.name}, Minnesota patients at Levitt Chiropractic Center, P.A. ${service.tagline}`}
         serviceType={service.serviceType ?? service.name}
         areaServed={city.name}
+      />
+      <JsonLd
+        id={`ld-faq-${city.slug}-${service.slug}`}
+        data={faqPageJsonLd({ faqs: cityServiceFaqs(city, service) })}
       />
       <AreaServicePageContent city={city} service={service} />
     </>
