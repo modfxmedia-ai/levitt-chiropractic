@@ -188,9 +188,9 @@ export const blogPosts: BlogPost[] = [
       "wellness care",
       "patient education",
     ],
-    coverImage: "/images/adjustment-1.jpg",
+    coverImage: "/images/blog/how-often-should-you-see-a-chiropractor.png",
     coverAlt:
-      "Chiropractor performing a gentle spinal adjustment on a patient.",
+      "Chiropractor reviewing a care plan with a patient to decide how often to return.",
     readingMinutes: 7,
     blocks: [
       {

@@ -29,4 +29,8 @@ export function coverPrompt(title: string): string {
  * Slugs that already have a committed file at /images/blog/covers/{slug}.png
  * List only. Do not fs.stat public/ — that packs images into the cron bundle.
  */
-export const COMMITTED_COVER_SLUGS: readonly string[] = []
+export const COMMITTED_COVER_SLUGS: readonly string[] = [
+  'beyond-back-pain-relief-with-a-chiropractor-in-minneapolis',
+  'choosing-a-holistic-chiropractor-in-minneapolis-for-whole-body-healing',
+  'everyday-clues-you-need-chiropractic-care-in-saint-louis-park',
+]

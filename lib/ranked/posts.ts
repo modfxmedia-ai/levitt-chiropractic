@@ -1,6 +1,7 @@
-import { LEVITT_RANKED_PROJECT_ID } from './config'
+import { DEFAULT_COVER, LEVITT_RANKED_PROJECT_ID } from './config'
 import { getRankedContentDetail, isRankedConfigured, listRankedContent } from './client'
 import { getRankedCoverImage } from './cover'
+import { reservedCoverUrls, rankedCoverAlt } from './unique-covers'
 import { fetchGoogleDocHtml } from './google-doc'
 import {
   htmlToBlogPost,
@@ -107,6 +108,7 @@ export async function getLiveRankedBlogPosts(
     )
 
     const posts: BlogPostData[] = []
+    const usedCovers = reservedCoverUrls()
     for (const row of resolved) {
       if (!row) continue
       const { source, html } = row
@@ -120,16 +122,23 @@ export async function getLiveRankedBlogPosts(
         coverImage: source.featured_image_url,
       })
       if (!post) continue
-      post.coverImage = await getRankedCoverImage({
-        contentId: source.id,
-        title: source.title,
-        slug,
-        generate: Boolean(opts.generateCovers) || opts.generateForSlug === slug,
-      })
-      post.coverAlt = `${source.title} cover`
+      const featured = source.featured_image_url?.trim() || ''
+      const featuredIsUnique =
+        featured !== '' && featured !== DEFAULT_COVER && !usedCovers.has(featured)
+      post.coverImage = featuredIsUnique
+        ? featured
+        : await getRankedCoverImage({
+            contentId: source.id,
+            title: source.title,
+            slug,
+            generate: Boolean(opts.generateCovers) || opts.generateForSlug === slug,
+            taken: usedCovers,
+          })
+      post.coverAlt = rankedCoverAlt(slug, source.title)
       post.relatedPosts = relatedFromLocal(slug)
       posts.push(post)
       taken.add(slug)
+      usedCovers.add(post.coverImage)
     }
     return posts
   } catch (err) {

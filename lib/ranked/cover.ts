@@ -1,5 +1,6 @@
 import { BlobNotFoundError, head, put } from '@vercel/blob'
-import { COMMITTED_COVER_SLUGS, DEFAULT_COVER, coverPrompt } from './config'
+import { COMMITTED_COVER_SLUGS, coverPrompt } from './config'
+import { pickUniqueCover } from './unique-covers'
 
 function coverPathname(contentId: string): string {
   return `blog-covers/${contentId}.png`
@@ -89,18 +90,23 @@ export async function getRankedCoverImage(input: {
   title: string
   generate: boolean
   slug?: string
+  taken?: Set<string>
 }): Promise<string> {
+  const taken = input.taken ?? new Set<string>()
   const committed = committedCoverUrl(input.slug)
   if (committed) return committed
   const cached = await existingBlobUrl(input.contentId)
-  if (cached) return cached
-  if (!input.generate) return DEFAULT_COVER
-  try {
-    const png = await generatePng(input.title)
-    if (!png) return DEFAULT_COVER
-    return (await persistPng(input.contentId, png)) || DEFAULT_COVER
-  } catch (err) {
-    console.error(`[ranked] cover failed for ${input.contentId}`, err)
-    return DEFAULT_COVER
+  if (cached && !taken.has(cached)) return cached
+  if (input.generate) {
+    try {
+      const png = await generatePng(input.title)
+      if (png) {
+        const stored = await persistPng(input.contentId, png)
+        if (stored && !taken.has(stored)) return stored
+      }
+    } catch (err) {
+      console.error(`[ranked] cover failed for ${input.contentId}`, err)
+    }
   }
+  return pickUniqueCover(input.title, input.slug ?? input.contentId, taken).src
 }
