@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
+    ],
+  },
+  outputFileTracingExcludes: {
+    '*': [
+      './public/images/**',
+      './public/**/*.mp4',
+      './public/**/*.webm',
     ],
   },
   async redirects() {

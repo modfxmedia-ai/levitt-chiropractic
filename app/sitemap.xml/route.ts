@@ -4,8 +4,10 @@ import { sitemapEntries, type SitemapEntry } from "@/lib/sitemapEntries";
 import { servedCities, citySitemapPriority } from "@/lib/areasData";
 import { pseoServices } from "@/lib/pseoServices";
 import { getAllPosts } from "@/lib/blog";
+import { getLiveRankedBlogPosts } from "@/lib/ranked/posts";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export async function GET() {
   const lastmod = new Date().toISOString();
@@ -27,12 +29,22 @@ export async function GET() {
     ),
   ];
 
-  // Blog post URLs
-  const blogEntries: SitemapEntry[] = getAllPosts().map<SitemapEntry>((p) => ({
+  // Blog post URLs (local + Ranked)
+  const localBlogEntries: SitemapEntry[] = getAllPosts().map<SitemapEntry>((p) => ({
     path: `/blog/${p.slug}`,
     priority: 0.7,
     changefreq: "monthly",
   }));
+  const localBlogSlugs = new Set(getAllPosts().map((p) => p.slug));
+  const rankedPosts = await getLiveRankedBlogPosts().catch(() => []);
+  const rankedBlogEntries: SitemapEntry[] = rankedPosts
+    .filter((p) => !localBlogSlugs.has(p.slug))
+    .map<SitemapEntry>((p) => ({
+      path: `/blog/${p.slug}`,
+      priority: 0.7,
+      changefreq: "monthly",
+    }));
+  const blogEntries = [...localBlogEntries, ...rankedBlogEntries];
 
   const allEntries = [...sitemapEntries, ...pseoEntries, ...blogEntries];
 
