@@ -163,3 +163,39 @@ export function publishDateFromRanked(scheduledDate: string | null, fallback: st
   if (scheduledDate) return scheduledDate.slice(0, 10)
   return fallback.slice(0, 10)
 }
+
+function addUtcDays(isoDay: string, days: number): string {
+  const [year, month, date] = isoDay.slice(0, 10).split('-').map(Number)
+  return new Date(Date.UTC(year, month - 1, date + days)).toISOString().slice(0, 10)
+}
+
+function todayInNewYork(now = new Date()): string {
+  return now.toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+}
+
+/**
+ * Local posts publish weekly. If a Ranked date is already taken, step forward
+ * one week at a time — but never past today, so a live article cannot show a
+ * future publish date. Fall back to earlier unused days if needed.
+ */
+export function nextFreePublishDate(
+  desired: string,
+  taken: Set<string>,
+  today = todayInNewYork(),
+): string {
+  const start = desired.slice(0, 10)
+  if (!taken.has(start)) return start
+
+  for (let week = 1; week <= 12; week += 1) {
+    const candidate = addUtcDays(start, week * 7)
+    if (candidate > today) break
+    if (!taken.has(candidate)) return candidate
+  }
+
+  for (let back = 1; back <= 365; back += 1) {
+    const candidate = addUtcDays(start, -back)
+    if (!taken.has(candidate)) return candidate
+  }
+
+  return start
+}

@@ -7,6 +7,7 @@ import {
   htmlToBlogPost,
   isBlogContentType,
   isRankedPostLive,
+  nextFreePublishDate,
   publishDateFromRanked,
   slugFromTitle,
 } from './html-to-post'
@@ -80,13 +81,20 @@ export async function getLiveRankedBlogPosts(
   try {
     const items = await listRankedContent(id)
     const local = getLocalBlogPosts()
-    const candidates = items.filter(
-      (item) =>
-        isBlogContentType(item.content_type) &&
-        isRankedPostLive(item.status, item.scheduled_date) &&
-        !isDuplicateOfLocal(item.title, local),
-    )
+    const candidates = items
+      .filter(
+        (item) =>
+          isBlogContentType(item.content_type) &&
+          isRankedPostLive(item.status, item.scheduled_date) &&
+          !isDuplicateOfLocal(item.title, local),
+      )
+      .sort((a, b) => {
+        const da = publishDateFromRanked(a.scheduled_date, a.created_at)
+        const db = publishDateFromRanked(b.scheduled_date, b.created_at)
+        return da.localeCompare(db) || a.title.localeCompare(b.title)
+      })
     const taken = new Set(local.map((p) => p.slug))
+    const takenDates = new Set(local.map((p) => p.publishDate.slice(0, 10)))
 
     const resolved = await Promise.all(
       candidates.map(async (item) => {
@@ -113,15 +121,20 @@ export async function getLiveRankedBlogPosts(
       if (!row) continue
       const { source, html } = row
       const slug = uniqueSlug(source.title, source.id, taken)
+      const publishDate = nextFreePublishDate(
+        publishDateFromRanked(source.scheduled_date, source.created_at),
+        takenDates,
+      )
       const post = htmlToBlogPost({
         title: source.title,
         html,
         description: source.description,
-        publishDate: publishDateFromRanked(source.scheduled_date, source.created_at),
+        publishDate,
         slug,
         coverImage: source.featured_image_url,
       })
       if (!post) continue
+      takenDates.add(publishDate)
       const featured = source.featured_image_url?.trim() || ''
       const featuredIsUnique =
         featured !== '' && featured !== DEFAULT_COVER && !usedCovers.has(featured)
